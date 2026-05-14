@@ -552,7 +552,7 @@ function Counter({
         onClick={onInc}
         disabled={!canInc}
         aria-label="Tăng số lượng"
-        className="flex h-6 w-6 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-700 transition hover:border-orange-400 hover:bg-orange-100 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-orange-200 disabled:hover:bg-orange-50"
+        className="flex h-6 w-6 items-center justify-center rounded-full border border-orange-500 bg-orange-500 text-white transition hover:bg-orange-600 hover:border-orange-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-orange-500 disabled:hover:border-orange-500"
       >
         +
       </button>
