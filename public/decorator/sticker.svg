@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" role="img" aria-label="Sticker ngôi sao">
+  <defs>
+    <radialGradient id="starFill" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="60%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+  </defs>
+  <!-- outer glow -->
+  <circle cx="30" cy="30" r="28" fill="#fbbf24" opacity="0.15"/>
+  <!-- 5-point star -->
+  <polygon
+    points="30,4 37,22 56,24 41,36 47,55 30,45 13,55 19,36 4,24 23,22"
+    fill="url(#starFill)"
+    stroke="#92400e"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- inner star highlight -->
+  <polygon
+    points="30,12 34.5,24 47,25 37.5,33 41,46 30,38 19,46 22.5,33 13,25 25.5,24"
+    fill="#fde68a"
+    opacity="0.55"
+  />
+</svg>

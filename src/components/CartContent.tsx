@@ -3,6 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
+import {
+  getCartItemDescription,
+  getCartItemImage,
+  getCartItemKey,
+  getCartItemName,
+  getCartItemTotal,
+} from "@/lib/data";
 
 export default function CartContent() {
   const { items, removeItem, updateQuantity, subtotal, totalItems } = useCart();
@@ -45,70 +52,86 @@ export default function CartContent() {
         </header>
 
         <div className="space-y-10">
-          {items.map((item) => (
-            <div
-              key={item.product.slug}
-              className="group flex flex-col md:flex-row gap-8 items-start pb-10 border-b border-surface-container last:border-0 animate-fade-in"
-            >
-              <div className="relative overflow-hidden rounded-sm bg-surface-container-low aspect-[4/5] w-full md:w-48 flex-shrink-0 shadow-sm">
-                <Image
-                  alt={item.product.name}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-                  src={item.product.image}
-                  fill
-                  sizes="192px"
-                />
-              </div>
-              <div className="flex-grow flex flex-col justify-between self-stretch py-2">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-headline font-bold text-on-surface">
-                      {item.product.name}
-                    </h3>
-                    <p className="text-sm text-on-surface-variant mt-2 max-w-md leading-relaxed">
-                      {item.product.description}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => removeItem(item.product.slug)}
-                    className="text-stone-400 hover:text-primary transition-colors p-1 cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined">close</span>
-                  </button>
-                </div>
-                <div className="flex flex-wrap items-center justify-between mt-8 gap-4">
-                  <div className="flex items-center border border-outline-variant/30 rounded-sm overflow-hidden bg-white">
-                    <button
-                      onClick={() =>
-                        updateQuantity(item.product.slug, item.quantity - 1)
-                      }
-                      className="px-3 py-2 text-stone-500 hover:bg-surface-container transition-colors flex items-center cursor-pointer"
-                    >
-                      <span className="material-symbols-outlined text-lg">
-                        remove
-                      </span>
-                    </button>
-                    <span className="px-6 font-bold text-on-surface min-w-[3rem] text-center border-x border-outline-variant/30">
-                      {item.quantity}
+          {items.map((item) => {
+            const key = getCartItemKey(item);
+            const name = getCartItemName(item);
+            const image = getCartItemImage(item);
+            const description = getCartItemDescription(item);
+            const total = getCartItemTotal(item);
+            const isDesign = item.kind === "design";
+
+            return (
+              <div
+                key={key}
+                className="group flex flex-col md:flex-row gap-8 items-start pb-10 border-b border-surface-container last:border-0 animate-fade-in"
+              >
+                <div className="relative overflow-hidden rounded-sm bg-surface-container-low aspect-[4/5] w-full md:w-48 flex-shrink-0 shadow-sm">
+                  <Image
+                    alt={name}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                    src={image}
+                    fill
+                    sizes="192px"
+                    unoptimized={isDesign}
+                  />
+                  {isDesign && (
+                    <span className="absolute top-2 left-2 bg-[#2d4a3e] text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">
+                      Tự thiết kế
                     </span>
+                  )}
+                </div>
+                <div className="flex-grow flex flex-col justify-between self-stretch py-2">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-xl font-headline font-bold text-on-surface">
+                        {name}
+                      </h3>
+                      <p className="text-sm text-on-surface-variant mt-2 max-w-md leading-relaxed">
+                        {description}
+                      </p>
+                      {isDesign && (
+                        <p className="text-xs text-stone-400 mt-1 italic">
+                          QR truy ngược hành trình tặng quà sẽ được sinh khi đặt hàng.
+                        </p>
+                      )}
+                    </div>
                     <button
-                      onClick={() =>
-                        updateQuantity(item.product.slug, item.quantity + 1)
-                      }
-                      className="px-3 py-2 text-stone-500 hover:bg-surface-container transition-colors flex items-center cursor-pointer"
+                      onClick={() => removeItem(key)}
+                      className="text-stone-400 hover:text-primary transition-colors p-1 cursor-pointer"
                     >
-                      <span className="material-symbols-outlined text-lg">
-                        add
-                      </span>
+                      <span className="material-symbols-outlined">close</span>
                     </button>
                   </div>
-                  <div className="text-2xl font-headline font-bold text-primary">
-                    {(item.product.priceNumber * item.quantity).toLocaleString("vi-VN")}₫
+                  <div className="flex flex-wrap items-center justify-between mt-8 gap-4">
+                    <div className="flex items-center border border-outline-variant/30 rounded-sm overflow-hidden bg-white">
+                      <button
+                        onClick={() => updateQuantity(key, item.quantity - 1)}
+                        className="px-3 py-2 text-stone-500 hover:bg-surface-container transition-colors flex items-center cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-lg">
+                          remove
+                        </span>
+                      </button>
+                      <span className="px-6 font-bold text-on-surface min-w-[3rem] text-center border-x border-outline-variant/30">
+                        {item.quantity}
+                      </span>
+                      <button
+                        onClick={() => updateQuantity(key, item.quantity + 1)}
+                        className="px-3 py-2 text-stone-500 hover:bg-surface-container transition-colors flex items-center cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-lg">
+                          add
+                        </span>
+                      </button>
+                    </div>
+                    <div className="text-2xl font-headline font-bold text-primary">
+                      {total.toLocaleString("vi-VN")}₫
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Personal Message Section */}

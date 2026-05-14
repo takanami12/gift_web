@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Giấy vàng kim">
+  <defs>
+    <linearGradient id="goldFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="40%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" fill="url(#goldFill)"/>
+  <g stroke="#fef3c7" stroke-width="0.7" opacity="0.45" fill="none">
+    <path d="M-8 16 L16 -8"/>
+    <path d="M-8 32 L32 -8"/>
+    <path d="M-8 48 L48 -8"/>
+    <path d="M-8 64 L64 -8"/>
+    <path d="M0 72 L72 0"/>
+    <path d="M16 72 L72 16"/>
+    <path d="M32 72 L72 32"/>
+    <path d="M48 72 L72 48"/>
+  </g>
+</svg>

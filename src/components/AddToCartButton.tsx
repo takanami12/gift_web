@@ -9,11 +9,11 @@ interface Props {
 }
 
 export default function AddToCartButton({ product }: Props) {
-  const { addItem } = useCart();
+  const { addProduct } = useCart();
   const [added, setAdded] = useState(false);
 
   const handleAdd = () => {
-    addItem(product);
+    addProduct(product);
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };

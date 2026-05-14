@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" role="img" aria-label="Nơ trang trí">
+  <defs>
+    <linearGradient id="ribbonLoop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#9b1c1c"/>
+    </linearGradient>
+  </defs>
+  <!-- left streamer -->
+  <path d="M22 40 L10 56 L26 48 Z" fill="url(#ribbonLoop)" stroke="#7a0613" stroke-width="1"/>
+  <!-- right streamer -->
+  <path d="M38 40 L50 56 L34 48 Z" fill="url(#ribbonLoop)" stroke="#7a0613" stroke-width="1"/>
+  <!-- left loop -->
+  <ellipse cx="18" cy="28" rx="14" ry="10" fill="url(#ribbonLoop)" stroke="#7a0613" stroke-width="1.5"/>
+  <!-- right loop -->
+  <ellipse cx="42" cy="28" rx="14" ry="10" fill="url(#ribbonLoop)" stroke="#7a0613" stroke-width="1.5"/>
+  <!-- inner shadow loops -->
+  <ellipse cx="18" cy="28" rx="6" ry="4" fill="#7a0613" opacity="0.55"/>
+  <ellipse cx="42" cy="28" rx="6" ry="4" fill="#7a0613" opacity="0.55"/>
+  <!-- knot -->
+  <rect x="24" y="22" width="12" height="14" rx="3" ry="3" fill="#7a0613" stroke="#3d020a" stroke-width="0.8"/>
+  <!-- knot highlight -->
+  <rect x="26" y="24" width="3" height="10" rx="1.5" ry="1.5" fill="#ef4444" opacity="0.6"/>
+</svg>

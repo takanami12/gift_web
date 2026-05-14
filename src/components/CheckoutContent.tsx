@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
+import {
+  getCartItemImage,
+  getCartItemKey,
+  getCartItemName,
+  getCartItemTotal,
+} from "@/lib/data";
 
 type PaymentMethod = "bank" | "momo" | "card" | "cod";
 
@@ -113,7 +119,7 @@ export default function CheckoutContent() {
   const getSelectedName = (list: { name: string; code: number }[], code: number | "") =>
     list.find((i) => i.code === code)?.name || "";
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsSubmitting(true);
 
     // Build full address string
@@ -132,32 +138,52 @@ export default function CheckoutContent() {
       year: "numeric",
     });
 
-    // Save order info to localStorage
-    const orderInfo = {
-      orderNumber,
-      deliveryDate,
-      fullName: fullName || "Khách hàng",
-      phone: phone || "N/A",
-      email: email || "N/A",
-      fullAddress: fullAddress || "Chưa cung cấp",
-      paymentMethod,
-      paymentLabel: PAYMENT_OPTIONS.find((p) => p.value === paymentMethod)?.label || "",
-      items: items.map((i) => ({
-        name: i.product.name,
-        image: i.product.image,
-        quantity: i.quantity,
-        price: i.product.priceNumber * i.quantity,
-      })),
-      subtotal,
-      shippingFee,
-      total,
-    };
-    localStorage.setItem("luminous_order", JSON.stringify(orderInfo));
+    try {
+      const orderItems = await Promise.all(
+        items.map(async (i) => {
+          const base = {
+            name: getCartItemName(i),
+            image: getCartItemImage(i),
+            quantity: i.quantity,
+            price: getCartItemTotal(i),
+            kind: i.kind,
+          };
+          if (i.kind !== "design") return base;
+          const res = await fetch("/api/designs", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(i.design),
+          });
+          if (!res.ok) {
+            console.error("[Checkout] saveDesign failed", await res.text());
+            return base;
+          }
+          const data = (await res.json()) as { token?: string };
+          return data.token ? { ...base, qrToken: data.token } : base;
+        }),
+      );
 
-    setTimeout(() => {
+      const orderInfo = {
+        orderNumber,
+        deliveryDate,
+        fullName: fullName || "Khách hàng",
+        phone: phone || "N/A",
+        email: email || "N/A",
+        fullAddress: fullAddress || "Chưa cung cấp",
+        paymentMethod,
+        paymentLabel: PAYMENT_OPTIONS.find((p) => p.value === paymentMethod)?.label || "",
+        items: orderItems,
+        subtotal,
+        shippingFee,
+        total,
+      };
+      localStorage.setItem("luminous_order", JSON.stringify(orderInfo));
       clearCart();
       router.push("/xac-nhan");
-    }, 1500);
+    } catch (err) {
+      console.error("[Checkout] submit failed", err);
+      setIsSubmitting(false);
+    }
   };
 
   if (items.length === 0) {
@@ -368,30 +394,43 @@ export default function CheckoutContent() {
 
           {/* Product List */}
           <div className="space-y-6 mb-8">
-            {items.map((item) => (
-              <div key={item.product.slug} className="flex items-center space-x-4">
-                <div className="w-20 h-20 bg-surface-container-highest rounded-lg overflow-hidden flex-shrink-0 relative">
-                  <Image
-                    src={item.product.image}
-                    alt={item.product.name}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
+            {items.map((item) => {
+              const key = getCartItemKey(item);
+              const name = getCartItemName(item);
+              const image = getCartItemImage(item);
+              const total = getCartItemTotal(item);
+              const isDesign = item.kind === "design";
+              return (
+                <div key={key} className="flex items-center space-x-4">
+                  <div className="w-20 h-20 bg-surface-container-highest rounded-lg overflow-hidden flex-shrink-0 relative">
+                    <Image
+                      src={image}
+                      alt={name}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                      unoptimized={isDesign}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="font-medium text-on-surface text-sm">
+                      {name}
+                      {isDesign && (
+                        <span className="ml-2 text-[10px] uppercase tracking-widest text-secondary">
+                          Tự thiết kế
+                        </span>
+                      )}
+                    </h3>
+                    <p className="text-xs text-on-surface-variant">
+                      Số lượng: {item.quantity}
+                    </p>
+                    <p className="text-sm font-semibold mt-1">
+                      {total.toLocaleString("vi-VN")}₫
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-grow">
-                  <h3 className="font-medium text-on-surface text-sm">
-                    {item.product.name}
-                  </h3>
-                  <p className="text-xs text-on-surface-variant">
-                    Số lượng: {item.quantity}
-                  </p>
-                  <p className="text-sm font-semibold mt-1">
-                    {(item.product.priceNumber * item.quantity).toLocaleString("vi-VN")}₫
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Price Breakdown */}

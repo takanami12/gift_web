@@ -8,13 +8,30 @@ const collectionNames: Record<string, string> = {
   "8-3": "Quà Ngày Phụ Nữ 8-3",
   "trung-thu": "Quà Trung Thu",
   "20-10": "Quà Phụ Nữ Việt Nam 20-10",
-  "20-11": "Quà Ngày Nhà Giáo VN 20-11",
+  "20-11": "Quà Ngày Nhà Giáo Việt Nam 20-11",
   "giang-sinh": "Quà Giáng Sinh",
   "doanh-nghiep": "Quà Tặng Doanh Nghiệp",
   "nguoi-yeu": "Quà Tặng Người Yêu",
   "cha-me": "Quà Tặng Cha Mẹ",
   "doi-tac": "Quà Tặng Đối Tác",
   "dong-nghiep": "Quà Tặng Đồng Nghiệp",
+};
+
+const collectionSubtitles: Record<string, string> = {
+  "trung-thu":
+    "Gói ghém một chút hương vị mùa trăng vào những món quà nhỏ, để tình thân thêm tròn đầy và ấm áp như ánh rằm.",
+  "tet":
+    "Mỗi món quà Tết là một lời chúc bình an. Hy vọng những hộp quà chỉn chu này sẽ thay bạn gửi gắm niềm vui cho một khởi đầu vẹn tròn.",
+  "valentine":
+    "Gửi trao tâm ý, giữ trọn yêu thương. Mỗi món quà là một lời tỏ tình ngọt ngào mà Gift Glamorous muốn cùng bạn viết nên câu chuyện của riêng mình.",
+  "8-3":
+    "Dành tặng những điều dịu dàng nhất cho phái đẹp. Hãy để chúng mình giúp bạn chọn một món quà nhỏ thay lời cảm ơn sâu sắc gửi đến 'một nửa thế giới' tuyệt vời xung quanh bạn.",
+  "20-11":
+    "Những đóa hoa có thể phai, nhưng lòng biết ơn sẽ còn mãi. Gift Glamorous giúp bạn chọn lựa những món quà trang trọng nhất để gửi lời tri ân tới người lái đò tận tụy.",
+  "giang-sinh":
+    "Mang phép màu đêm Noel đến gần hơn với những món quà mang đậm dấu ấn cá nhân, để hơi ấm tình thân luôn hiện hữu trong từng khoảnh khắc.",
+  "20-10":
+    "Gửi chút dịu dàng đến những người phụ nữ thân thương nhất. Chúc cho những người phụ nữ bạn yêu thương luôn tỏa sáng và hạnh phúc theo cách của riêng mình.",
 };
 
 
@@ -26,6 +43,7 @@ export default async function CollectionPage({
   const { slug } = await params;
 
   const title = collectionNames[slug] || "Bộ Sưu Tập Quà Tặng";
+  const subtitle = collectionSubtitles[slug];
 
   const products = allProducts.filter(p => 
     p.occasions?.includes(slug) || 
@@ -35,7 +53,7 @@ export default async function CollectionPage({
   );
 
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-stone-50">
+    <div className="pt-0 pb-20 min-h-screen bg-stone-50">
       <div className="max-w-7xl mx-auto px-8 text-center mb-16">
         {/* Breadcrumbs */}
         <nav className="flex items-center justify-center gap-2 text-xs text-stone-400 mb-8 uppercase tracking-widest">
@@ -50,10 +68,11 @@ export default async function CollectionPage({
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
             {title}
           </h1>
-          <p className="text-stone-500 max-w-2xl mx-auto leading-relaxed text-lg font-light italic">
-            "Khám phá bộ sưu tập được tuyển chọn kỹ lưỡng dành riêng cho dịp {title.toLowerCase()}, 
-            mang đến những giá trị tinh tế và đẳng cấp nhất."
-          </p>
+          {subtitle && (
+            <p className="text-stone-500 max-w-2xl mx-auto leading-relaxed text-lg font-light italic">
+              &ldquo;{subtitle}&rdquo;
+            </p>
+          )}
         </header>
       </div>
 

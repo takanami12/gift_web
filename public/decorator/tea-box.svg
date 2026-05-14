@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 72" width="96" height="72" role="img" aria-label="Hộp trà">
+  <defs>
+    <linearGradient id="teaBoxH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="48" cy="68" rx="44" ry="3" fill="#1c0f04" opacity="0.4"/>
+  <rect x="6" y="6" width="84" height="58" rx="3" fill="url(#teaBoxH)" stroke="#052810" stroke-width="1.5"/>
+  <rect x="6" y="6" width="84" height="6" fill="#052810" opacity="0.5"/>
+  <rect x="14" y="14" width="68" height="44" rx="3" fill="#fef3c7" stroke="#92400e" stroke-width="1"/>
+  <text x="48" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d" font-family="serif">TRÀ</text>
+  <text x="48" y="42" text-anchor="middle" font-size="5" fill="#92400e" font-family="serif">Premium · 100g</text>
+  <path d="M40 48 Q44 45 48 48 Q52 51 48 54 Q44 51 40 48 Z" fill="#22c55e" stroke="#052810" stroke-width="0.8"/>
+  <path d="M48 48 L48 54" stroke="#052810" stroke-width="0.6"/>
+  <rect x="6" y="56" width="84" height="2" fill="#fbbf24" opacity="0.6"/>
+</svg>

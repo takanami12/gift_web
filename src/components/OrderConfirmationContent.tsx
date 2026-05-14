@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import QrTokenBadge from "./QrTokenBadge";
 
 interface OrderItem {
   name: string;
   image: string;
   quantity: number;
   price: number;
+  kind?: "product" | "design";
+  qrToken?: string;
 }
 
 interface OrderInfo {
@@ -140,10 +143,13 @@ export default function OrderConfirmationContent() {
               fill
               className="object-cover opacity-60 mix-blend-overlay"
               sizes="300px"
+              unoptimized={featuredItem.kind === "design"}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 text-on-primary">
-              <p className="text-sm opacity-90">Sản phẩm tiêu biểu</p>
+              <p className="text-sm opacity-90">
+                {featuredItem.kind === "design" ? "Thiết kế tự do" : "Sản phẩm tiêu biểu"}
+              </p>
               <p className="font-serif italic text-lg leading-tight">
                 {featuredItem.name}
               </p>
@@ -187,7 +193,12 @@ export default function OrderConfirmationContent() {
                 className="flex justify-between text-sm text-on-surface-variant"
               >
                 <span>
-                  {item.name}{" "}
+                  {item.name}
+                  {item.kind === "design" && (
+                    <span className="ml-2 text-[10px] uppercase tracking-widest text-secondary">
+                      Tự thiết kế
+                    </span>
+                  )}{" "}
                   <span className="text-stone-400">×{item.quantity}</span>
                 </span>
                 <span className="font-semibold text-on-surface">
@@ -238,6 +249,38 @@ export default function OrderConfirmationContent() {
           </div>
         </div>
       </div>
+
+      {/* QR Replay Section */}
+      {order.items.some((i) => i.kind === "design" && i.qrToken) && (
+        <section
+          className="mb-12 animate-fade-in-up"
+          style={{ animationDelay: "320ms" }}
+          aria-labelledby="qr-section-heading"
+        >
+          <header className="mb-6 text-center">
+            <span className="material-symbols-outlined text-secondary mb-2 block">
+              qr_code_2
+            </span>
+            <h3 id="qr-section-heading" className="font-serif text-2xl text-on-surface">
+              Hành trình tặng quà
+            </h3>
+            <p className="text-sm text-on-surface-variant mt-1">
+              QR sẽ được in kèm hộp; người nhận quét để xem timeline thiết kế.
+            </p>
+          </header>
+          <div className="grid gap-4 md:grid-cols-2">
+            {order.items
+              .filter((i) => i.kind === "design" && i.qrToken)
+              .map((i, idx) => (
+                <QrTokenBadge
+                  key={`${idx}-${i.qrToken}`}
+                  token={i.qrToken as string}
+                  designName={i.name}
+                />
+              ))}
+          </div>
+        </section>
+      )}
 
       {/* CTAs */}
       <div

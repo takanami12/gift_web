@@ -15,13 +15,13 @@ export default function ProductCard({
   product,
   variant = "default",
 }: ProductCardProps) {
-  const { addItem } = useCart();
+  const { addProduct } = useCart();
   const [added, setAdded] = useState(false);
 
   const handleAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    addItem(product);
+    addProduct(product);
     setAdded(true);
     setTimeout(() => setAdded(false), 1200);
   };

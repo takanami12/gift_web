@@ -4,7 +4,13 @@ import { useState, useMemo } from "react";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/lib/data";
 
-const CATEGORIES = ["Hộp Quà Gỗ Sơn Mài", "Giỏ Quà Mây Tre Đan", "Bộ Trà & Rượu"];
+const CATEGORIES = [
+  "Hộp Quà Gỗ Sơn Mài",
+  "Giỏ Quà Mây Tre Đan",
+  "Bộ Trà & Rượu",
+  "Hạt & Trái Cây Sấy",
+  "Trà & Coffee",
+];
 const RECIPIENTS = [
   "Người Yêu",
   "Cha Mẹ",

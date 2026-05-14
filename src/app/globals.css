@@ -76,6 +76,22 @@
 
   /* === Ambient Shadow === */
   --shadow-ambient: 0px 8px 24px rgba(45, 74, 62, 0.06);
+
+}
+
+/* === Orange palette override → brand gold #c9a55c === */
+:root {
+  --color-orange-50: #c9a55c;
+  --color-orange-100: #c9a55c;
+  --color-orange-200: #c9a55c;
+  --color-orange-300: #c9a55c;
+  --color-orange-400: #c9a55c;
+  --color-orange-500: #c9a55c;
+  --color-orange-600: #c9a55c;
+  --color-orange-700: #c9a55c;
+  --color-orange-800: #c9a55c;
+  --color-orange-900: #c9a55c;
+  --color-orange-950: #c9a55c;
 }
 
 /* === Base === */

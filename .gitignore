@@ -29,6 +29,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+dev.log
+
+# local scratch / screenshots
+.scratch-shots/
+verify-*.png
+.playwright-mcp/
 
 # env files (can opt-in for committing if needed)
 .env*

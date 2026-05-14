@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" role="img" aria-label="Sô-cô-la">
+  <defs>
+    <linearGradient id="choc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a55a1d"/>
+      <stop offset="100%" stop-color="#3b1d09"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="14" width="48" height="32" rx="2" ry="2" fill="url(#choc)" stroke="#1c0f04" stroke-width="1.5"/>
+  <line x1="18" y1="14" x2="18" y2="46" stroke="#1c0f04" stroke-width="1"/>
+  <line x1="30" y1="14" x2="30" y2="46" stroke="#1c0f04" stroke-width="1"/>
+  <line x1="42" y1="14" x2="42" y2="46" stroke="#1c0f04" stroke-width="1"/>
+  <line x1="6" y1="30" x2="54" y2="30" stroke="#1c0f04" stroke-width="1"/>
+  <rect x="7" y="15" width="11" height="3" fill="#fde68a" opacity="0.4"/>
+  <rect x="19" y="15" width="11" height="3" fill="#fde68a" opacity="0.4"/>
+  <rect x="31" y="15" width="11" height="3" fill="#fde68a" opacity="0.4"/>
+  <rect x="43" y="15" width="11" height="3" fill="#fde68a" opacity="0.4"/>
+</svg>

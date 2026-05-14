@@ -14,9 +14,46 @@ export interface Product {
 }
 
 
-export interface CartItem {
+import type { DesignDraft } from "@/types/design";
+
+export interface ProductCartItem {
+  kind: "product";
   product: Product;
   quantity: number;
+}
+
+export interface DesignCartItem {
+  kind: "design";
+  design: DesignDraft;
+  quantity: number;
+}
+
+export type CartItem = ProductCartItem | DesignCartItem;
+
+export function getCartItemKey(item: CartItem): string {
+  return item.kind === "product" ? item.product.slug : item.design.id;
+}
+
+export function getCartItemName(item: CartItem): string {
+  return item.kind === "product" ? item.product.name : item.design.name;
+}
+
+export function getCartItemImage(item: CartItem): string {
+  return item.kind === "product" ? item.product.image : item.design.previewDataUrl;
+}
+
+export function getCartItemDescription(item: CartItem): string {
+  if (item.kind === "product") return item.product.description;
+  const count = item.design.items.length;
+  return `Thiết kế tự do · ${count} phụ kiện · ${item.design.frames.length} frame replay`;
+}
+
+export function getCartItemUnitPrice(item: CartItem): number {
+  return item.kind === "product" ? item.product.priceNumber : item.design.totalPrice;
+}
+
+export function getCartItemTotal(item: CartItem): number {
+  return getCartItemUnitPrice(item) * item.quantity;
 }
 
 export interface Review {
@@ -2109,6 +2146,146 @@ export const allProducts: Product[] = [
     "topics": [
       "doanh-nghiep"
     ]
+  },
+  {
+    "slug": "mut-trai-cay-say-deo-dan-d-pak-nho-vang",
+    "name": "Mứt Trái Cây Sấy Dẻo Dan-D Pak Hộp Tròn Nho Vàng 150g",
+    "description": "Mứt nho vàng sấy dẻo Dan-D Pak, hộp tròn 150g",
+    "price": "75.000₫",
+    "priceNumber": 75000,
+    "image": "/images/product-mut-trai-cay-say-deo-dan-d-pak-nho-vang.jpg",
+    "category": "Hạt & Trái Cây Sấy",
+    "recipient": [],
+    "occasions": ["tet"],
+    "topics": []
+  },
+  {
+    "slug": "tac-chanh-day-mat-ong-say-deo-123-farm",
+    "name": "Tắc Chanh Dây Mật Ong Sấy Dẻo 123 Farm Hộp 85g",
+    "description": "Tắc chanh dây sấy dẻo mật ong, 123 Farm 85g",
+    "price": "75.000₫",
+    "priceNumber": 75000,
+    "image": "/images/product-tac-chanh-day-mat-ong-say-deo-123-farm.jpg",
+    "category": "Hạt & Trái Cây Sấy",
+    "recipient": [],
+    "occasions": ["tet"],
+    "topics": []
+  },
+  {
+    "slug": "gung-nuong-mat-hoa-thot-not-say-deo-123-farm",
+    "name": "Gừng Nướng Mật Hoa Thốt Nốt Sấy Dẻo 123 Farm Hộp 85g",
+    "description": "Gừng nướng mật hoa thốt nốt sấy dẻo, 123 Farm 85g",
+    "price": "85.000₫",
+    "priceNumber": 85000,
+    "image": "/images/product-gung-nuong-mat-hoa-thot-not-say-deo-123-farm.jpg",
+    "category": "Hạt & Trái Cây Sấy",
+    "recipient": [],
+    "occasions": ["tet"],
+    "topics": []
+  },
+  {
+    "slug": "hat-dieu-rang-muoi-garden-farm",
+    "name": "Hạt Điều Rang Muối Garden Farm Hộp 200g",
+    "description": "Hạt điều rang muối Garden Farm, hộp 200g",
+    "price": "90.000₫",
+    "priceNumber": 90000,
+    "image": "/images/product-hat-dieu-rang-muoi-garden-farm.jpg",
+    "category": "Hạt & Trái Cây Sấy",
+    "recipient": [],
+    "occasions": ["tet"],
+    "topics": []
+  },
+  {
+    "slug": "hat-hon-hop-tam-vi-savanna-my",
+    "name": "Hạt Hỗn Hợp Tẩm Vị Savanna Mỹ 850g",
+    "description": "Hỗn hợp hạt tẩm vị Savanna nhập Mỹ, hộp 850g",
+    "price": "520.000₫",
+    "priceNumber": 520000,
+    "image": "/images/product-hat-hon-hop-tam-vi-savanna-my.jpg",
+    "category": "Hạt & Trái Cây Sấy",
+    "recipient": [
+      "Đối Tác Kinh Doanh"
+    ],
+    "occasions": ["tet"],
+    "topics": [
+      "doanh-nghiep"
+    ]
+  },
+  {
+    "slug": "bot-nhan-sam-great-mountain",
+    "name": "Bột Nhân Sâm Cao Cấp Great Mountain Hũ 114g",
+    "description": "Bột nhân sâm cao cấp Great Mountain, hũ 114g",
+    "price": "1.080.000₫",
+    "priceNumber": 1080000,
+    "image": "/images/product-bot-nhan-sam-great-mountain.jpg",
+    "category": "Trà & Coffee",
+    "recipient": [
+      "Đối Tác Kinh Doanh"
+    ],
+    "occasions": ["tet", "20-11"],
+    "topics": [
+      "doanh-nghiep"
+    ]
+  },
+  {
+    "slug": "mat-ong-nhan-sam-great-mountain",
+    "name": "Mật Ong Nhân Sâm Great Mountain Canada Hộp 350g",
+    "description": "Mật ong nhân sâm Great Mountain Canada, hộp 350g",
+    "price": "600.000₫",
+    "priceNumber": 600000,
+    "image": "/images/product-mat-ong-nhan-sam-great-mountain.jpg",
+    "category": "Trà & Coffee",
+    "recipient": [
+      "Đối Tác Kinh Doanh"
+    ],
+    "occasions": ["tet", "20-11"],
+    "topics": [
+      "doanh-nghiep"
+    ]
+  },
+  {
+    "slug": "ca-phe-hoa-tan-nescafe-gold-blend",
+    "name": "Cà Phê Hòa Tan Nescafé Gold Blend 100g",
+    "description": "Cà phê hòa tan Nescafé Gold Blend, lọ 100g",
+    "price": "150.000₫",
+    "priceNumber": 150000,
+    "image": "/images/product-ca-phe-hoa-tan-nescafe-gold-blend.jpg",
+    "category": "Trà & Coffee",
+    "recipient": [
+      "Bạn Bè & Đồng Nghiệp"
+    ],
+    "occasions": ["20-11"],
+    "topics": [
+      "doanh-nghiep"
+    ]
+  },
+  {
+    "slug": "ca-phe-hoa-tan-nescafe-gold-origins-colombia",
+    "name": "Cà Phê Hòa Tan Nescafé Gold Origins Cap Colombia 100g",
+    "description": "Cà phê hòa tan Nescafé Gold Origins Colombia, lọ 100g",
+    "price": "205.000₫",
+    "priceNumber": 205000,
+    "image": "/images/product-ca-phe-hoa-tan-nescafe-gold-origins-colombia.jpg",
+    "category": "Trà & Coffee",
+    "recipient": [
+      "Bạn Bè & Đồng Nghiệp"
+    ],
+    "occasions": ["20-11"],
+    "topics": [
+      "doanh-nghiep"
+    ]
+  },
+  {
+    "slug": "tra-chanh-mat-ong-citron-tea-nonghyup",
+    "name": "Trà Chanh Mật Ong Citron Tea NongHyup HQ 550g",
+    "description": "Trà chanh mật ong Citron Tea NongHyup Hàn Quốc, hũ 550g",
+    "price": "100.000₫",
+    "priceNumber": 100000,
+    "image": "/images/product-tra-chanh-mat-ong-citron-tea-nonghyup.jpg",
+    "category": "Trà & Coffee",
+    "recipient": [],
+    "occasions": ["tet", "20-11"],
+    "topics": []
   }
 ]
 ;
@@ -2195,33 +2372,5 @@ export const relatedProducts: Product[] = [
     price: "850.000₫",
     priceNumber: 850000,
     image: "/images/related-tra-dao.jpg",
-  },
-];
-
-// === CART ===
-export const cartItems: CartItem[] = [
-  {
-    product: {
-      slug: "hop-qua-phu-quy",
-      name: "Hộp Quà Phú Quý - Mẫu Xuân 2024",
-      description:
-        "Trà Ô Long Đặc Sản, Mứt Gừng Thủ Công, Hạt Điều Rang Củi Vỏ Lụa.",
-      price: "2.450.000₫",
-      priceNumber: 2450000,
-      image: "/images/cart-phu-quy.jpg",
-    },
-    quantity: 1,
-  },
-  {
-    product: {
-      slug: "bo-tra-tuyet-lien-hoa",
-      name: "Bộ Trà Tuyết Liên Hoa",
-      description:
-        "Gốm thủ công tráng men ngọc bích, vẽ tay họa tiết hoa sen hoàng gia.",
-      price: "1.850.000₫",
-      priceNumber: 1850000,
-      image: "/images/cart-tra-tuyet.jpg",
-    },
-    quantity: 1,
   },
 ];
