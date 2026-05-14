@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { Design, DesignFrame } from "@/types/design";
+import type { DesignDraft, DesignFrame } from "@/types/design";
+import { PRODUCT_BY_ID } from "@/types/design";
 
 interface QrViewerProps {
-  design: Pick<Design, "id" | "frames" | "createdAt">;
+  design: Pick<DesignDraft, "id" | "frames" | "createdAt">;
 }
 
 export default function QrViewer({ design }: QrViewerProps) {
@@ -35,11 +36,15 @@ export default function QrViewer({ design }: QrViewerProps) {
         </time>
       </header>
       <ol className="mt-2 grid gap-1 text-xs text-stone-600">
-        {current.items.map((it) => (
-          <li key={it.id}>
-            {it.kind} @ ({Math.round(it.x)}, {Math.round(it.y)}) · scale {it.scale.toFixed(2)}
-          </li>
-        ))}
+        {current.items.map((it) => {
+          const product = PRODUCT_BY_ID[it.productId];
+          const label = product?.shortName ?? it.productId;
+          return (
+            <li key={it.id}>
+              {label} @ ô ({it.gridX}, {it.gridY}) · xoay {it.rotation}°
+            </li>
+          );
+        })}
       </ol>
     </section>
   );
