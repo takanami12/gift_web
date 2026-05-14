@@ -51,19 +51,28 @@ export default function BottleAccessories({
         if (!product) return null;
         const eff = effectiveFootprint(product, item.rotation);
         const { x: px, y: py } = gridToPixel(item.gridX, item.gridY, box);
-        const bottleW = eff.cols * box.cellSize;
-        const drawW = bottleW;
+        const effW = eff.cols * box.cellSize;
+        const effH = eff.rows * box.cellSize;
+        const bottleShortAxis =
+          item.rotation === 90 ? effH : effW;
+        const drawW = bottleShortAxis;
         const drawH = drawW * (img.height / img.width);
-        const centerX = px + bottleW / 2;
-        const neckCenterY = py + box.cellSize * 2.5;
+        const neckOffset = box.cellSize * 2.5;
+        const neckX =
+          item.rotation === 90 ? px + effW - neckOffset : px + effW / 2;
+        const neckY =
+          item.rotation === 90 ? py + effH / 2 : py + neckOffset;
         return (
           <KonvaImage
             key={item.id}
             image={img}
-            x={centerX - drawW / 2}
-            y={neckCenterY - drawH / 2}
+            x={neckX}
+            y={neckY}
             width={drawW}
             height={drawH}
+            offsetX={drawW / 2}
+            offsetY={drawH / 2}
+            rotation={item.rotation}
             shadowColor="rgba(0,0,0,0.35)"
             shadowBlur={6}
             shadowOpacity={0.5}
