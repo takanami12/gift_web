@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { bestsellers } from "@/lib/data";
+import type { Product } from "@/lib/data";
+import { useCart } from "@/lib/cart-context";
 import { useEffect, useRef } from "react";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -32,6 +35,8 @@ function useScrollReveal() {
 
 export default function HomePage() {
   const rootRef = useScrollReveal();
+  const router = useRouter();
+  const { addProduct } = useCart();
 
   return (
     <main ref={rootRef} className="bg-[#fefbf4] text-stone-800">
@@ -248,6 +253,7 @@ export default function HomePage() {
                 name: "Giỏ Quà Sum Vầy",
                 desc: "Ngũ cốc óc chó, nấm sấy Úc, kẹo Đức và trà chanh mật ong Hàn.",
                 price: "1.015.000 đ",
+                priceNumber: 1_015_000,
                 slug: "gio-qua-sum-vay",
               },
               {
@@ -255,6 +261,7 @@ export default function HomePage() {
                 name: "Hộp Quà Trọn Vẹn",
                 desc: "Cà phê Starbucks, sô-cô-la hạnh nhân tiramisu và ly thủy tinh bọc da.",
                 price: "300.000 đ",
+                priceNumber: 300_000,
                 slug: "hop-qua-tron-ven",
               },
               {
@@ -262,6 +269,7 @@ export default function HomePage() {
                 name: "Giỏ Quà Đong Đầy",
                 desc: "Nước ép táo hữu cơ Mỹ, bánh quy Nhật và mật ong Miele nguyên chất.",
                 price: "762.000 đ",
+                priceNumber: 762_000,
                 slug: "gio-qua-dong-day",
               },
             ].map((item, i) => (
@@ -307,6 +315,20 @@ export default function HomePage() {
                   <button
                     type="button"
                     aria-label={`Thêm ${item.name} vào giỏ`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      const product: Product = {
+                        slug: item.slug,
+                        name: item.name,
+                        description: item.desc,
+                        price: item.price,
+                        priceNumber: item.priceNumber,
+                        image: item.src,
+                      };
+                      addProduct(product);
+                      router.push("/gio-hang");
+                    }}
                     style={{
                       border: "none",
                       backgroundColor: "#ede1cc",
