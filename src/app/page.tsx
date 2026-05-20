@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { bestsellers } from "@/lib/data";
 import type { Product } from "@/lib/data";
@@ -35,7 +34,6 @@ function useScrollReveal() {
 
 export default function HomePage() {
   const rootRef = useScrollReveal();
-  const router = useRouter();
   const { addProduct } = useCart();
 
   return (
@@ -327,7 +325,6 @@ export default function HomePage() {
                         image: item.src,
                       };
                       addProduct(product);
-                      router.push("/gio-hang");
                     }}
                     style={{
                       border: "none",
