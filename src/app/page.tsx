@@ -34,266 +34,310 @@ export default function HomePage() {
   const rootRef = useScrollReveal();
 
   return (
-    <main ref={rootRef} className="bg-[#FAF8F3] text-stone-800">
+    <main ref={rootRef} className="bg-[#fefbf4] text-stone-800">
       <Analytics />
 
-      {/* ─── Hero Section (Cocoon 50/50 Split) ─── */}
+      {/* ─── Hero Section (Split 60/40 – Family Day Edition) ─── */}
       <section className="hero-split">
-        {/* Left - Image */}
-        <div className="relative min-h-[400px] lg:min-h-0 overflow-hidden">
+        {/* Left - Family Day Image (text baked in) */}
+        <div className="relative min-h-[420px] lg:min-h-0 overflow-hidden bg-[#fefbf4]">
           <Image
-            src="/images/hero-bg.png"
-            alt="Gift Glamorous Collection"
+            src="/images/hero-family-day.png"
+            alt="Mừng ngày Gia đình Việt Nam 28/6 — Tặng quà, Trao yêu thương"
             fill
             className="object-cover"
             priority
           />
         </div>
 
-        {/* Right - Mustard Content */}
-        <div className="hero-mustard">
-          <p className="text-[11px] uppercase tracking-[0.35em] font-semibold text-[#6b5c2e] mb-6 hero-stagger hero-stagger-1">
-            Bộ sưu tập quà tặng cao cấp 2024
+        {/* Right - Content */}
+        <div className="hero-dark">
+          <p
+            style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "28px" }}
+            className="uppercase tracking-[0.05em] font-semibold text-stone-700 mb-6 hero-stagger hero-stagger-1"
+          >
+            Trải nghiệm mới
           </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.05] mb-6 text-stone-800 hero-stagger hero-stagger-2">
-            Nghệ thuật <br />
-            <span className="italic font-light">Quà Tặng</span> <br />
-            Bản Địa.
+          <h1
+            style={{ fontFamily: "var(--font-vollkorn)" }}
+            className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-8 text-stone-900 hero-stagger hero-stagger-2"
+          >
+            Quà tặng <br />
+            sáng tạo <br />
+            độc bản
           </h1>
-          <p className="text-stone-600 text-base font-light leading-relaxed mb-10 max-w-md hero-stagger hero-stagger-3">
-            Chắt lọc những nguyên liệu tinh túy nhất từ thiên nhiên Việt Nam,
-            kết hợp nghệ thuật thủ công đương đại để tạo nên bộ quà tặng đẳng cấp.
+          <p
+            style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+            className="text-base font-light leading-relaxed mb-10 max-w-md hero-stagger hero-stagger-3"
+          >
+            Gift Glamorous mở ra không gian sáng tạo tự do, nơi bạn tự tay lựa chọn
+            và sắp xếp các vật phẩm để tạo ra món quà độc bản. Hãy để chúng tôi cùng
+            bạn gửi gắm trọn vẹn tâm huyết và bản sắc riêng vào từng hộp quà nhé!
           </p>
-          <div className="hero-stagger hero-stagger-4">
-            <Link href="/san-pham" className="cocoon-btn">
-              XEM NGAY
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          <div className="flex flex-nowrap items-center gap-4 hero-stagger hero-stagger-4">
+            <Link
+              href="/thiet-ke"
+              style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "18px", lineHeight: 1, padding: "14px 22px", whiteSpace: "nowrap" }}
+              className="cocoon-btn-dark"
+            >
+              KHÁM PHÁ NGAY
+              <span className="material-symbols-outlined text-xl">arrow_forward</span>
             </Link>
-          </div>
-
-          {/* Slider Dots */}
-          <div className="flex gap-2 mt-10 hero-stagger hero-stagger-5">
-            <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
-            <span className="w-2 h-2 rounded-full bg-white/40"></span>
-            <span className="w-2 h-2 rounded-full bg-white/40"></span>
-            <span className="w-2 h-2 rounded-full bg-white/40"></span>
-            <span className="w-2 h-2 rounded-full bg-white/40"></span>
+            <Link
+              href="/san-pham"
+              style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "18px", lineHeight: 1, whiteSpace: "nowrap" }}
+              className="cocoon-btn-link-dark"
+            >
+              XEM BỘ SƯU TẬP
+              <span className="material-symbols-outlined text-xl">arrow_forward</span>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ─── Product Highlight (Featured Single Product) ─── */}
-      <section className="section-padding bg-[#f9f5ec]">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-reveal>
-          <div className="reveal-up">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#2d4a3e]/60 mb-4 block font-semibold">
-              Nổi bật mùa này
-            </span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-              Hộp Quà <span className="italic font-light">Lộc Xuân</span>
+      {/* ─── Featured Story (Family Day) – 3 columns ─── */}
+      <section className="section-padding bg-[#fefbf4]">
+        <div className="max-w-[1500px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-0 items-center" data-reveal>
+          {/* Left – big heading (pushed right toward image) */}
+          <div className="reveal-up lg:justify-self-end lg:w-fit text-left lg:pr-4">
+            <h2
+              style={{ fontFamily: "var(--font-vollkorn)", color: "#000", fontSize: "clamp(28px, 2.4vw, 40px)", lineHeight: 1.15 }}
+              className="whitespace-nowrap"
+            >
+              Giỏ hoa và quà <br />
+              <span>Sum Vầy</span> <br />
+              <span>Trọn Tình Yêu</span>
             </h2>
-            <p className="text-stone-500 text-base font-light leading-relaxed mb-8 max-w-lg">
-              Tinh hoa trà Ô Long Cổ Thụ, hạt điều rang củi Bình Phước, mứt sen Tây Hồ — gói trọn trong hộp
-              gỗ sơn mài thủ công mang đến cảm giác sang trọng và ý nghĩa trong từng món quà.
-            </p>
-            <Link href="/san-pham/hop-qua-loc-xuan" className="cocoon-btn-filled">
-              TÌM HIỂU THÊM
-            </Link>
           </div>
-          <div className="relative aspect-square overflow-hidden reveal-scale">
+
+          {/* Middle – image (container ratio matches image ratio so no letterbox) */}
+          <div className="relative aspect-[636/538] reveal-scale">
             <Image
-              src="/images/product-loc-xuan.jpg"
-              alt="Hộp Quà Lộc Xuân"
+              src="/images/section2-sum-vay.png"
+              alt="Giỏ hoa và quà Sum Vầy Trọn Tình Yêu"
               fill
               className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
             />
           </div>
-        </div>
-      </section>
 
-      {/* ─── Brand Philosophy (Cocoon Style) ─── */}
-      <section className="relative h-[70vh] overflow-hidden">
-        <Image
-          src="/images/cat-hop-qua.jpg"
-          alt="Vietnamese Ingredients"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 flex items-center justify-center px-8">
-          <div data-reveal className="reveal-up bg-white/95 backdrop-blur-sm p-12 md:p-16 max-w-xl text-center">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#2d4a3e]/60 mb-4 block font-semibold">
-              Triết lý thương hiệu
-            </span>
-            <h3 className="text-3xl md:text-4xl font-serif mb-5 leading-snug">
-              Kết nối những <span className="italic">tâm hồn</span> qua giá trị thuần bản
-            </h3>
-            <p className="text-stone-500 text-sm font-light leading-relaxed mb-8">
-              Mỗi món quà không chỉ là một vật phẩm, mà là câu chuyện về lòng biết ơn
-              và sự trân trọng. Chúng tôi tỉ mỉ lựa chọn những tinh túy từ lòng đất mẹ,
-              được chế tác bởi bàn tay nghệ nhân tâm huyết nhất.
+          {/* Right – para + CTA (pushed left toward image) */}
+          <div className="reveal-up lg:justify-self-start lg:w-fit lg:max-w-[240px] lg:pl-4">
+            <p
+              style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
+              className="text-base font-light leading-relaxed mb-10"
+            >
+              Ngày Gia đình Việt Nam 28/6 là dịp ý nghĩa để mỗi chúng ta bày tỏ
+              lòng biết ơn, sự quan tâm và gửi gắm tình cảm đến những người thân
+              yêu nhất. Một món quà tinh tế trong dịp này sẽ giúp tôn vinh các
+              giá trị bền vững và đem lại niềm vui ấm áp, gắn kết mọi thành viên
+              trong gia đình.
             </p>
-            <Link href="/san-pham" className="cocoon-btn-filled">
-              TÌM HIỂU THÊM
+            <Link
+              href="/san-pham"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17" }}
+              className="inline-flex items-center gap-3 text-base font-semibold uppercase tracking-[0.15em] hover:gap-5 transition-all"
+            >
+              MUA NGAY
+              <span className="material-symbols-outlined text-xl">arrow_forward</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ─── Certifications / Values (3-column) ─── */}
-      <section className="section-padding bg-texture-dots relative overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#2d4a3e]/[0.015] rounded-full blur-3xl pointer-events-none"></div>
-        <div className="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16 relative z-10">
-          <div data-reveal className="reveal-up text-center">
-            <div className="w-16 h-16 mx-auto mb-6 border border-stone-200 rounded-full flex items-center justify-center">
-              <span className="material-symbols-outlined text-2xl text-[#2d4a3e]">eco</span>
-            </div>
-            <h4 className="text-lg font-serif mb-3">Nguyên liệu Thuần Việt</h4>
-            <p className="text-stone-400 text-sm font-light leading-relaxed">
-              Tuyển chọn kĩ càng từ những vùng nguyên liệu trứ danh: Trà Thái Nguyên,
-              Hạt điều Bình Phước, Mứt sen Hà Nội.
-            </p>
-          </div>
-          <div data-reveal className="reveal-up text-center" style={{ transitionDelay: '100ms' }}>
-            <div className="w-16 h-16 mx-auto mb-6 border border-stone-200 rounded-full flex items-center justify-center">
-              <span className="material-symbols-outlined text-2xl text-[#2d4a3e]">palette</span>
-            </div>
-            <h4 className="text-lg font-serif mb-3">Thủ công Tinh xảo</h4>
-            <p className="text-stone-400 text-sm font-light leading-relaxed">
-              Hộp quà được chế tác từ gỗ sơn mài thủ công, trạm khắc tỉ mỉ
-              bởi các nghệ nhân lành nghề nhất.
-            </p>
-          </div>
-          <div data-reveal className="reveal-up text-center" style={{ transitionDelay: '200ms' }}>
-            <div className="w-16 h-16 mx-auto mb-6 border border-stone-200 rounded-full flex items-center justify-center">
-              <span className="material-symbols-outlined text-2xl text-[#2d4a3e]">design_services</span>
-            </div>
-            <h4 className="text-lg font-serif mb-3">Thiết kế Độc bản</h4>
-            <p className="text-stone-400 text-sm font-light leading-relaxed">
-              Đội ngũ designer tài năng sẽ hiện thực hóa mọi ý tưởng quà tặng,
-              mang đậm dấu ấn thương hiệu cá nhân.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Bestsellers (Horizontal Scroll with Sticky Left) ─── */}
-      <section className="section-padding bg-[#FAF8F3]">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
-            {/* Left Sticky Column */}
-            <div className="lg:sticky lg:top-32 lg:self-start" data-reveal>
-              <div className="reveal-left">
-                <span className="text-[10px] uppercase tracking-[0.35em] text-[#2d4a3e]/60 mb-4 block font-semibold">
-                  Được yêu thích
-                </span>
-                <h2 className="text-4xl font-serif leading-tight mb-6">
-                  Sản phẩm <br />
-                  <span className="italic font-light">Bán Chạy</span>
-                </h2>
-                <Link href="/san-pham" className="cocoon-btn text-sm">
-                  XEM TẤT CẢ
-                  <span className="material-symbols-outlined text-base">arrow_forward</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right - Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {bestsellers.map((product, i) => (
-                <div
-                  key={product.slug}
-                  data-reveal
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                  className="reveal-up"
+      {/* ─── Marquee + Partners ─── */}
+      <section className="bg-[#fefbf4] py-16">
+        {/* Slider 1 – fast scrolling slogan */}
+        <div
+          className="marquee mb-14"
+          style={{ ['--marquee-duration' as string]: '72s', ['--marquee-gap' as string]: '80px' }}
+        >
+          {[0, 1].map((i) => (
+            <div className="marquee-track" key={i} aria-hidden={i === 1}>
+              {Array.from({ length: 6 }).map((_, j) => (
+                <span
+                  key={j}
+                  style={{ fontFamily: 'var(--font-anton)', color: '#1f1c17', lineHeight: 1.25 }}
+                  className="text-[clamp(28px,4.5vw,72px)] uppercase tracking-tight"
                 >
-                  <ProductCard product={product} />
-                </div>
+                  Thiết kế quà tặng sáng tạo cho trải nghiệm độc bản
+                </span>
               ))}
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Section label */}
+        <h3
+          style={{ fontFamily: 'var(--font-barlow-condensed)', color: '#1f1c17' }}
+          className="text-center uppercase tracking-[0.25em] text-2xl md:text-3xl font-semibold mb-10"
+        >
+          Đối tác của Gift Glamorous
+        </h3>
+
+        {/* Slider 2 – partner logos, slower */}
+        <div
+          className="marquee mt-16"
+          style={{ ['--marquee-duration' as string]: '80s', ['--marquee-gap' as string]: '24px' }}
+        >
+          {[0, 1].map((i) => {
+            const logos = [
+              { src: '/images/logos/bavieco.png', alt: 'Ba Vì Eco' },
+              { src: '/images/logos/nestle.png', alt: 'Nestlé' },
+              { src: '/images/logos/nui-tan-ba-vi.png', alt: 'Núi Tản Ba Vì' },
+              { src: '/images/logos/topcv.png', alt: 'TopCV' },
+              { src: '/images/logos/vnu.png', alt: 'VNU' },
+            ];
+            const interleaved = Array.from({ length: 3 }).flatMap(() => logos);
+            return (
+              <div className="marquee-track" key={i} aria-hidden={i === 1}>
+                {interleaved.map((logo, idx) => (
+                  <div
+                    key={`${i}-${idx}`}
+                    style={{ width: '460px', height: '320px' }}
+                    className="relative shrink-0"
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      fill
+                      sizes="780px"
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* ─── Ingredients Story (Cocoon Full-Width Image + Text) ─── */}
-      <section className="section-padding bg-leaf-pattern relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20 items-center relative z-10">
-          <div className="order-2 md:order-1 img-zoom" data-reveal>
-            <div className="reveal-scale relative aspect-[4/5] overflow-hidden">
-              <Image
-                src="/images/cat-doanh-nghiep.jpg"
-                alt="Corporate Gift Solutions"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="order-1 md:order-2" data-reveal>
-            <div className="reveal-up">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#2d4a3e]/60 mb-6 block font-semibold">
-                Dành cho doanh nghiệp
-              </span>
-              <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-                Giải pháp <br />
-                Quà tặng <span className="italic font-light">Chuyên Nghiệp.</span>
+      {/* ─── Bestsellers (4-column: title + 3 items) ─── */}
+      <section className="section-padding bg-[#fefbf4]">
+        <div className="max-w-[1500px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_1fr] gap-10 items-center">
+            {/* Title column */}
+            <div data-reveal className="reveal-left">
+              <h2
+                style={{ color: "#1f1c17", lineHeight: 1.05 }}
+                className="text-5xl md:text-6xl"
+              >
+                <span style={{ fontFamily: "var(--font-vollkorn)" }} className="italic block">
+                  Sản phẩm
+                </span>
+                <span
+                  style={{ fontFamily: "var(--font-barlow-condensed)" }}
+                  className="uppercase font-bold tracking-wide block mt-1"
+                >
+                  Bán chạy
+                </span>
               </h2>
-              <p className="text-stone-500 text-base font-light leading-relaxed mb-10 max-w-lg">
-                Chúng tôi hỗ trợ in Logo, tùy chỉnh bộ quà tặng theo màu sắc thương hiệu
-                và cung cấp dịch vụ giao hàng đến hàng ngàn đối tác chỉ trong một ngày.
+              <p
+                style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
+                className="mt-6 text-sm leading-relaxed max-w-[280px]"
+              >
+                Khám phá những giỏ quà tặng được yêu thích nhất tại Gift Glamorous
+                – nơi chất lượng cao cấp hòa quyện cùng tâm huyết và lòng chân
+                thành của người tặng.
               </p>
-              <Link href="/collection/doanh-nghiep" className="cocoon-btn-filled">
-                XEM CHI TIẾT DỊCH VỤ
-              </Link>
             </div>
+
+            {[
+              {
+                src: "/images/bestseller-sum-vay.png",
+                name: "Giỏ Quà Sum Vầy",
+                desc: "Ngũ cốc óc chó, nấm sấy Úc, kẹo Đức và trà chanh mật ong Hàn.",
+                price: "1.015.000 đ",
+                slug: "gio-qua-sum-vay",
+              },
+              {
+                src: "/images/bestseller-tron-ven.png",
+                name: "Hộp Quà Trọn Vẹn",
+                desc: "Cà phê Starbucks, sô-cô-la hạnh nhân tiramisu và ly thủy tinh bọc da.",
+                price: "300.000 đ",
+                slug: "hop-qua-tron-ven",
+              },
+              {
+                src: "/images/bestseller-dong-day.png",
+                name: "Giỏ Quà Đong Đầy",
+                desc: "Nước ép táo hữu cơ Mỹ, bánh quy Nhật và mật ong Miele nguyên chất.",
+                price: "762.000 đ",
+                slug: "gio-qua-dong-day",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.slug}
+                data-reveal
+                style={{ transitionDelay: `${i * 80}ms` }}
+                className="reveal-up"
+              >
+                <Link href={`/san-pham/${item.slug}`} className="block">
+                  <div
+                    style={{ backgroundColor: "#f2eee5" }}
+                    className="relative aspect-square overflow-hidden"
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.name}
+                      fill
+                      className="object-contain p-6"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                    />
+                  </div>
+                  <h3
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+                    className="mt-5 text-lg font-semibold"
+                  >
+                    {item.name}
+                  </h3>
+                  <p
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
+                    className="mt-2 text-xs leading-relaxed"
+                  >
+                    {item.desc}
+                  </p>
+                </Link>
+                <div className="mt-3 flex items-center justify-between">
+                  <p
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+                    className="text-base font-semibold"
+                  >
+                    {item.price}
+                  </p>
+                  <button
+                    type="button"
+                    aria-label={`Thêm ${item.name} vào giỏ`}
+                    style={{
+                      border: "none",
+                      backgroundColor: "#ede1cc",
+                      color: "#1f1c17",
+                      width: "44px",
+                      height: "44px",
+                    }}
+                    className="bestseller-cart-btn inline-flex items-center justify-center cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-lg">add_shopping_cart</span>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── Quote Section (Cocoon Style) ─── */}
+      {/* ─── Quote Section ─── */}
       <section className="quote-section">
         <div className="max-w-3xl mx-auto px-8 text-center" data-reveal>
           <div className="reveal-up">
-            <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-stone-700 mb-6">
-              &ldquo;Gift Glamorous – Nghệ thuật quà tặng cho nét đẹp thuần Việt&rdquo;
+            <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-[#b8a87a]">
+              &ldquo;Gift Glamorous – Nghệ thuật quà tặng <br />
+              cho nét đẹp thuần Việt&rdquo;
             </p>
-            <span className="text-[11px] uppercase tracking-[0.3em] text-stone-400 font-medium">
-              — Elle Vietnam
-            </span>
           </div>
         </div>
       </section>
 
-      {/* ─── Newsletter Section ─── */}
-      <section className="section-padding bg-botanical-overlay bg-[#faf8f3] relative overflow-hidden">
-        <div className="max-w-xl mx-auto px-8 text-center relative z-10" data-reveal>
-          <div className="reveal-up">
-            <h2 className="text-2xl font-serif mb-3 italic">Trở thành một phần của chúng tôi</h2>
-            <p className="text-stone-400 text-sm font-light mb-10">
-              Nhận thông tin về sản phẩm mới và những ưu đãi độc quyền dành riêng cho bạn.
-            </p>
-            <form className="flex border-b border-stone-300 max-w-md mx-auto">
-              <input
-                className="flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-stone-400 font-light"
-                placeholder="Nhập địa chỉ email của bạn..."
-                type="email"
-              />
-              <button
-                type="submit"
-                className="px-4 text-stone-500 hover:text-[#2d4a3e] transition-colors"
-              >
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Contact Float Button ─── */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <button className="bg-white border border-stone-200 shadow-lg px-5 py-3 text-sm font-medium text-stone-700 hover:border-[#2d4a3e] hover:text-[#2d4a3e] transition-all flex items-center gap-2 rounded-full">
-          Liên hệ
-        </button>
-      </div>
     </main>
   );
 }

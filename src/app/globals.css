@@ -79,6 +79,52 @@
 
 }
 
+/* === Bestseller cart button === */
+.bestseller-cart-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.bestseller-cart-btn:hover {
+  background-color: #1f1c17 !important;
+  color: #ede1cc !important;
+}
+
+/* === Marquee sliders === */
+.marquee {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  user-select: none;
+  padding-block: 0.5em;
+}
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--marquee-gap, 64px);
+  padding-right: var(--marquee-gap, 64px);
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+  white-space: nowrap;
+  align-items: center;
+}
+.marquee-track > * {
+  flex-shrink: 0;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* === Custom font utilities === */
+.font-barlow-condensed {
+  font-family: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
+}
+.font-vollkorn {
+  font-family: var(--font-vollkorn), "Vollkorn", serif;
+}
+.font-nunito-sans {
+  font-family: var(--font-nunito-sans), "Nunito Sans", sans-serif;
+}
+
 /* === Orange palette override → brand gold #c9a55c === */
 :root {
   --color-orange-50: #c9a55c;
@@ -116,7 +162,7 @@ main {
 
 /* === Announcement Bar === */
 .announcement-bar {
-  background-color: #2d4a3e;
+  background-color: #1f1c17;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: 10px 0;
@@ -192,10 +238,10 @@ main {
   100% { transform: translate(-100%, 0); }
 }
 
-/* === Hero Section (Cocoon 50/50 Split) === */
+/* === Hero Section (Split 60/40) === */
 .hero-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   min-height: 85vh;
 }
 
@@ -206,18 +252,78 @@ main {
   }
 }
 
-.hero-mustard {
-  background-color: #f0d96b;
+.hero-dark {
+  background-color: #fefbf4;
+  color: #111;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 80px;
+  padding: 80px 80px;
 }
 
 @media (max-width: 1024px) {
-  .hero-mustard {
-    padding: 40px 32px;
+  .hero-dark {
+    padding: 48px 32px;
   }
+}
+
+.cocoon-btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1.5px solid #1f1c17;
+  background: transparent;
+  color: #1f1c17;
+  transition: all 0.3s ease;
+}
+.cocoon-btn-dark:hover {
+  background: #1f1c17;
+  color: #fefbf4;
+  border-color: #1f1c17;
+}
+
+.cocoon-btn-link-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #111;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 4px;
+  transition: border-color 0.3s ease;
+}
+.cocoon-btn-link-dark:hover {
+  border-color: #111;
+}
+
+.hero-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #1f3a2f;
+  color: #fff;
+  padding: 8px 8px 8px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+.hero-tag-pill .tag-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1f3a2f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* === Section Spacing === */

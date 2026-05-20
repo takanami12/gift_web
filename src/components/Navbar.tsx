@@ -8,14 +8,14 @@ export default function Navbar() {
   const { totalItems, cartBounce } = useCart();
 
   return (
-    <>
+    <div className="sticky top-0 z-50">
       {/* Announcement Bar */}
       <div className="announcement-bar">
-        Tận hưởng giao hàng miễn phí toàn quốc với hoá đơn từ 500.000₫ &nbsp;+
+        Tận hưởng giao hàng miễn phí toàn quốc với hoá đơn từ 99.000₫ &nbsp;+
       </div>
 
       {/* Main Navigation */}
-      <nav className="cocoon-nav sticky top-0 z-50">
+      <nav className="cocoon-nav">
         <div className="max-w-[1400px] mx-auto px-6">
           {/* Top row: Left menu - Logo center - Right menu */}
           <div className="flex items-center justify-between py-4">
@@ -84,10 +84,6 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
-
-              <Link href="/collection/doanh-nghiep" className="cocoon-nav-link">
-                Bài viết
-              </Link>
             </div>
 
             {/* Center Logo */}
@@ -152,6 +148,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }

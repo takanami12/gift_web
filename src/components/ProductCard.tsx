@@ -126,7 +126,7 @@ export default function ProductCard({
   // Default - homepage bestseller card (Cocoon style)
   return (
     <Link href={`/san-pham/${product.slug}`} className="group">
-      <div className="cocoon-product-card">
+      <div className="cocoon-product-card p-4 transition-colors duration-500 group-hover:bg-stone-900">
         <div className="aspect-[4/5] overflow-hidden bg-[#edeae3] mb-4 relative">
           <Image
             src={product.image}
@@ -167,17 +167,19 @@ export default function ProductCard({
             </div>
           </div>
         </div>
-        <h4 className="font-serif text-base mb-1 text-stone-800 group-hover:text-[#2d4a3e] transition-colors">
+        <h4 className="font-serif text-base mb-1 text-stone-800 transition-colors duration-500 group-hover:text-white">
           {product.name}
         </h4>
-        <p className="text-stone-400 text-[11px] mb-3 font-light tracking-wide">
+        <p className="text-stone-400 text-[11px] mb-3 font-light tracking-wide transition-colors duration-500 group-hover:text-stone-300">
           {product.description}
         </p>
         <div className="flex items-center justify-between">
-          <span className="font-bold text-[#2d4a3e]">{product.price}</span>
+          <span className="font-bold text-[#2d4a3e] transition-colors duration-500 group-hover:text-[#f0d96b]">
+            {product.price}
+          </span>
           <button
             onClick={handleAdd}
-            className="cart-btn cursor-pointer"
+            className="cart-btn cursor-pointer transition-colors duration-500 group-hover:bg-white group-hover:text-stone-900"
             aria-label="Add to cart"
           >
             <span className="material-symbols-outlined text-sm">

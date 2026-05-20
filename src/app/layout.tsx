@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Inter } from "next/font/google";
+import { Noto_Serif, Inter, Barlow_Condensed, Vollkorn, Nunito_Sans, Anton } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,6 +17,35 @@ const inter = Inter({
   subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
+});
+
+const vollkorn = Vollkorn({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-vollkorn",
+  display: "swap",
+});
+
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-nunito-sans",
+  display: "swap",
+});
+
+const anton = Anton({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400"],
+  variable: "--font-anton",
   display: "swap",
 });
 
@@ -42,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${notoSerif.variable} ${inter.variable}`}>
+    <html lang="vi" className={`${notoSerif.variable} ${inter.variable} ${barlowCondensed.variable} ${vollkorn.variable} ${nunitoSans.variable} ${anton.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
