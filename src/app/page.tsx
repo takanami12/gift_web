@@ -40,24 +40,26 @@ export default function HomePage() {
     <main ref={rootRef} className="bg-[#fefbf4] text-stone-800">
       <Analytics />
 
-      {/* ─── Hero Section (Split 60/40 – Family Day Edition) ─── */}
+      {/* ─── Hero Section (Split 50/50) ─── */}
       <section className="hero-split">
-        {/* Left - Family Day Image (text baked in) */}
-        <div className="relative min-h-[420px] lg:min-h-0 overflow-hidden bg-[#fefbf4]">
-          <Image
-            src="/images/hero-family-day.png"
-            alt="Mừng ngày Gia đình Việt Nam 28/6 — Tặng quà, Trao yêu thương"
-            fill
-            className="object-cover"
-            priority
-          />
+        {/* Left - Background Image */}
+        <div className="bg-[#fefbf4] pl-[100px] flex min-h-[420px] lg:min-h-0">
+          <div className="relative flex-1 overflow-hidden">
+            <Image
+              src="/images/hero-anh-nen-1.png"
+              alt="Gift Glamorous — Quà tặng sáng tạo độc bản"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* Right - Content */}
         <div className="hero-dark">
           <p
-            style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "28px" }}
-            className="uppercase tracking-[0.05em] font-semibold text-stone-700 mb-6 hero-stagger hero-stagger-1"
+            style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "28px", fontWeight: 400 }}
+            className="uppercase tracking-[0.05em] text-stone-700 mb-6 hero-stagger hero-stagger-1"
           >
             Trải nghiệm mới
           </p>
@@ -100,11 +102,31 @@ export default function HomePage() {
 
       {/* ─── Featured Story (Family Day) – 3 columns ─── */}
       <section className="section-padding bg-[#fefbf4]">
+        {/* Slogan slider (moved from Marquee+Partners section) */}
+        <div
+          className="marquee mb-14"
+          style={{ ['--marquee-duration' as string]: '72s', ['--marquee-gap' as string]: '80px' }}
+        >
+          {[0, 1].map((i) => (
+            <div className="marquee-track" key={i} aria-hidden={i === 1}>
+              {Array.from({ length: 6 }).map((_, j) => (
+                <span
+                  key={j}
+                  style={{ fontFamily: 'var(--font-anton)', color: '#1f1c17', lineHeight: 1.25 }}
+                  className="text-[clamp(28px,4.5vw,72px)] uppercase tracking-tight"
+                >
+                  Thiết kế quà tặng sáng tạo cho trải nghiệm độc bản
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+
         <div className="max-w-[1500px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-0 items-center" data-reveal>
           {/* Left – big heading (pushed right toward image) */}
           <div className="reveal-up lg:justify-self-end lg:w-fit text-left lg:pr-4">
             <h2
-              style={{ fontFamily: "var(--font-vollkorn)", color: "#000", fontSize: "clamp(28px, 2.4vw, 40px)", lineHeight: 1.15 }}
+              style={{ fontFamily: "var(--font-vollkorn)", color: "#000", fontSize: "clamp(36px, 3.4vw, 58px)", lineHeight: 1.12 }}
               className="whitespace-nowrap"
             >
               Giỏ hoa và quà <br />
@@ -125,10 +147,10 @@ export default function HomePage() {
           </div>
 
           {/* Right – para + CTA (pushed left toward image) */}
-          <div className="reveal-up lg:justify-self-start lg:w-fit lg:max-w-[240px] lg:pl-4">
+          <div className="reveal-up lg:justify-self-start lg:w-fit lg:max-w-[300px] lg:pl-4">
             <p
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
-              className="text-base font-light leading-relaxed mb-10"
+              style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e", fontSize: "clamp(17px, 1.25vw, 20px)" }}
+              className="font-light leading-relaxed mb-10"
             >
               Ngày Gia đình Việt Nam 28/6 là dịp ý nghĩa để mỗi chúng ta bày tỏ
               lòng biết ơn, sự quan tâm và gửi gắm tình cảm đến những người thân
@@ -138,8 +160,8 @@ export default function HomePage() {
             </p>
             <Link
               href="/san-pham"
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17" }}
-              className="inline-flex items-center gap-3 text-base font-semibold uppercase tracking-[0.15em] hover:gap-5 transition-all"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17", fontSize: "18px" }}
+              className="inline-flex items-center gap-3 font-semibold uppercase tracking-[0.15em] hover:gap-5 transition-all"
             >
               MUA NGAY
               <span className="material-symbols-outlined text-xl">arrow_forward</span>
@@ -148,32 +170,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Marquee + Partners ─── */}
+      {/* ─── Partners ─── */}
       <section className="bg-[#fefbf4] py-16">
-        {/* Slider 1 – fast scrolling slogan */}
-        <div
-          className="marquee mb-14"
-          style={{ ['--marquee-duration' as string]: '72s', ['--marquee-gap' as string]: '80px' }}
-        >
-          {[0, 1].map((i) => (
-            <div className="marquee-track" key={i} aria-hidden={i === 1}>
-              {Array.from({ length: 6 }).map((_, j) => (
-                <span
-                  key={j}
-                  style={{ fontFamily: 'var(--font-anton)', color: '#1f1c17', lineHeight: 1.25 }}
-                  className="text-[clamp(28px,4.5vw,72px)] uppercase tracking-tight"
-                >
-                  Thiết kế quà tặng sáng tạo cho trải nghiệm độc bản
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-
         {/* Section label */}
         <h3
-          style={{ fontFamily: 'var(--font-barlow-condensed)', color: '#1f1c17' }}
-          className="text-center uppercase tracking-[0.25em] text-2xl md:text-3xl font-semibold mb-10"
+          style={{ fontFamily: 'var(--font-barlow-condensed)', color: '#1f1c17', fontSize: 'clamp(28px, 2.6vw, 44px)', fontWeight: 700 }}
+          className="text-center uppercase tracking-[0.1em] mb-10"
         >
           Đối tác của Gift Glamorous
         </h3>
@@ -197,14 +199,14 @@ export default function HomePage() {
                 {interleaved.map((logo, idx) => (
                   <div
                     key={`${i}-${idx}`}
-                    style={{ width: '460px', height: '320px' }}
+                    style={{ width: '307px', height: '213px' }}
                     className="relative shrink-0"
                   >
                     <Image
                       src={logo.src}
                       alt={logo.alt}
                       fill
-                      sizes="780px"
+                      sizes="520px"
                       className="object-contain"
                     />
                   </div>
@@ -349,8 +351,14 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-8 text-center" data-reveal>
           <div className="reveal-up">
             <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-[#b8a87a]">
-              &ldquo;Gift Glamorous – Nghệ thuật quà tặng <br />
-              cho nét đẹp thuần Việt&rdquo;
+              &ldquo;Thiết kế quà tặng sáng tạo <br />
+              cho trải nghiệm độc bản&rdquo;
+            </p>
+            <p
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#000" }}
+              className="mt-6 text-base md:text-lg font-bold uppercase tracking-[0.05em]"
+            >
+              Gift Glamorous
             </p>
           </div>
         </div>

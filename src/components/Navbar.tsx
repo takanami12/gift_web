@@ -11,7 +11,7 @@ export default function Navbar() {
     <div className="sticky top-0 z-50">
       {/* Announcement Bar */}
       <div className="announcement-bar">
-        Tận hưởng giao hàng miễn phí toàn quốc với hoá đơn từ 99.000₫ &nbsp;+
+        Tận hưởng giao hàng miễn phí toàn quốc với hoá đơn từ 500.000₫ &nbsp;+
       </div>
 
       {/* Main Navigation */}

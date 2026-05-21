@@ -238,10 +238,10 @@ main {
   100% { transform: translate(-100%, 0); }
 }
 
-/* === Hero Section (Split 60/40) === */
+/* === Hero Section (Split 50/50) === */
 .hero-split {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 85vh;
 }
 
