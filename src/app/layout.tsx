@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Inter, Barlow_Condensed, Vollkorn, Nunito_Sans, Anton } from "next/font/google";
+import { Noto_Serif, Inter, Barlow_Condensed, Barlow, Playfair_Display, Luxurious_Script, Vollkorn, Nunito_Sans, Anton } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -49,6 +49,28 @@ const anton = Anton({
   display: "swap",
 });
 
+const barlow = Barlow({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-barlow",
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const luxuriousScript = Luxurious_Script({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400"],
+  variable: "--font-luxurious-script",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Gift Glamorous - Bộ Sưu Tập Quà Tặng Cao Cấp",
   description:
@@ -71,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${notoSerif.variable} ${inter.variable} ${barlowCondensed.variable} ${vollkorn.variable} ${nunitoSans.variable} ${anton.variable}`}>
+    <html lang="vi" className={`${notoSerif.variable} ${inter.variable} ${barlowCondensed.variable} ${barlow.variable} ${playfairDisplay.variable} ${luxuriousScript.variable} ${vollkorn.variable} ${nunitoSans.variable} ${anton.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

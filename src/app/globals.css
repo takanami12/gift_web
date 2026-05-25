@@ -162,13 +162,13 @@ main {
 
 /* === Announcement Bar === */
 .announcement-bar {
-  background-color: #1f1c17;
-  color: rgba(255, 255, 255, 0.9);
+  background-color: #f6dfd1;
+  color: #4a3a2c;
   text-align: center;
-  padding: 10px 0;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  font-weight: 400;
+  padding: 11px 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 /* === Cocoon-style Navbar === */
@@ -273,18 +273,18 @@ main {
   gap: 16px;
   padding: 16px 32px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: 1.5px solid #1f1c17;
+  border: 1.5px solid #433b30;
   background: transparent;
-  color: #1f1c17;
+  color: #433b30;
   transition: all 0.3s ease;
 }
 .cocoon-btn-dark:hover {
-  background: #1f1c17;
+  background: #433b30;
   color: #fefbf4;
-  border-color: #1f1c17;
+  border-color: #433b30;
 }
 
 .cocoon-btn-link-dark {
@@ -292,16 +292,176 @@ main {
   align-items: center;
   gap: 10px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #111;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  color: #433b30;
+  border-bottom: 1px solid rgba(67, 59, 48, 0.35);
   padding-bottom: 4px;
   transition: border-color 0.3s ease;
 }
 .cocoon-btn-link-dark:hover {
-  border-color: #111;
+  border-color: #433b30;
+}
+
+/* === Nav search bar (top-left) === */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 240px;
+  padding: 9px 16px;
+  border-radius: 9999px;
+  background: #f7f3ec;
+  border: 1px solid rgba(74, 58, 44, 0.12);
+  color: #9a9388;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.nav-search:focus-within {
+  border-color: rgba(45, 74, 62, 0.45);
+  background: #fff;
+}
+.nav-search input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: #1f1c17;
+}
+.nav-search input::placeholder {
+  color: #a39a8c;
+}
+
+/* === Nav right cluster === */
+.nav-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  background: #433b30;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.nav-pill-dark:hover {
+  background: #564c3d;
+  transform: translateY(-1px);
+}
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a443b;
+  transition: color 0.3s ease;
+}
+.nav-icon-link:hover {
+  color: #2d4a3e;
+}
+.cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -11px;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #2d4a3e;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Nav menu row (second tier) === */
+.nav-menu-row {
+  border-top: 1px solid rgba(74, 58, 44, 0.08);
+}
+.nav-menu-link {
+  font-family: var(--font-barlow);
+  text-transform: uppercase;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+/* === Hero (Trang 1) — full-bleed background + left overlay === */
+.hero-bg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1366 / 768;
+  min-height: 600px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .hero-bg {
+    aspect-ratio: auto;
+    min-height: 78vh;
+  }
+}
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(254, 251, 244, 0.94) 0%,
+    rgba(254, 251, 244, 0.78) 26%,
+    rgba(254, 251, 244, 0.28) 48%,
+    rgba(254, 251, 244, 0) 66%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 0 100px;
+}
+@media (max-width: 1024px) {
+  .hero-content {
+    padding: 0 32px;
+  }
+}
+.hero-eyebrow {
+  margin-bottom: 18px;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #433b30;
+}
+.hero-title {
+  margin-bottom: 26px;
+  font-size: clamp(46px, 5.6vw, 88px);
+  line-height: 1.04;
+  font-weight: 400;
+  color: #433b30;
+}
+.hero-desc {
+  max-width: 30rem;
+  margin-bottom: 38px;
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.85;
+  font-weight: 400;
+  color: #433b30;
+}
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
 }
 
 .hero-tag-pill {
@@ -549,8 +709,15 @@ main {
 
 /* === Quote Section === */
 .quote-section {
-  background: #f9f5ec;
-  padding: 80px 0;
+  background-color: #faf7f0;
+  background-image: url("/images/quote-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 72px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 

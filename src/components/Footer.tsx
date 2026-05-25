@@ -1,38 +1,25 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="w-full mt-auto bg-[#fefbf4]">
-      {/* Banner — wavy gold line + brand tagline (asset, top-cropped) */}
-      <div className="relative w-full overflow-hidden h-[clamp(60px,8vw,140px)]">
-        <Image
-          src="/images/footer-banner.png"
-          alt="Hành trình thiết kế quà tặng"
-          fill
-          sizes="100vw"
-          className="object-cover object-top"
-          priority={false}
-        />
-      </div>
-
       {/* Main 3-column */}
       <div className="bg-[#fefbf4] px-6 lg:px-20 py-16">
         <div className="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Col 1 — Brand + Contact */}
           <div>
-            <h3 style={{ fontFamily: "var(--font-vollkorn)" }} className="text-3xl mb-5">
-              <span style={{ color: "#1f1c17" }} className="font-bold">GIFT </span>
-              <span style={{ color: "#b8860b" }} className="italic">Glamorous</span>
+            <h3 style={{ fontFamily: "var(--font-barlow-condensed)" }} className="text-3xl mb-5">
+              <span style={{ color: "#433b30" }} className="font-bold">GIFT </span>
+              <span style={{ color: "#b8860b" }} className="font-bold">Glamorous</span>
             </h3>
             <p
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#5c5852" }}
+              style={{ fontFamily: "var(--font-barlow)", color: "#5c5852" }}
               className="text-sm leading-relaxed mb-6"
             >
               Nền tảng thương mại điện tử quà tặng tiên phong ứng dụng Trò chơi hoá tại Việt Nam. Chúng tôi mang đến không gian sáng tạo tự do để bạn tự tay chọn lựa, sắp xếp và gửi gắm trọn vẹn tâm huyết của mình vào từng hộp quà độc bản.
             </p>
             <div
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+              style={{ fontFamily: "var(--font-barlow)", color: "#b1997e" }}
               className="text-sm space-y-1.5"
             >
               <p>144 Xuân Thủy, Cầu Giấy, Hà Nội</p>
@@ -50,22 +37,32 @@ export default function Footer() {
               Khám phá
             </h3>
             <ul
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+              style={{ fontFamily: "var(--font-barlow)", color: "#1f1c17" }}
               className="space-y-3 text-sm"
             >
               <li>
-                <Link href="/" className="hover:text-[#b8860b] transition-colors">
-                  Trang chủ
+                <Link href="/san-pham" className="hover:text-[#b8860b] transition-colors">
+                  Sản phẩm
                 </Link>
               </li>
               <li>
-                <Link href="/san-pham" className="hover:text-[#b8860b] transition-colors">
-                  Sản phẩm quà tặng
+                <Link href="/collection/doanh-nghiep" className="hover:text-[#b8860b] transition-colors">
+                  Quà doanh nghiệp
                 </Link>
               </li>
               <li>
                 <Link href="/thiet-ke" className="hover:text-[#b8860b] transition-colors">
-                  Phòng tự thiết kế
+                  Tự thiết kế
+                </Link>
+              </li>
+              <li>
+                <Link href="/collection/tet" className="hover:text-[#b8860b] transition-colors">
+                  Dịp quan trọng
+                </Link>
+              </li>
+              <li>
+                <Link href="/bo-suu-tap" className="hover:text-[#b8860b] transition-colors">
+                  Bộ sưu tập
                 </Link>
               </li>
             </ul>
@@ -74,14 +71,15 @@ export default function Footer() {
           {/* Col 3 — Newsletter */}
           <div>
             <h3
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17" }}
               className="text-base leading-relaxed mb-6"
             >
               Đăng ký để nhận thông tin khuyến mãi sớm nhất tại Gift Glamorous
             </h3>
             <div className="flex border-b border-stone-400 pb-2">
               <input
-                className="flex-1 bg-transparent py-2 text-sm outline-none placeholder:text-stone-400"
+                style={{ fontFamily: "var(--font-barlow)", color: "#b1997e" }}
+                className="flex-1 bg-transparent py-2 text-sm outline-none placeholder:text-[#b1997e]"
                 placeholder="Nhập địa chỉ email..."
                 type="email"
               />
@@ -93,7 +91,7 @@ export default function Footer() {
               </button>
             </div>
             <p
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#7c7670" }}
+              style={{ fontFamily: "var(--font-barlow)", color: "#b1997e" }}
               className="mt-4 text-xs italic leading-relaxed"
             >
               Đăng ký để nhận thông tin tin tức và các sản phẩm, dịch vụ, ưu đãi mới nhất và đặc quyền dành riêng từ Gift Glamorous.
@@ -103,10 +101,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom — Copyright stripe */}
-      <div className="bg-black py-4 text-center">
+      <div className="bg-[#433b30] py-4 text-center">
         <p
-          style={{ fontFamily: "var(--font-barlow-condensed)", color: "#c9a55c" }}
-          className="text-xs uppercase tracking-[0.3em] font-semibold"
+          style={{ fontFamily: "var(--font-barlow)", color: "#fefbf4" }}
+          className="text-xs uppercase tracking-[0.15em] font-semibold"
         >
           &copy; 2026 Gift Glamorous. All rights reserved.
         </p>

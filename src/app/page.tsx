@@ -37,52 +37,49 @@ export default function HomePage() {
   const { addProduct } = useCart();
 
   return (
-    <main ref={rootRef} className="bg-[#fefbf4] text-stone-800">
+    <main ref={rootRef} className="bg-[#fefbf4] text-[#433b30]">
       <Analytics />
 
-      {/* ─── Hero Section (Split 50/50) ─── */}
-      <section className="hero-split">
-        {/* Left - Background Image */}
-        <div className="bg-[#fefbf4] pl-[100px] flex min-h-[420px] lg:min-h-0">
-          <div className="relative flex-1 overflow-hidden">
-            <Image
-              src="/images/hero-anh-nen-1.png"
-              alt="Gift Glamorous — Quà tặng sáng tạo độc bản"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
+      {/* ─── Hero (Trang 1) — full-bleed background + left overlay ─── */}
+      <section className="hero-bg">
+        <Image
+          src="/images/hero-trang1.png"
+          alt="Gift Glamorous — Quà tặng sáng tạo độc bản"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+        <div className="hero-scrim" />
 
-        {/* Right - Content */}
-        <div className="hero-dark">
+        <div className="hero-content">
           <p
-            style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "28px", fontWeight: 400 }}
-            className="uppercase tracking-[0.05em] text-stone-700 mb-6 hero-stagger hero-stagger-1"
+            className="hero-eyebrow hero-stagger hero-stagger-1"
+            style={{ fontFamily: "var(--font-barlow)" }}
           >
             Trải nghiệm mới
           </p>
           <h1
-            style={{ fontFamily: "var(--font-vollkorn)" }}
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-8 text-stone-900 hero-stagger hero-stagger-2"
+            className="hero-title hero-stagger hero-stagger-2"
+            style={{ fontFamily: "var(--font-playfair)" }}
           >
             Quà tặng <br />
             sáng tạo <br />
             độc bản
           </h1>
           <p
-            style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
-            className="text-base font-light leading-relaxed mb-10 max-w-md hero-stagger hero-stagger-3"
+            className="hero-desc hero-stagger hero-stagger-3"
+            style={{ fontFamily: "var(--font-barlow)" }}
           >
-            Gift Glamorous mở ra không gian sáng tạo tự do, nơi bạn tự tay lựa chọn
-            và sắp xếp các vật phẩm để tạo ra món quà độc bản. Hãy để chúng tôi cùng
-            bạn gửi gắm trọn vẹn tâm huyết và bản sắc riêng vào từng hộp quà nhé!
+            Gift Glamorous mở ra không gian sáng tạo<br />
+            độc bản, nơi bạn tự tay lựa chọn và sắp xếp<br />
+            các sản phẩm để tạo nên món quà ý nghĩa<br />
+            và tinh tế nhất dành tặng người thương
           </p>
-          <div className="flex flex-nowrap items-center gap-4 hero-stagger hero-stagger-4">
+          <div className="hero-cta hero-stagger hero-stagger-4">
             <Link
               href="/thiet-ke"
-              style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "18px", lineHeight: 1, padding: "14px 22px", whiteSpace: "nowrap" }}
+              style={{ fontFamily: "var(--font-barlow)", fontSize: "16px", lineHeight: 1, padding: "15px 26px", whiteSpace: "nowrap" }}
               className="cocoon-btn-dark"
             >
               KHÁM PHÁ NGAY
@@ -90,7 +87,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/san-pham"
-              style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "18px", lineHeight: 1, whiteSpace: "nowrap" }}
+              style={{ fontFamily: "var(--font-barlow)", fontSize: "16px", lineHeight: 1, whiteSpace: "nowrap" }}
               className="cocoon-btn-link-dark"
             >
               XEM BỘ SƯU TẬP
@@ -112,10 +109,10 @@ export default function HomePage() {
               {Array.from({ length: 6 }).map((_, j) => (
                 <span
                   key={j}
-                  style={{ fontFamily: 'var(--font-anton)', color: '#1f1c17', lineHeight: 1.25 }}
-                  className="text-[clamp(28px,4.5vw,72px)] uppercase tracking-tight"
+                  style={{ fontFamily: 'var(--font-luxurious-script)', color: '#b1997e', lineHeight: 1.3 }}
+                  className="text-[clamp(34px,5vw,80px)]"
                 >
-                  Thiết kế quà tặng sáng tạo cho trải nghiệm độc bản
+                  Hãy mang bản sắc riêng vào từng hộp quà độc bản
                 </span>
               ))}
             </div>
@@ -126,13 +123,14 @@ export default function HomePage() {
           {/* Left – big heading (pushed right toward image) */}
           <div className="reveal-up lg:justify-self-end lg:w-fit text-left lg:pr-4">
             <h2
-              style={{ fontFamily: "var(--font-vollkorn)", color: "#000", fontSize: "clamp(36px, 3.4vw, 58px)", lineHeight: 1.12 }}
+              style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontSize: "clamp(36px, 3.4vw, 58px)", lineHeight: 1.12, fontWeight: 400 }}
               className="whitespace-nowrap"
             >
-              Giỏ hoa và quà <br />
-              <span>Sum Vầy</span> <br />
-              <span>Trọn Tình Yêu</span>
+              Giỏ quà <br />
+              Sum Vầy <br />
+              Đoàn Viên
             </h2>
+            <div className="mt-6 h-px w-1/2 bg-[#433b30]" />
           </div>
 
           {/* Middle – image (container ratio matches image ratio so no letterbox) */}
@@ -149,7 +147,7 @@ export default function HomePage() {
           {/* Right – para + CTA (pushed left toward image) */}
           <div className="reveal-up lg:justify-self-start lg:w-fit lg:max-w-[300px] lg:pl-4">
             <p
-              style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e", fontSize: "clamp(17px, 1.25vw, 20px)" }}
+              style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontSize: "clamp(17px, 1.25vw, 20px)" }}
               className="font-light leading-relaxed mb-10"
             >
               Ngày Gia đình Việt Nam 28/6 là dịp ý nghĩa để mỗi chúng ta bày tỏ
@@ -160,8 +158,8 @@ export default function HomePage() {
             </p>
             <Link
               href="/san-pham"
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17", fontSize: "18px" }}
-              className="inline-flex items-center gap-3 font-semibold uppercase tracking-[0.15em] hover:gap-5 transition-all"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "18px" }}
+              className="inline-flex items-center gap-3 uppercase tracking-[0.15em] hover:gap-5 transition-all"
             >
               MUA NGAY
               <span className="material-symbols-outlined text-xl">arrow_forward</span>
@@ -174,10 +172,12 @@ export default function HomePage() {
       <section className="bg-[#fefbf4] py-16">
         {/* Section label */}
         <h3
-          style={{ fontFamily: 'var(--font-barlow-condensed)', color: '#1f1c17', fontSize: 'clamp(28px, 2.6vw, 44px)', fontWeight: 700 }}
-          className="text-center uppercase tracking-[0.1em] mb-10"
+          style={{ fontFamily: 'var(--font-barlow-condensed)', color: '#433b30', fontSize: 'clamp(28px, 2.6vw, 44px)', fontWeight: 700 }}
+          className="flex items-center justify-center gap-5 uppercase tracking-[0.1em] mb-10"
         >
-          Đối tác của Gift Glamorous
+          <span className="h-px w-16 bg-[#433b30]" />
+          <span>KHÁCH HÀNG &amp; ĐỐI TÁC</span>
+          <span className="h-px w-16 bg-[#433b30]" />
         </h3>
 
         {/* Slider 2 – partner logos, slower */}
@@ -224,21 +224,22 @@ export default function HomePage() {
             {/* Title column */}
             <div data-reveal className="reveal-left">
               <h2
-                style={{ color: "#1f1c17", lineHeight: 1.05 }}
+                style={{ color: "#433b30", lineHeight: 1.05 }}
                 className="text-5xl md:text-6xl"
               >
-                <span style={{ fontFamily: "var(--font-vollkorn)" }} className="italic block">
+                <span style={{ fontFamily: "var(--font-playfair)" }} className="italic block">
                   Sản phẩm
                 </span>
                 <span
-                  style={{ fontFamily: "var(--font-barlow-condensed)" }}
-                  className="uppercase font-bold tracking-wide block mt-1"
+                  style={{ fontFamily: "var(--font-barlow-condensed)", fontWeight: 700 }}
+                  className="uppercase tracking-wide block mt-1"
                 >
                   Bán chạy
                 </span>
               </h2>
+              <div className="mt-5 h-px w-2/3 bg-[#433b30]" />
               <p
-                style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
+                style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
                 className="mt-6 text-sm leading-relaxed max-w-[280px]"
               >
                 Khám phá những giỏ quà tặng được yêu thích nhất tại Gift Glamorous
@@ -293,22 +294,22 @@ export default function HomePage() {
                     />
                   </div>
                   <h3
-                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
-                    className="mt-5 text-lg font-semibold"
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
+                    className="mt-5 text-lg"
                   >
                     {item.name}
                   </h3>
                   <p
-                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#71716e" }}
-                    className="mt-2 text-xs leading-relaxed"
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
+                    className="mt-2 text-xs leading-relaxed uppercase"
                   >
                     {item.desc}
                   </p>
                 </Link>
                 <div className="mt-3 flex items-center justify-between">
                   <p
-                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#1f1c17" }}
-                    className="text-base font-semibold"
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
+                    className="text-base"
                   >
                     {item.price}
                   </p>
@@ -331,7 +332,7 @@ export default function HomePage() {
                     style={{
                       border: "none",
                       backgroundColor: "#ede1cc",
-                      color: "#1f1c17",
+                      color: "#433b30",
                       width: "44px",
                       height: "44px",
                     }}
@@ -350,15 +351,17 @@ export default function HomePage() {
       <section className="quote-section">
         <div className="max-w-3xl mx-auto px-8 text-center" data-reveal>
           <div className="reveal-up">
-            <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-[#b8a87a]">
+            <p style={{ fontFamily: "var(--font-playfair)" }} className="text-2xl md:text-3xl italic leading-relaxed text-[#433b30]">
               &ldquo;Thiết kế quà tặng sáng tạo <br />
               cho trải nghiệm độc bản&rdquo;
             </p>
             <p
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#000" }}
-              className="mt-6 text-base md:text-lg font-bold uppercase tracking-[0.05em]"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontWeight: 700 }}
+              className="mt-8 flex items-center justify-center gap-5 text-base md:text-lg uppercase tracking-[0.05em]"
             >
-              Gift Glamorous
+              <span className="h-px w-12 bg-[#433b30]" />
+              <span>Gift Glamorous</span>
+              <span className="h-px w-12 bg-[#433b30]" />
             </p>
           </div>
         </div>
