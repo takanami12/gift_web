@@ -110,7 +110,7 @@ export default function HomePage() {
                 <span
                   key={j}
                   style={{ fontFamily: 'var(--font-luxurious-script)', color: '#b1997e', lineHeight: 1.3 }}
-                  className="text-[clamp(34px,5vw,80px)]"
+                  className="text-[clamp(34px,10vw,128px)]"
                 >
                   Hãy mang bản sắc riêng vào từng hộp quà độc bản
                 </span>
@@ -123,7 +123,7 @@ export default function HomePage() {
           {/* Left – big heading (pushed right toward image) */}
           <div className="reveal-up lg:justify-self-end lg:w-fit text-left lg:pr-4">
             <h2
-              style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontSize: "clamp(36px, 3.4vw, 58px)", lineHeight: 1.12, fontWeight: 400 }}
+              style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontSize: "clamp(36px, 3.4vw, 58px)", lineHeight: 1.12, fontWeight: 400, fontStyle: "italic" }}
               className="whitespace-nowrap"
             >
               Giỏ quà <br />
@@ -136,7 +136,7 @@ export default function HomePage() {
           {/* Middle – image (container ratio matches image ratio so no letterbox) */}
           <div className="relative aspect-[636/538] reveal-scale">
             <Image
-              src="/images/section2-sum-vay.png"
+              src="/images/section2-anh-nen-2.png"
               alt="Giỏ hoa và quà Sum Vầy Trọn Tình Yêu"
               fill
               className="object-cover"
@@ -158,7 +158,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/san-pham"
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "18px" }}
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "18px", fontWeight: 700 }}
               className="inline-flex items-center gap-3 uppercase tracking-[0.15em] hover:gap-5 transition-all"
             >
               MUA NGAY
@@ -199,7 +199,7 @@ export default function HomePage() {
                 {interleaved.map((logo, idx) => (
                   <div
                     key={`${i}-${idx}`}
-                    style={{ width: '307px', height: '213px' }}
+                    style={{ width: '246px', height: '170px' }}
                     className="relative shrink-0"
                   >
                     <Image
@@ -294,7 +294,7 @@ export default function HomePage() {
                     />
                   </div>
                   <h3
-                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30", fontWeight: 700 }}
                     className="mt-5 text-lg"
                   >
                     {item.name}
@@ -308,7 +308,7 @@ export default function HomePage() {
                 </Link>
                 <div className="mt-3 flex items-center justify-between">
                   <p
-                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30" }}
+                    style={{ fontFamily: "var(--font-nunito-sans)", color: "#433b30", fontWeight: 700 }}
                     className="text-base"
                   >
                     {item.price}

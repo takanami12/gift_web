@@ -391,6 +391,7 @@ main {
   font-size: 12.5px;
   font-weight: 400;
   letter-spacing: 0.1em;
+  color: #443b30;
 }
 
 /* === Hero (Trang 1) — full-bleed background + left overlay === */
@@ -436,7 +437,7 @@ main {
 }
 .hero-eyebrow {
   margin-bottom: 18px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -444,7 +445,7 @@ main {
 }
 .hero-title {
   margin-bottom: 26px;
-  font-size: clamp(46px, 5.6vw, 88px);
+  font-size: clamp(52px, 6.4vw, 96px);
   line-height: 1.04;
   font-weight: 400;
   color: #433b30;
@@ -714,7 +715,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 72px 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;

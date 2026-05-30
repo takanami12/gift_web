@@ -35,7 +35,7 @@ export default function Navbar() {
       <nav className="cocoon-nav">
         <div className="max-w-[1400px] mx-auto px-6">
           {/* Row 1: search · logo · right cluster */}
-          <div className="flex items-center justify-between gap-4 py-4">
+          <div className="flex items-center justify-between gap-4 py-2">
             {/* Left — Search bar */}
             <div className="flex-1 flex items-center">
               <form
@@ -54,8 +54,8 @@ export default function Navbar() {
               <Link href="/" className="flex flex-col items-center gap-0">
                 <span className="text-[10px] tracking-[0.3em] text-stone-400 uppercase">the</span>
                 <span
-                  className="text-3xl font-serif font-bold tracking-wide text-[#b8860b]"
-                  style={{ fontVariant: 'small-caps' }}
+                  className="text-3xl font-bold tracking-wide"
+                  style={{ fontFamily: 'var(--font-bodoni)', color: '#433B30', fontVariant: 'small-caps' }}
                 >
                   GIFT GLAMOROUS
                 </span>
@@ -93,7 +93,7 @@ export default function Navbar() {
 
           {/* Row 2: 5 menu links (centered) */}
           <div
-            className="nav-menu-row hidden lg:flex items-center justify-center gap-10 py-3"
+            className="nav-menu-row hidden lg:flex items-center justify-center gap-10 py-1.5"
             style={barlow}
           >
             {/* Sản phẩm — dropdown */}

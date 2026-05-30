@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Inter, Barlow_Condensed, Barlow, Playfair_Display, Luxurious_Script, Vollkorn, Nunito_Sans, Anton } from "next/font/google";
+import { Noto_Serif, Inter, Barlow_Condensed, Barlow, Playfair_Display, Luxurious_Script, Vollkorn, Nunito_Sans, Anton, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -71,6 +71,14 @@ const luxuriousScript = Luxurious_Script({
   display: "swap",
 });
 
+const bodoniModa = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Gift Glamorous - Bộ Sưu Tập Quà Tặng Cao Cấp",
   description:
@@ -93,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${notoSerif.variable} ${inter.variable} ${barlowCondensed.variable} ${barlow.variable} ${playfairDisplay.variable} ${luxuriousScript.variable} ${vollkorn.variable} ${nunitoSans.variable} ${anton.variable}`}>
+    <html lang="vi" className={`${notoSerif.variable} ${inter.variable} ${barlowCondensed.variable} ${barlow.variable} ${playfairDisplay.variable} ${luxuriousScript.variable} ${vollkorn.variable} ${nunitoSans.variable} ${anton.variable} ${bodoniModa.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

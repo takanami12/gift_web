@@ -4,13 +4,13 @@ export default function Footer() {
   return (
     <footer className="w-full mt-auto bg-[#fefbf4]">
       {/* Main 3-column */}
-      <div className="bg-[#fefbf4] px-6 lg:px-20 py-16">
+      <div className="bg-[#fefbf4] px-6 lg:px-20 py-8">
         <div className="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Col 1 — Brand + Contact */}
           <div>
-            <h3 style={{ fontFamily: "var(--font-barlow-condensed)" }} className="text-3xl mb-5">
+            <h3 style={{ fontFamily: "var(--font-barlow-condensed)" }} className="text-xl mb-5">
               <span style={{ color: "#433b30" }} className="font-bold">GIFT </span>
-              <span style={{ color: "#b8860b" }} className="font-bold">Glamorous</span>
+              <span style={{ color: "#b1997e" }} className="font-bold">Glamorous</span>
             </h3>
             <p
               style={{ fontFamily: "var(--font-barlow)", color: "#5c5852" }}
@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Col 2 — Khám phá */}
           <div className="lg:pl-8">
             <h3
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17" }}
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }}
               className="text-xl font-bold uppercase tracking-[0.08em] mb-6"
             >
               Khám phá
@@ -71,8 +71,8 @@ export default function Footer() {
           {/* Col 3 — Newsletter */}
           <div>
             <h3
-              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#1f1c17" }}
-              className="text-base leading-relaxed mb-6"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }}
+              className="text-xl leading-relaxed mb-6"
             >
               Đăng ký để nhận thông tin khuyến mãi sớm nhất tại Gift Glamorous
             </h3>
@@ -101,7 +101,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom — Copyright stripe */}
-      <div className="bg-[#433b30] py-4 text-center">
+      <div className="bg-[#433b30] py-2 text-center">
         <p
           style={{ fontFamily: "var(--font-barlow)", color: "#fefbf4" }}
           className="text-xs uppercase tracking-[0.15em] font-semibold"
