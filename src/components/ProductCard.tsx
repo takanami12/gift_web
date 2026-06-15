@@ -30,6 +30,11 @@ export default function ProductCard({
     return (
       <Link href={`/san-pham/${product.slug}`} className="group cursor-pointer">
         <div className="aspect-[1/1.2] overflow-hidden bg-[#f5f3ed] mb-5 relative">
+          {product.savings && (
+            <div className="absolute top-3 left-3 z-10 bg-[#d8232a] text-white px-3 py-1 text-xs font-bold">
+              Tiết kiệm {product.savings.toLocaleString("vi-VN")}đ
+            </div>
+          )}
           <Image
             src={product.image}
             alt={product.name}
@@ -64,25 +69,33 @@ export default function ProductCard({
             </div>
           </div>
         </div>
-        <h3 className="font-serif text-lg mb-1 group-hover:text-[#2d4a3e] transition-colors duration-300">
+        <h3 style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 700 }} className="text-lg mb-1 transition-colors duration-300">
           {product.name}
         </h3>
-        <p className="text-stone-400 text-sm mb-3 line-clamp-1 font-light">
+        <p style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-sm mb-3 line-clamp-1 font-light">
           {product.description}
         </p>
         <div className="flex items-center justify-between">
-          <span className="text-[#2d4a3e] font-bold">
-            {product.price}
-          </span>
+          <div className="flex flex-col">
+            <span style={{ fontFamily: "var(--font-barlow)", color: "#d8232a" }} className="font-bold">
+              Từ {product.price}
+            </span>
+            {product.originalPrice && (
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30", opacity: 0.45, fontSize: "13px", textDecoration: "line-through" }}>
+                {product.originalPrice.toLocaleString("vi-VN")}đ
+              </span>
+            )}
+          </div>
           <button
             onClick={handleAdd}
             className={`w-9 h-9 flex items-center justify-center transition-all duration-300 cursor-pointer ${
               added
-                ? "bg-[#2d4a3e] text-white"
-                : "bg-[#2d4a3e] text-white hover:bg-[#1e3329]"
+                ? "bg-[#433b30] text-white"
+                : "text-white hover:opacity-80"
             }`}
+            style={{ backgroundColor: added ? "#433b30" : "#eedecd" }}
           >
-            <span className="material-symbols-outlined text-lg">
+            <span className="material-symbols-outlined text-lg" style={{ color: "#433b30" }}>
               {added ? "check" : "shopping_bag"}
             </span>
           </button>

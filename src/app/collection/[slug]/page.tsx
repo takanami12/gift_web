@@ -53,19 +53,11 @@ export default async function CollectionPage({
   );
 
   return (
-    <div className="pt-0 pb-20 min-h-screen bg-stone-50">
-      <div className="max-w-7xl mx-auto px-8 text-center mb-16">
+    <div className="pt-0 pb-20 min-h-screen" style={{ backgroundColor: "#fffcf5" }}>
+      <div className="max-w-7xl mx-auto px-8 text-center mb-16 pt-5">
         {/* Breadcrumbs */}
-        <nav className="flex items-center justify-center gap-2 text-xs text-stone-400 mb-8 uppercase tracking-widest">
-          <Link href="/" className="hover:text-primary transition-colors">Trang chủ</Link>
-          <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-          <Link href="/san-pham" className="hover:text-primary transition-colors">Sản phẩm</Link>
-          <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-          <span className="text-stone-600 font-bold">{title}</span>
-        </nav>
-
         <header>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
+          <h1 style={{ fontFamily: "var(--font-playfair)", color: "#433b30"}} className="text-4xl md:text-6xl font-bold mb-6">
             {title}
           </h1>
           {subtitle && (
@@ -78,7 +70,7 @@ export default async function CollectionPage({
 
       <div className="max-w-7xl mx-auto px-8">
         {products.length > 0 ? (
-          <ProductFilters products={products} />
+          <ProductFilters products={products} slug={slug} />
         ) : (
           <div className="bg-white rounded-2xl p-20 text-center border border-stone-100 shadow-sm max-w-3xl mx-auto">
             <span className="material-symbols-outlined text-6xl text-stone-200 mb-4 block">
