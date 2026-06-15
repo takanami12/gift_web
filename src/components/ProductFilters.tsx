@@ -4,34 +4,43 @@ import { useState, useMemo } from "react";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/lib/data";
 
-const CATEGORIES = [
-  "Hộp Quà Gỗ Sơn Mài",
-  "Giỏ Quà Mây Tre Đan",
-  "Bộ Trà & Rượu",
-  "Hạt & Trái Cây Sấy",
-  "Trà & Coffee",
-];
-const RECIPIENTS = [
-  "Người Yêu",
-  "Cha Mẹ",
-  "Đối Tác Kinh Doanh",
-  "Bạn Bè & Đồng Nghiệp",
-  "Gia Đình & Người Thân",
-];
+const getCategoriesAndRecipients = (slug?: string) => {
+  if (slug === "doanh-nghiep") {
+    return {
+      categories: ["Đỏ Thịnh Vượng", "Xanh Lục Bảo", "Xanh Dương Thượng Hạng"],
+      recipients: ["Đối tác chiến lược & VIP", "Cán bộ & Nhân viên", "Đại lý & Nhà phân phối"],
+      categoryLabel: "Màu Sắc",
+    };
+  }
+  if (slug === "tet") {
+    return {
+      categories: ["Đỏ Thịnh Vượng", "Xanh Lục Bảo", "Xanh Dương Thượng Hạng"],
+      recipients: ["Đối tác chiến lược & VIP", "Cán bộ & Nhân viên", "Đại lý & Nhà phân phối"],
+      categoryLabel: "Màu Sắc",
+    };
+  }
+  return {
+    categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+    recipients: ["Thầy giáo", "Cô giáo"],
+    categoryLabel: "Loại Quà Tặng",
+  };
+};
 
 
 const PRICE_RANGES = [
   { label: "Dưới 500.000₫", min: 0, max: 500000 },
-  { label: "500.000₫ - 1.500.000₫", min: 500000, max: 1500000 },
-  { label: "Trên 1.500.000₫", min: 1500000, max: Infinity },
+  { label: "500.000₫ - 1.000.000₫", min: 500000, max: 1000000 },
+  { label: "Trên 1.000.000₫", min: 1000000, max: Infinity },
 ];
 type SortOption = "popular" | "price-asc" | "price-desc" | "newest";
 
 interface Props {
   products: Product[];
+  slug?: string;
 }
 
-export default function ProductFilters({ products }: Props) {
+export default function ProductFilters({ products, slug }: Props) {
+  const { categories: CATEGORIES, recipients: RECIPIENTS, categoryLabel } = getCategoriesAndRecipients(slug);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedRecipients, setSelectedRecipients] = useState<string[]>([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState<number | null>(null);
@@ -120,10 +129,10 @@ export default function ProductFilters({ products }: Props) {
       <aside className="w-full lg:w-64 flex-shrink-0 space-y-12">
         {/* Gift Type */}
         <section>
-          <h3 className="font-headline text-xl mb-6 flex items-center gap-3">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            Loại Quà Tặng
-          </h3>
+          <h3 className="text-xl mb-6 flex items-center gap-3">
+          <span className="w-1 h-5 rounded-full" style={{ backgroundColor: "#433b30" }}></span>
+          <span style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontWeight: 700 }}>{categoryLabel}</span>
+        </h3>
           <div className="space-y-4">
             {CATEGORIES.map((label) => (
               <label
@@ -131,17 +140,15 @@ export default function ProductFilters({ products }: Props) {
                 className="flex items-center group cursor-pointer"
               >
                 <input
-                  className="w-4 h-4 border-stone-300 text-primary focus:ring-primary rounded-sm bg-transparent cursor-pointer"
+                  className="w-4 h-4 rounded-sm cursor-pointer"
+                  style={{ borderColor: "#433b30", backgroundColor: "#fffefa", accentColor: "#433b30" }}
                   type="checkbox"
                   checked={selectedCategories.includes(label)}
                   onChange={() => toggleCategory(label)}
                 />
                 <span
-                  className={`ml-3 font-body transition-colors ${
-                    selectedCategories.includes(label)
-                      ? "text-primary font-semibold"
-                      : "text-stone-600 group-hover:text-primary"
-                  }`}
+                  style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }}
+                  className="ml-3 transition-colors"
                 >
                   {label}
                 </span>
@@ -152,9 +159,9 @@ export default function ProductFilters({ products }: Props) {
 
         {/* Recipient */}
         <section>
-          <h3 className="font-headline text-xl mb-6 flex items-center gap-3">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            Đối Tượng
+          <h3 className="text-xl mb-6 flex items-center gap-3">
+            <span className="w-1 h-5 rounded-full" style={{ backgroundColor: "#433b30" }}></span>
+            <span style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontWeight: 700 }}>Đối Tượng</span>
           </h3>
           <div className="space-y-4">
             {RECIPIENTS.map((label) => (
@@ -163,17 +170,15 @@ export default function ProductFilters({ products }: Props) {
                 className="flex items-center group cursor-pointer"
               >
                 <input
-                  className="w-4 h-4 border-stone-300 text-primary focus:ring-primary rounded-sm bg-transparent cursor-pointer"
+                  className="w-4 h-4 rounded-sm cursor-pointer"
+                  style={{ borderColor: "#433b30", backgroundColor: "#fffefa", accentColor: "#433b30" }}
                   type="checkbox"
-                  checked={selectedRecipients.includes(label)}
-                  onChange={() => toggleRecipient(label)}
+                  checked={selectedCategories.includes(label)}
+                  onChange={() => toggleCategory(label)}
                 />
                 <span
-                  className={`ml-3 font-body transition-colors ${
-                    selectedRecipients.includes(label)
-                      ? "text-primary font-semibold"
-                      : "text-stone-600 group-hover:text-primary"
-                  }`}
+                  style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }}
+                  className="ml-3 transition-colors"
                 >
                   {label}
                 </span>
@@ -184,9 +189,9 @@ export default function ProductFilters({ products }: Props) {
 
         {/* Price Range */}
         <section>
-          <h3 className="font-headline text-xl mb-6 flex items-center gap-3">
-            <span className="w-1 h-5 bg-primary rounded-full"></span>
-            Khoảng Giá
+          <h3 className="text-xl mb-6 flex items-center gap-3">
+            <span className="w-1 h-5 rounded-full" style={{ backgroundColor: "#433b30" }}></span>
+            <span style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontWeight: 700 }}>Khoảng Giá</span>
           </h3>
           <div className="space-y-4">
             {PRICE_RANGES.map((range, idx) => (
@@ -195,18 +200,16 @@ export default function ProductFilters({ products }: Props) {
                 className="flex items-center group cursor-pointer"
               >
                 <input
-                  className="w-4 h-4 border-stone-300 text-primary focus:ring-primary bg-transparent cursor-pointer"
+                  className="w-4 h-4 cursor-pointer"
+                  style={{ accentColor: "#433b30" }}
                   name="price"
                   type="radio"
                   checked={selectedPriceRange === idx}
                   onChange={() => togglePriceRange(idx)}
                 />
                 <span
-                  className={`ml-3 font-body transition-colors ${
-                    selectedPriceRange === idx
-                      ? "text-primary font-semibold"
-                      : "text-stone-600 group-hover:text-primary"
-                  }`}
+                  style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }}
+                  className="ml-3 transition-colors"
                 >
                   {range.label}
                 </span>
@@ -221,15 +224,15 @@ export default function ProductFilters({ products }: Props) {
         {/* Sorting & View Info */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-6 border-b border-stone-200 pb-6">
           <div className="flex items-center gap-4 flex-wrap">
-            <p className="font-body text-stone-500">
+            <p style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "18px" }}>
               Hiển thị{" "}
-              <span className="font-bold text-on-surface">
+              <span style={{ color: "#433b30" }} className="font-bold">
                 {filteredProducts.length}
               </span>{" "}
               {filteredProducts.length < products.length && (
                 <span className="text-stone-400">/ {products.length} </span>
               )}
-              sản phẩm tuyệt tác
+              sản phẩm 
             </p>
             <button
               onClick={clearAll}
@@ -244,11 +247,12 @@ export default function ProductFilters({ products }: Props) {
             </button>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-label text-sm uppercase tracking-[0.1em] text-stone-400">
+            <span style={{ fontFamily: "var(--font-barlow-condensed)", color: "#877e75", fontSize: "18px" }} className="text-sm uppercase tracking-[0.1em]">
               Sắp xếp:
             </span>
             <select
-              className="bg-transparent border-none py-1 pr-10 font-body focus:ring-0 text-on-surface font-semibold cursor-pointer"
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "18px" }}
+              className="bg-transparent border-none py-1 pr-10 focus:ring-0 font-semibold cursor-pointer" 
               value={sortBy}
               onChange={(e) => { setSortBy(e.target.value as SortOption); setAnimKey((k) => k + 1); }}
             >

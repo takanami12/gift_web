@@ -5,7 +5,7 @@
   --color-primary: #2d4a3e;
   --color-primary-container: #3d5e4f;
   --color-primary-dark: #1e3329;
-  --color-on-primary: #ffffff;
+  --color-on-primary: #fffefa;
   --color-on-primary-container: #e8f5e9;
   --color-primary-fixed: #c8e6c9;
   --color-primary-fixed-dim: #a5d6a7;
@@ -14,7 +14,7 @@
   /* === Secondary (Warm Gold / Mustard - Cocoon Accent) === */
   --color-secondary: #c9a55c;
   --color-secondary-container: #e6c887;
-  --color-on-secondary: #ffffff;
+  --color-on-secondary: #fffefa;
   --color-on-secondary-container: #4a3b1a;
   --color-secondary-fixed: #ffdf9c;
   --color-secondary-fixed-dim: #e4c379;
@@ -22,7 +22,7 @@
   /* === Tertiary (Warm Brown) === */
   --color-tertiary: #6d5147;
   --color-tertiary-container: #87695e;
-  --color-on-tertiary: #ffffff;
+  --color-on-tertiary: #fffefa;
   --color-on-tertiary-container: #fff2ee;
   --color-tertiary-fixed: #ffdbce;
   --color-tertiary-fixed-dim: #e4beb2;
@@ -36,7 +36,7 @@
   --color-surface-container-low: #f7f4ed;
   --color-surface-container-high: #edeae3;
   --color-surface-container-highest: #e7e4dd;
-  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-lowest: #fffefa;
   --color-surface-variant: #e7e4dd;
   --color-surface-tint: #2d4a3e;
   --color-on-surface: #1a1c1a;
@@ -52,7 +52,7 @@
   /* === Error === */
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
-  --color-on-error: #ffffff;
+  --color-on-error: #fffefa;
   --color-on-error-container: #93000a;
 
   /* === Mustard / Hero Accent === */
@@ -143,12 +143,12 @@
 /* === Base === */
 body {
   font-family: var(--font-body);
-  background-color: #faf8f3;
+  background-color: #fffcf5;
   color: var(--color-on-surface);
 }
 
 main {
-  background: #faf8f3;
+  background: #fffcf5;
 }
 
 ::selection {
@@ -163,9 +163,9 @@ main {
 /* === Announcement Bar === */
 .announcement-bar {
   background-color: #f6dfd1;
-  color: #4a3a2c;
+  color: #433b30;
   text-align: center;
-  padding: 11px 0;
+  padding: 3px 0;
   font-size: 13px;
   letter-spacing: 0.04em;
   font-weight: 500;
@@ -182,10 +182,9 @@ main {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: #333;
+  color: #433b30;
   transition: color 0.3s;
   position: relative;
-  padding: 8px 0;
 }
 
 .cocoon-nav-link::after {
@@ -195,14 +194,14 @@ main {
   left: 0;
   width: 100%;
   height: 1.5px;
-  background: #2d4a3e;
+  background: #433b30;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .cocoon-nav-link:hover {
-  color: #2d4a3e;
+  color: #433b30;
 }
 
 .cocoon-nav-link:hover::after {
@@ -213,7 +212,7 @@ main {
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
-  background-color: #2d4a3e;
+  background-color: #433b30;
   color: rgba(255, 255, 255, 0.9);
   padding: 10px 0;
 }
@@ -254,7 +253,7 @@ main {
 
 .hero-dark {
   background-color: #fefbf4;
-  color: #111;
+  color: #433b30;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -311,10 +310,9 @@ main {
   gap: 8px;
   width: 100%;
   max-width: 240px;
-  padding: 9px 16px;
+  padding: 5px 10px;
   border-radius: 9999px;
-  background: #f7f3ec;
-  border: 1px solid rgba(74, 58, 44, 0.12);
+  background: #f4eee0;
   color: #9a9388;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
@@ -340,17 +338,17 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 20px;
-  border-radius: 9999px;
+  padding: 5px 10px;
+  border-radius: 7px;
   background: #433b30;
-  color: #fff;
+  color: #fffcf5;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 .nav-pill-dark:hover {
-  background: #564c3d;
+  background: #877e75;
   transform: translateY(-1px);
 }
 .nav-icon-link {
@@ -359,11 +357,11 @@ main {
   gap: 7px;
   font-size: 13px;
   font-weight: 500;
-  color: #4a443b;
+  color: #433b30;
   transition: color 0.3s ease;
 }
 .nav-icon-link:hover {
-  color: #2d4a3e;
+  color: #877e75;
 }
 .cart-badge {
   position: absolute;
@@ -372,8 +370,8 @@ main {
   width: 16px;
   height: 16px;
   border-radius: 9999px;
-  background: #2d4a3e;
-  color: #fff;
+  background: #433b30;
+  color: #fffcf5;
   font-size: 9px;
   font-weight: 700;
   display: flex;
@@ -439,7 +437,7 @@ main {
   margin-bottom: 18px;
   font-size: 24px;
   font-weight: 400;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #433b30;
 }
@@ -497,7 +495,7 @@ main {
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 10px 0;
 }
 
 .section-padding-sm {
@@ -506,14 +504,14 @@ main {
 
 /* === Decorative Backgrounds === */
 .bg-leaf-pattern {
-  background-color: #ffffff;
+  background-color: #fffefa;
   background-image: 
     url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,30 Q50,5 80,30 Q110,60 80,90 Q50,115 30,90 Q5,60 30,30 Z' fill='%232d4a3e' fill-opacity='0.02' transform='rotate(45 60 60)'/%3E%3C/svg%3E");
   background-size: 300px 300px;
 }
 
 .bg-texture-dots {
-  background-color: #ffffff;
+  background-color: #fffefa;
   background-image: radial-gradient(circle at 2px 2px, rgba(45, 74, 62, 0.04) 2px, transparent 0);
   background-size: 40px 40px;
 }
@@ -715,7 +713,6 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -736,7 +733,8 @@ main {
 }
 
 .nav-dropdown-item {
-  @apply px-4 py-2.5 text-[13px] text-stone-600 hover:bg-stone-50 hover:text-primary transition-all duration-200 flex items-center justify-between;
+  @apply px-4 py-2.5 text-[13px] transition-all duration-200 flex items-center justify-between hover:bg-stone-50 hover:font-bold;
+  color: #433b30;
 }
 
 .nav-dropdown-item span.icon {

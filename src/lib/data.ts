@@ -1,6 +1,8 @@
 export interface Product {
   slug: string;
   name: string;
+  originalPrice?: number;
+  savings?: number;
   description: string;
   price: string;
   priceNumber: number;
@@ -113,12 +115,12 @@ export const bestsellers: Product[] = [
 export const allProducts: Product[] = [
   {
     "slug": "qua-tang-trung-thu-1",
-    "name": "Đoàn Viên Hội Ngộ #1",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Fusion Moon 1",
+    "description": "Hộp Quà Bánh Trung Thu Trái Cây Sang Trọng",
+    "price": "793.000₫",
+    "priceNumber": 793000,
+    "image": "/images/trung-thu1.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
       "Người Yêu",
       "Đối Tác Kinh Doanh"
@@ -130,12 +132,12 @@ export const allProducts: Product[] = [
   },
   {
     "slug": "qua-tang-trung-thu-2",
-    "name": "Đoàn Viên Hội Ngộ #2",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.900.000₫",
-    "priceNumber": 2900000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Fusion Moon 2",
+    "description": "Hộp Quà Bánh Trung Thu Trái Cây",
+    "price": "1.350.000₫",
+    "priceNumber": 1350000,
+    "image": "/images/trung-thu2.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
       "Người Yêu"
     ],
@@ -144,52 +146,22 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-20-10-3",
-    "name": "Tri Ân Phái Đẹp #3",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.200.000₫",
-    "priceNumber": 2200000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-4",
-    "name": "Duyên Định Trăm Năm #4",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
+
   {
     "slug": "qua-tang-20-11-5",
-    "name": "Tri Ân Thầm Lặng #5",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "600.000₫",
-    "priceNumber": 600000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Deluxe Venture 1",
+    "description": "Hộp Quà Vang Đặt Cát & Hồng Sâm Thượng Hạng",
+    "price": "694.000₫",
+    "priceNumber": 694000,
+    "originalPrice": 750000,
+    "savings": 56000,
+    "image": "/images/qua-tet1.png",
+    "category": "Xanh Dương Thượng Hạng",
     "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
+      "Đối tác chiến lược & VIP"
     ],
     "occasions": [
-      "20-11"
+      "tet"
     ],
     "topics": [
       "doanh-nghiep"
@@ -197,12 +169,12 @@ export const allProducts: Product[] = [
   },
   {
     "slug": "qua-tang-trung-thu-6",
-    "name": "Thưởng Nguyệt Tinh Hoa #6",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Fusion Moon 3",
+    "description": "Hộp Quà Bánh Trung Thu Trái Cây Truyền Thống",
+    "price": "674.000₫",
+    "priceNumber": 674000,
+    "image": "/images/trung-thu3.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
       "Bạn Bè & Đồng Nghiệp"
     ],
@@ -211,32 +183,15 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-doanh-nghiep-7",
-    "name": "Tiên Phong Bứt Phá #7",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "600.000₫",
-    "priceNumber": 600000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+  
   {
     "slug": "qua-tang-trung-thu-8",
-    "name": "Đoàn Viên Hội Ngộ #8",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.800.000₫",
-    "priceNumber": 2800000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Fusion Moon 4",
+    "description": "Giỏ Quà Bánh Trung Thu Trái Cây Cổ Điển",
+    "price": "949.000₫",
+    "priceNumber": 949000,
+    "image": "/images/trung-thu4.png",
+    "category": "Giỏ Quà Tặng",
     "recipient": [
       "Đối Tác Kinh Doanh"
     ],
@@ -245,64 +200,30 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-20-10-9",
-    "name": "Nét Đẹp Vĩnh Hằng #9",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.500.000₫",
-    "priceNumber": 1500000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-20-11-10",
-    "name": "Vườn Ươm Tài Năng #10",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-11"
-    ],
+    "name": "Gratitude Grace 1",
+    "description": "Giỏ Quà Trái Cây - Lê, Kiwi, Cam, Hoa Tươi",
+    "price": "674.000₫",
+    "priceNumber": 674000,
+    "originalPrice": 742000,
+    "savings": 68000,
+    "image": "/images/hoa1.png",
+    "category": "Giỏ Quà Tặng",
+    "recipient": ["Cô giáo"],
+    "occasions": ["20-11","20-10","valentine","8-3"],
     "topics": []
   },
-  {
-    "slug": "qua-tang-doanh-nghiep-11",
-    "name": "Vững Bước Thành Công #11",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "800.000₫",
-    "priceNumber": 800000,
-    "image": "/images/list-phu-quy.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+    
   {
     "slug": "qua-tang-trung-thu-12",
-    "name": "Thưởng Nguyệt Tinh Hoa #12",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "900.000₫",
-    "priceNumber": 900000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Fusion Moon 5",
+    "description": "Giỏ Quà Bánh Trung Thu Trái Cây Tinh Tế",
+    "price": "1.088.000₫",
+    "priceNumber": 1088000,
+    "image": "/images/trung-thu5.png",
+    "category": "Giỏ Quà Tặng",
     "recipient": [
       "Người Yêu"
     ],
@@ -311,333 +232,88 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-giang-sinh-13",
-    "name": "Món Quà Giáng Sinh #13",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-14",
-    "name": "Sum Vầy Đoàn Viên #14",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "1.200.000₫",
-    "priceNumber": 1200000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-20-11-15",
-    "name": "Người Lái Đò Tận Tâm #15",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Người Yêu",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-16",
-    "name": "Lộc Xuân Như Ý #16",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.200.000₫",
-    "priceNumber": 2200000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-17",
-    "name": "Duyên Định Trăm Năm #17",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-trung-thu-18",
-    "name": "Đoàn Viên Hội Ngộ #18",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-19",
-    "name": "Duyên Định Trăm Năm #19",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "700.000₫",
-    "priceNumber": 700000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-20",
-    "name": "Gửi Trọn Yêu Thương #20",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.600.000₫",
-    "priceNumber": 1600000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-21",
-    "name": "Lời Yêu Ngọt Ngào #21",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.800.000₫",
-    "priceNumber": 1800000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-22",
-    "name": "Tình Nồng Khởi Sắc #22",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-20-11-23",
-    "name": "Vườn Ươm Tài Năng #23",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "2.700.000₫",
-    "priceNumber": 2700000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Gratitude Grace 2",
+    "description": "Hộp Vali Quà Trái Cây Cam Vàng, Kiwi, Táo Đỏ",
+    "price": "1.370.000₫",
+    "priceNumber": 1370000,
+    "originalPrice": 1507000,
+    "savings": 137000,
+    "image": "/images/hoa2.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
-      "Đối Tác Kinh Doanh"
+      "Cô giáo"
     ],
     "occasions": [
-      "20-11"
+      "20-11","20-10","valentine","8-3"
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-tet-24",
-    "name": "Giao Xuân Tinh Hoa #24",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "3.400.000₫",
-    "priceNumber": 3400000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-giang-sinh-25",
-    "name": "Lễ Hội Ánh Sáng #25",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-26",
-    "name": "Trăng Vàng Phố Cổ #26",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "700.000₫",
-    "priceNumber": 700000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+ 
   {
     "slug": "qua-tang-20-11-27",
-    "name": "Tri Ân Thầm Lặng #27",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Gratitude Grace 3",
+    "description": "Hộp Quà Tròn Trái Cây– Cherry đỏ, Dâu Hàn",
+    "price": "1.176.000₫",
+    "priceNumber": 1176000,
+    "originalPrice": 1294000,
+    "savings": 118000,
+    "image": "/images/hoa3.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
-      "Người Yêu",
-      "Bạn Bè & Đồng Nghiệp"
+      "Thầy giáo"
     ],
     "occasions": [
-      "20-11"
+      "20-11","20-10","valentine","8-3"
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-trung-thu-28",
-    "name": "Trăng Vàng Phố Cổ #28",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "1.800.000₫",
-    "priceNumber": 1800000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-20-11-29",
-    "name": "Tri Ân Thầm Lặng #29",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Gratitude Grace 4",
+    "description": "Hộp Quà Trái Cây Dâu Hàn, Kiwi Vàng & Sữa Hạt",
+    "price": "919.000₫",
+    "priceNumber": 919000,
+    "originalPrice": 1011000,
+    "savings": 92000,
+    "image": "/images/hoa4.png",
+    "category": "Hộp Quà Tặng",
     "recipient": [
-      "Người Yêu"
+      "Thầy giáo"
     ],
     "occasions": [
-      "20-11"
+      "20-11","20-10","valentine","8-3"
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-doanh-nghiep-30",
-    "name": "Vững Bước Thành Công #30",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.900.000₫",
-    "priceNumber": 2900000,
-    "image": "/images/list-phu-quy.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+ 
   {
     "slug": "qua-tang-20-11-31",
-    "name": "Người Lái Đò Tận Tâm #31",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
+    "name": "Gratitude Grace 5",
+    "description": "Giỏ Quà Trái Cây Nho Xanh, Táo Đỏ, Lê Hàn",
+    "price": "1.766.000₫",
+    "priceNumber": 1766000,
+    "originalPrice": 1943000,
+    "savings": 177000,
+    "image": "/images/hoa5.png",
+    "category": "Giỏ Quà Tặng",
     "recipient": [
-      "Cha Mẹ"
+      "Cô giáo"
     ],
     "occasions": [
-      "20-11"
+      "20-11","20-10","valentine","8-3"
     ],
     "topics": []
   },
   {
     "slug": "qua-tang-valentine-32",
-    "name": "Duyên Định Trăm Năm #32",
+    "name": "Duyên Định Trăm Năm",
     "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
+    "price": "450.000₫",
+    "priceNumber": 450000,
     "image": "/images/list-tam-giao.jpg",
     "category": "Hộp Quà Gỗ Sơn Mai",
     "recipient": [
@@ -649,351 +325,7 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-trung-thu-33",
-    "name": "Lồng Đèn Tỏa Sáng #33",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "3.300.000₫",
-    "priceNumber": 3300000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-34",
-    "name": "Tâm Tình Gửi Chị #34",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.900.000₫",
-    "priceNumber": 2900000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-35",
-    "name": "Tâm Tình Gửi Chị #35",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-36",
-    "name": "Nét Đẹp Vĩnh Hằng #36",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-20-10-37",
-    "name": "Sắc Hồng Kiêu Sa #37",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "500.000₫",
-    "priceNumber": 500000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-38",
-    "name": "An Khang Thịnh Vượng #38",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-39",
-    "name": "Nhịp Đập Trái Tim #39",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "700.000₫",
-    "priceNumber": 700000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-giang-sinh-40",
-    "name": "Đêm Đông Ấm Áp #40",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "2.400.000₫",
-    "priceNumber": 2400000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Người Yêu",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-41",
-    "name": "Ơn Thầy Nghĩa Cô #41",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "500.000₫",
-    "priceNumber": 500000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-giang-sinh-42",
-    "name": "Đêm Đông Ấm Áp #42",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "1.500.000₫",
-    "priceNumber": 1500000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-43",
-    "name": "Tri Ân Thầm Lặng #43",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.900.000₫",
-    "priceNumber": 1900000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-44",
-    "name": "Sắc Hồng Kiêu Sa #44",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.200.000₫",
-    "priceNumber": 2200000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Cha Mẹ",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-45",
-    "name": "Đối Tác Chiến Lược #45",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.200.000₫",
-    "priceNumber": 2200000,
-    "image": "/images/list-phu-quy.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Đối Tác Kinh Doanh",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-46",
-    "name": "Đối Tác Chiến Lược #46",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.600.000₫",
-    "priceNumber": 2600000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-47",
-    "name": "An Khang Thịnh Vượng #47",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-20-10-48",
-    "name": "Sắc Hồng Kiêu Sa #48",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.200.000₫",
-    "priceNumber": 1200000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-49",
-    "name": "Sum Vầy Đoàn Viên #49",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Người Yêu",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-50",
-    "name": "Cát Tường Phú Quý #50",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "3.400.000₫",
-    "priceNumber": 3400000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-trung-thu-51",
-    "name": "Trăng Vàng Phố Cổ #51",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-52",
-    "name": "Gửi Trọn Yêu Thương #52",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.500.000₫",
-    "priceNumber": 1500000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
+  
   {
     "slug": "qua-tang-giang-sinh-53",
     "name": "Món Quà Giáng Sinh #53",
@@ -1011,278 +343,7 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-20-11-54",
-    "name": "Dấu Ấn Sư Phạm #54",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "3.400.000₫",
-    "priceNumber": 3400000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-55",
-    "name": "Duyên Định Trăm Năm #55",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.600.000₫",
-    "priceNumber": 2600000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-valentine-56",
-    "name": "Tình Nồng Khởi Sắc #56",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "3.100.000₫",
-    "priceNumber": 3100000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-57",
-    "name": "Giao Xuân Tinh Hoa #57",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-58",
-    "name": "Tâm Tình Gửi Chị #58",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-59",
-    "name": "Thưởng Nguyệt Tinh Hoa #59",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.300.000₫",
-    "priceNumber": 2300000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-60",
-    "name": "Sum Vầy Đoàn Viên #60",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-valentine-61",
-    "name": "Tri Kỷ Giao Thoa #61",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "3.400.000₫",
-    "priceNumber": 3400000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-62",
-    "name": "Vườn Ươm Tài Năng #62",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.800.000₫",
-    "priceNumber": 1800000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Cha Mẹ",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-63",
-    "name": "Vườn Ươm Tài Năng #63",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "900.000₫",
-    "priceNumber": 900000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-64",
-    "name": "Lồng Đèn Tỏa Sáng #64",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-65",
-    "name": "Thưởng Nguyệt Tinh Hoa #65",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-66",
-    "name": "Tri Kỷ Giao Thoa #66",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "600.000₫",
-    "priceNumber": 600000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Đối Tác Kinh Doanh",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-67",
-    "name": "Lộc Xuân Như Ý #67",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-68",
-    "name": "Dấu Ấn Sư Phạm #68",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "2.300.000₫",
-    "priceNumber": 2300000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-69",
-    "name": "Vững Bước Thành Công #69",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "1.000.000₫",
-    "priceNumber": 1000000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+ 
   {
     "slug": "qua-tang-giang-sinh-70",
     "name": "Đêm Đông Ấm Áp #70",
@@ -1300,23 +361,7 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-20-10-71",
-    "name": "Nét Đẹp Vĩnh Hằng #71",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.000.000₫",
-    "priceNumber": 1000000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-giang-sinh-72",
     "name": "Vũ Điệu Tuyết Trắng #72",
@@ -1333,486 +378,34 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-tet-73",
-    "name": "Sum Vầy Đoàn Viên #73",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.700.000₫",
-    "priceNumber": 2700000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-74",
-    "name": "Tiên Phong Bứt Phá #74",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "1.300.000₫",
-    "priceNumber": 1300000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-trung-thu-75",
-    "name": "Thiếu Nhi Vui Tết #75",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "600.000₫",
-    "priceNumber": 600000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-76",
-    "name": "Lời Yêu Ngọt Ngào #76",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.800.000₫",
-    "priceNumber": 1800000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-77",
-    "name": "Tiên Phong Bứt Phá #77",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.800.000₫",
-    "priceNumber": 2800000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-78",
-    "name": "Sum Vầy Đoàn Viên #78",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "800.000₫",
-    "priceNumber": 800000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-79",
-    "name": "Thưởng Nguyệt Tinh Hoa #79",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "1.900.000₫",
-    "priceNumber": 1900000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-80",
-    "name": "Đối Tác Chiến Lược #80",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.300.000₫",
-    "priceNumber": 2300000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-tet-81",
-    "name": "Sum Vầy Đoàn Viên #81",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.400.000₫",
-    "priceNumber": 2400000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-82",
-    "name": "Nhịp Đập Trái Tim #82",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-83",
-    "name": "An Khang Thịnh Vượng #83",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "900.000₫",
-    "priceNumber": 900000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-84",
-    "name": "Đoàn Viên Hội Ngộ #84",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "3.000.000₫",
-    "priceNumber": 3000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-giang-sinh-85",
-    "name": "Lễ Hội Ánh Sáng #85",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "1.400.000₫",
-    "priceNumber": 1400000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-valentine-86",
-    "name": "Tri Kỷ Giao Thoa #86",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-87",
-    "name": "An Khang Thịnh Vượng #87",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-88",
-    "name": "Đẳng Cấp Thương Gia #88",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "1.000.000₫",
-    "priceNumber": 1000000,
-    "image": "/images/list-phu-quy.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-giang-sinh-89",
-    "name": "Vũ Điệu Tuyết Trắng #89",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "1.000.000₫",
-    "priceNumber": 1000000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-trung-thu-90",
-    "name": "Đoàn Viên Hội Ngộ #90",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.200.000₫",
-    "priceNumber": 2200000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-91",
-    "name": "Tri Ân Phái Đẹp #91",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.200.000₫",
-    "priceNumber": 1200000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-92",
-    "name": "Đoàn Viên Hội Ngộ #92",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-trung-thu-93",
-    "name": "Trăng Vàng Phố Cổ #93",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "1.500.000₫",
-    "priceNumber": 1500000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-94",
-    "name": "Giao Xuân Tinh Hoa #94",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-95",
-    "name": "Vườn Ươm Tài Năng #95",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-96",
-    "name": "Hợp Tác Toàn Diện #96",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "3.200.000₫",
-    "priceNumber": 3200000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-97",
-    "name": "Vững Bước Thành Công #97",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "1.100.000₫",
-    "priceNumber": 1100000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Người Yêu"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-trung-thu-98",
-    "name": "Thiếu Nhi Vui Tết #98",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "2.100.000₫",
-    "priceNumber": 2100000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-valentine-99",
-    "name": "Tình Nồng Khởi Sắc #99",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.400.000₫",
-    "priceNumber": 2400000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Deluxe Venture 2",
+    "description": "Hộp Quà Vang Thượng Hạng & Bánh Kẹo Nhập Khẩu",
+    "price": "918.000₫",
+    "priceNumber": 918000,
+    "originalPrice": 980000,
+    "savings": 62000,
+    "image": "/images/qua-tet2.png",
+    "category": "Đỏ Thịnh Vượng",
     "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Gia Đình & Người Thân"
+      "Đối tác chiến lược & VIP"
     ],
     "occasions": [
-      "valentine"
+      "tet"
     ],
     "topics": [
       "doanh-nghiep"
     ]
   },
-  {
-    "slug": "qua-tang-doanh-nghiep-100",
-    "name": "Đối Tác Chiến Lược #100",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "3.100.000₫",
-    "priceNumber": 3100000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+  
   {
     "slug": "qua-tang-valentine-101",
-    "name": "Nhịp Đập Trái Tim #101",
+    "name": "Nhịp Đập Trái Tim",
     "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "1.200.000₫",
-    "priceNumber": 1200000,
+    "price": "700.000₫",
+    "priceNumber": 700000,
     "image": "/images/product-vang-ngot.jpg",
     "category": "Bộ Trà & Rượu",
     "recipient": [
@@ -1823,330 +416,72 @@ export const allProducts: Product[] = [
     ],
     "topics": []
   },
-  {
-    "slug": "qua-tang-trung-thu-102",
-    "name": "Trăng Vàng Phố Cổ #102",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "3.100.000₫",
-    "priceNumber": 3100000,
-    "image": "/images/product-gio-tre.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Người Yêu",
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-103",
-    "name": "Cát Tường Phú Quý #103",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh",
-      "Người Yêu"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-tet-104",
-    "name": "Sum Vầy Đoàn Viên #104",
-    "description": "Trà Ô Long Cổ Thụ, Hạt Điều Rang Củi, Mứt Sen Trần",
-    "price": "1.700.000₫",
-    "priceNumber": 1700000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "tet"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-105",
-    "name": "Nét Đẹp Vĩnh Hằng #105",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.600.000₫",
-    "priceNumber": 2600000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Người Yêu",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+ 
   {
     "slug": "qua-tang-trung-thu-106",
-    "name": "Thưởng Nguyệt Tinh Hoa #106",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "600.000₫",
-    "priceNumber": 600000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Deluxe Venture 3",
+    "description": "Hộp Quà Vang Nổ, Trà Anh Quốc & Hạt Dinh Dưỡng",
+    "price": "1.085.000₫",
+    "priceNumber": 1085000,
+    "originalPrice": 1200000,
+    "savings": 115000,
+    "image": "/images/qua-tet3.png",
+    "category": "Xanh Dương Thượng Hạng",
     "recipient": [
-      "Người Yêu"
+      "Cán bộ & Nhân viên",
+      "Đại lý & Nhà phân phối"
     ],
     "occasions": [
-      "trung-thu"
+      "tet"
     ],
     "topics": [
       "doanh-nghiep"
     ]
   },
-  {
-    "slug": "qua-tang-20-10-107",
-    "name": "Tri Ân Phái Đẹp #107",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.500.000₫",
-    "priceNumber": 1500000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp",
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-108",
-    "name": "Gửi Trọn Yêu Thương #108",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "2.900.000₫",
-    "priceNumber": 2900000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Cha Mẹ",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-11-109",
-    "name": "Ơn Thầy Nghĩa Cô #109",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.000.000₫",
-    "priceNumber": 1000000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
+
   {
     "slug": "qua-tang-valentine-110",
-    "name": "Duyên Định Trăm Năm #110",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Bộ Trà & Rượu",
+    "name": "Deluxe Venture 4",
+    "description": "Hộp Quà Vang Pháp, Bánh Thiếc Ý & Trà Cao Cấp",
+    "price": "1.122.000₫",
+    "priceNumber": 1122000,
+    "originalPrice": 1200000,
+    "savings": 78000,
+    "image": "/images/qua-tet4.png",
+    "category": "Đỏ Thịnh Vượng",
     "recipient": [
-      "Người Yêu",
-      "Gia Đình & Người Thân"
+      "Cán bộ & Nhân viên",
+      "Đại lý & Nhà phân phối"
     ],
     "occasions": [
-      "valentine"
+      "tet"
     ],
     "topics": [
       "doanh-nghiep"
     ]
   },
-  {
-    "slug": "qua-tang-trung-thu-111",
-    "name": "Thưởng Nguyệt Tinh Hoa #111",
-    "description": "Bánh Trung Thu Thập Cẩm, Bánh Dẻo Đậu Xanh, Trà Mạn Tân Cương",
-    "price": "900.000₫",
-    "priceNumber": 900000,
-    "image": "/images/list-loc-xuan.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "trung-thu"
-    ],
-    "topics": []
-  },
+ 
   {
     "slug": "qua-tang-doanh-nghiep-112",
-    "name": "Đối Tác Chiến Lược #112",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "1.200.000₫",
-    "priceNumber": 1200000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
+    "name": "Deluxe Venture 5",
+    "description": "Hộp Quà Vang Thượng Hạng, Cà Phê UCC & Súp Sò Điệp",
+    "price": "2.803.000₫",
+    "priceNumber": 2803000,
+    "originalPrice": 3000000,
+    "savings": 197000,
+    "image": "/images/qua-tet5.png",
+    "category": "Xanh Lục Bảo",
     "recipient": [
-      "Gia Đình & Người Thân",
-      "Người Yêu"
+      "Đối tác chiến lược & VIP"
     ],
     "occasions": [
-      "doanh-nghiep"
+      "tet"
     ],
     "topics": [
       "doanh-nghiep"
     ]
   },
-  {
-    "slug": "qua-tang-20-11-113",
-    "name": "Tri Ân Thầm Lặng #113",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "1.900.000₫",
-    "priceNumber": 1900000,
-    "image": "/images/list-van-su.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Gia Đình & Người Thân",
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-114",
-    "name": "Duyên Định Trăm Năm #114",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "2.500.000₫",
-    "priceNumber": 2500000,
-    "image": "/images/list-tam-giao.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Gia Đình & Người Thân"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-115",
-    "name": "Tri Kỷ Giao Thoa #115",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "3.200.000₫",
-    "priceNumber": 3200000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-20-10-116",
-    "name": "Sắc Hồng Kiêu Sa #116",
-    "description": "Trà Hoa Hồng Organic, Mỹ Phẩm Cao Cấp, Bánh Macaron Artisan",
-    "price": "1.600.000₫",
-    "priceNumber": 1600000,
-    "image": "/images/list-sum-vay.jpg",
-    "category": "Giỏ Quà Mây Tre Đan",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "20-10"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-117",
-    "name": "Tri Kỷ Giao Thoa #117",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "3.200.000₫",
-    "priceNumber": 3200000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-doanh-nghiep-118",
-    "name": "Đối Tác Chiến Lược #118",
-    "description": "Sổ Da Thật Cao Cấp, Bút Ký Bọc Vàng, Rượu Whisky 18 Năm",
-    "price": "2.700.000₫",
-    "priceNumber": 2700000,
-    "image": "/images/list-phu-quy.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Bạn Bè & Đồng Nghiệp"
-    ],
-    "occasions": [
-      "doanh-nghiep"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
-  {
-    "slug": "qua-tang-20-11-119",
-    "name": "Tri Ân Thầm Lặng #119",
-    "description": "Bộ Văn Phòng Phẩm Sành Điệu, Trà Tịnh Tâm Cao Cấp, Sách Nghệ Thuật Sống",
-    "price": "500.000₫",
-    "priceNumber": 500000,
-    "image": "/images/product-tra-xuan.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "20-11"
-    ],
-    "topics": []
-  },
-  {
-    "slug": "qua-tang-valentine-120",
-    "name": "Duyên Định Trăm Năm #120",
-    "description": "Socola Artisan Pháp, Vang Hồng Chile, Nến Thơm Tinh Dầu",
-    "price": "3.400.000₫",
-    "priceNumber": 3400000,
-    "image": "/images/product-vang-ngot.jpg",
-    "category": "Bộ Trà & Rượu",
-    "recipient": [
-      "Đối Tác Kinh Doanh"
-    ],
-    "occasions": [
-      "valentine"
-    ],
-    "topics": [
-      "doanh-nghiep"
-    ]
-  },
+ 
   {
     "slug": "mut-trai-cay-say-deo-dan-d-pak-nho-vang",
     "name": "Mứt Trái Cây Sấy Dẻo Dan-D Pak Hộp Tròn Nho Vàng 150g",

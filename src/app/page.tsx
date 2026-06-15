@@ -351,7 +351,7 @@ export default function HomePage() {
       <section className="quote-section">
         <div className="max-w-3xl mx-auto px-8 text-center" data-reveal>
           <div className="reveal-up">
-            <p style={{ fontFamily: "var(--font-playfair)" }} className="text-2xl md:text-3xl italic leading-relaxed text-[#433b30]">
+            <p style={{ fontFamily: "var(--font-playfair)" }} className="text-2xl md:text-3xl italic leading-relaxed text-[#b1997e]">
               &ldquo;Thiết kế quà tặng sáng tạo <br />
               cho trải nghiệm độc bản&rdquo;
             </p>

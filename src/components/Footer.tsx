@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="lg:pl-8">
             <h3
               style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }}
-              className="text-xl font-bold uppercase tracking-[0.08em] mb-6"
+              className="text-xl font-bold mb-6"
             >
               Khám phá
             </h3>
@@ -72,7 +72,7 @@ export default function Footer() {
           <div>
             <h3
               style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }}
-              className="text-xl leading-relaxed mb-6"
+              className="text-xl font-bold leading-relaxed mb-6"
             >
               Đăng ký để nhận thông tin khuyến mãi sớm nhất tại Gift Glamorous
             </h3>
