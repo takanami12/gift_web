@@ -35,6 +35,7 @@ export default function ProductCard({
               Tiết kiệm {product.savings.toLocaleString("vi-VN")}đ
             </div>
           )}
+          <Image
             src={product.image}
             alt={product.name}
             fill
