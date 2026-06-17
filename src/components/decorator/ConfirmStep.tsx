@@ -292,13 +292,18 @@ function VoiceRecorder({
         formData.append("token", token);
 
         fetch("/api/voice", { method: "POST", body: formData })
-          .then((res) => res.json())
-          .then((data) => {
+          .then(async (res) => {
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.url) {
+              throw new Error(data.error || `Upload thất bại (HTTP ${res.status})`);
+            }
             onVoiceChange(data.url, token);
             setPhase("recorded");
           })
-          .catch(() => {
-            setError("Không upload được âm thanh.");
+          .catch((err: unknown) => {
+            const detail = err instanceof Error ? err.message : "lỗi không xác định";
+            setError(`Không upload được âm thanh: ${detail}`);
+            setPhase("idle");
           });
       };
       mr.start();
@@ -478,7 +483,8 @@ function Waveform({ bars, animated }: { bars: number; animated: boolean }) {
 
 function QrCard({ qrToken, hasVoice }: { qrToken: string | null; hasVoice: boolean }) {
   const [qrSrc, setQrSrc] = useState<string | null>(null);
-  const url = qrToken ? `gift-web-ivory.vercel.app/voice/${qrToken}` : null;
+  const host = typeof window !== "undefined" ? window.location.host : "gift-web-ivory.vercel.app";
+  const url = qrToken ? `${host}/voice/${qrToken}` : null;
 
   useEffect(() => {
     if (!url) return;
