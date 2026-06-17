@@ -41,9 +41,9 @@ export default function Stepper({ current, onJump, reachable }: StepperProps) {
               <span
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-[12px] font-bold shadow-sm transition ${
                   isDone
-                    ? "bg-emerald-100 text-emerald-700 ring-2 ring-emerald-200"
+                    ? "bg-[#F6DFD1] text-[#433B30] ring-2 ring-[#B1997E]/30"
                     : isActive
-                      ? "bg-orange-500 text-white ring-4 ring-orange-100"
+                      ? "bg-[#B1997E] text-white ring-4 ring-[#B1997E]/20"
                       : "bg-stone-100 text-stone-400 ring-1 ring-stone-200"
                 }`}
               >
@@ -69,7 +69,7 @@ export default function Stepper({ current, onJump, reachable }: StepperProps) {
               </span>
               <span
                 className={`hidden text-xs font-semibold sm:inline ${
-                  isActive ? "text-orange-600" : isDone ? "text-emerald-700" : "text-stone-400"
+                  isActive ? "text-[#B1997E]" : isDone ? "text-emerald-700" : "text-stone-400"
                 }`}
               >
                 {step.label}
@@ -79,7 +79,7 @@ export default function Stepper({ current, onJump, reachable }: StepperProps) {
               <span
                 aria-hidden
                 className={`block h-[2px] w-8 sm:w-12 ${
-                  step.id < current ? "bg-emerald-300" : "bg-stone-200"
+                  step.id < current ? "bg-[#B1997E]/50" : "bg-stone-200"
                 }`}
               />
             )}

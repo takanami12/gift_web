@@ -11,6 +11,7 @@ export interface Product {
   badgeType?: "bestseller" | "new";
   category?: string;
   recipient?: string[];
+  imageContain?: boolean;
   occasions?: string[]; // e.g. ["tet", "valentine", "giang-sinh"]
   topics?: string[];    // e.g. ["doanh-nghiep", "doi-tuong"]
 }
@@ -119,10 +120,12 @@ export const allProducts: Product[] = [
     "description": "Hộp Quà Bánh Trung Thu Trái Cây Sang Trọng",
     "price": "793.000₫",
     "priceNumber": 793000,
+    "originalPrice": 950000,
+    "savings": 157000,
     "image": "/images/trung-thu1.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
-      "Người Yêu",
+      "Bạn Bè & Đồng Nghiệp",
       "Đối Tác Kinh Doanh"
     ],
     "occasions": [
@@ -136,10 +139,12 @@ export const allProducts: Product[] = [
     "description": "Hộp Quà Bánh Trung Thu Trái Cây",
     "price": "1.350.000₫",
     "priceNumber": 1350000,
+    "originalPrice": 1459000,
+    "savings": 109000,
     "image": "/images/trung-thu2.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
-      "Người Yêu"
+      "Bạn Bè & Đồng Nghiệp", "Gia Đình"
     ],
     "occasions": [
       "trung-thu"
@@ -158,7 +163,7 @@ export const allProducts: Product[] = [
     "image": "/images/qua-tet1.png",
     "category": "Xanh Dương Thượng Hạng",
     "recipient": [
-      "Đối tác chiến lược & VIP"
+      "Đối tác chiến lược & VIP", "Gia Đình"
     ],
     "occasions": [
       "tet"
@@ -173,6 +178,8 @@ export const allProducts: Product[] = [
     "description": "Hộp Quà Bánh Trung Thu Trái Cây Truyền Thống",
     "price": "674.000₫",
     "priceNumber": 674000,
+    "originalPrice": 742000,
+    "savings": 68000,
     "image": "/images/trung-thu3.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
@@ -190,6 +197,8 @@ export const allProducts: Product[] = [
     "description": "Giỏ Quà Bánh Trung Thu Trái Cây Cổ Điển",
     "price": "949.000₫",
     "priceNumber": 949000,
+    "originalPrice": 1099000,
+    "savings": 150000,
     "image": "/images/trung-thu4.png",
     "category": "Giỏ Quà Tặng",
     "recipient": [
@@ -211,8 +220,8 @@ export const allProducts: Product[] = [
     "savings": 68000,
     "image": "/images/hoa1.png",
     "category": "Giỏ Quà Tặng",
-    "recipient": ["Cô giáo"],
-    "occasions": ["20-11","20-10","valentine","8-3"],
+    "recipient": ["Cô giáo", "Người Yêu", "Bạn Bè", "Mẹ & Bà", "Bạn Gái", "Đồng Nghiệp Nữ", "Gia Đình"],
+    "occasions": ["20-11","valentine","8-3"],
     "topics": []
   },
     
@@ -222,10 +231,12 @@ export const allProducts: Product[] = [
     "description": "Giỏ Quà Bánh Trung Thu Trái Cây Tinh Tế",
     "price": "1.088.000₫",
     "priceNumber": 1088000,
+    "originalPrice": 1265000,
+    "savings": 177000,
     "image": "/images/trung-thu5.png",
     "category": "Giỏ Quà Tặng",
     "recipient": [
-      "Người Yêu"
+      "Bạn Bè & Đồng Nghiệp"
     ],
     "occasions": [
       "trung-thu"
@@ -244,10 +255,10 @@ export const allProducts: Product[] = [
     "image": "/images/hoa2.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
-      "Cô giáo"
+      "Cô giáo", "Người Yêu", "Bạn Gái"
     ],
     "occasions": [
-      "20-11","20-10","valentine","8-3"
+      "20-11","valentine","8-3"
     ],
     "topics": []
   },
@@ -263,10 +274,10 @@ export const allProducts: Product[] = [
     "image": "/images/hoa3.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
-      "Thầy giáo"
+      "Thầy giáo", "Người Yêu", "Mẹ & Bà", "Bạn Gái", "Gia Đình"
     ],
     "occasions": [
-      "20-11","20-10","valentine","8-3"
+      "20-11","valentine","8-3"
     ],
     "topics": []
   },
@@ -282,10 +293,10 @@ export const allProducts: Product[] = [
     "image": "/images/hoa4.png",
     "category": "Hộp Quà Tặng",
     "recipient": [
-      "Thầy giáo"
+      "Thầy giáo", "Bạn Bè", "Mẹ & Bà", "Đồng Nghiệp Nữ", "Gia Đình"
     ],
     "occasions": [
-      "20-11","20-10","valentine","8-3"
+      "20-11","valentine","8-3"
     ],
     "topics": []
   },
@@ -301,10 +312,10 @@ export const allProducts: Product[] = [
     "image": "/images/hoa5.png",
     "category": "Giỏ Quà Tặng",
     "recipient": [
-      "Cô giáo"
+      "Cô giáo", "Người Yêu", "Mẹ & Bà", "Bạn Gái"
     ],
     "occasions": [
-      "20-11","20-10","valentine","8-3"
+      "20-11","valentine","8-3"
     ],
     "topics": []
   },
@@ -363,23 +374,6 @@ export const allProducts: Product[] = [
   },
  
   {
-    "slug": "qua-tang-giang-sinh-72",
-    "name": "Vũ Điệu Tuyết Trắng #72",
-    "description": "Bánh Gừng Thủ Công, Vang Nóng Glühwein, Đồ Decor Giáng Sinh",
-    "price": "2.000.000₫",
-    "priceNumber": 2000000,
-    "image": "/images/list-an-khang.jpg",
-    "category": "Hộp Quà Gỗ Sơn Mai",
-    "recipient": [
-      "Cha Mẹ"
-    ],
-    "occasions": [
-      "giang-sinh"
-    ],
-    "topics": []
-  },
- 
-  {
     "slug": "qua-tang-valentine-99",
     "name": "Deluxe Venture 2",
     "description": "Hộp Quà Vang Thượng Hạng & Bánh Kẹo Nhập Khẩu",
@@ -390,7 +384,7 @@ export const allProducts: Product[] = [
     "image": "/images/qua-tet2.png",
     "category": "Đỏ Thịnh Vượng",
     "recipient": [
-      "Đối tác chiến lược & VIP"
+      "Đối tác chiến lược & VIP", "Gia Đình"
     ],
     "occasions": [
       "tet"
@@ -429,7 +423,7 @@ export const allProducts: Product[] = [
     "category": "Xanh Dương Thượng Hạng",
     "recipient": [
       "Cán bộ & Nhân viên",
-      "Đại lý & Nhà phân phối"
+      "Đại lý & Nhà phân phối", "Gia Đình"
     ],
     "occasions": [
       "tet"
@@ -451,7 +445,7 @@ export const allProducts: Product[] = [
     "category": "Đỏ Thịnh Vượng",
     "recipient": [
       "Cán bộ & Nhân viên",
-      "Đại lý & Nhà phân phối"
+      "Đại lý & Nhà phân phối", "Gia Đình"
     ],
     "occasions": [
       "tet"
@@ -472,7 +466,7 @@ export const allProducts: Product[] = [
     "image": "/images/qua-tet5.png",
     "category": "Xanh Lục Bảo",
     "recipient": [
-      "Đối tác chiến lược & VIP"
+      "Đối tác chiến lược & VIP", "Gia Đình"
     ],
     "occasions": [
       "tet"
@@ -481,6 +475,46 @@ export const allProducts: Product[] = [
       "doanh-nghiep"
     ]
   },
+  // THÊM VÀO allProducts:
+{
+  slug: "gio-qua-sum-vay",
+  name: "Giỏ Quà Sum Vầy",
+  description: "Ngũ cốc óc chó, nấm sấy Úc, kẹo Đức và trà chanh mật ong Hàn.",
+  price: "1.015.000đ",
+  priceNumber: 1015000,
+  image: "/images/bestseller-sum-vay.png",
+  imageContain: true,
+  category: "Giỏ Quà Tặng",
+  recipient: ["Gia Đình", "Bạn Bè & Đồng Nghiệp"],
+  occasions: ["tet"],
+  topics: [],
+},
+{
+  slug: "hop-qua-tron-ven",
+  name: "Hộp Quà Trọn Vẹn",
+  description: "Cà phê Starbucks, sô-cô-la hạnh nhân tiramisu và ly thủy tinh bọc da.",
+  price: "300.000đ",
+  priceNumber: 300000,
+  image: "/images/bestseller-tron-ven.png",
+  imageContain: true,
+  category: "Hộp Quà Tặng",
+  recipient: ["Người Yêu", "Bạn Bè & Đồng Nghiệp"],
+  occasions: ["valentine", "8-3"],
+  topics: [],
+},
+{
+  slug: "gio-qua-dong-day",
+  name: "Giỏ Quà Đong Đầy",
+  description: "Nước ép táo hữu cơ Mỹ, bánh quy Nhật và mật ong Miele nguyên chất.",
+  price: "762.000đ",
+  priceNumber: 762000,
+  image: "/images/bestseller-dong-day.png",
+  imageContain: true,
+  category: "Giỏ Quà Tặng",
+  recipient: ["Gia Đình", "Đối Tác Kinh Doanh"],
+  occasions: ["tet", "trung-thu"],
+  topics: [],
+},
  
   {
     "slug": "mut-trai-cay-say-deo-dan-d-pak-nho-vang",

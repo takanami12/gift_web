@@ -19,13 +19,57 @@ const getCategoriesAndRecipients = (slug?: string) => {
       categoryLabel: "Màu Sắc",
     };
   }
+  if (slug === "trung-thu") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Bạn Bè & Đồng Nghiệp", "Đối Tác Kinh Doanh"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
+  if (slug === "valentine") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Người Yêu", "Bạn Bè"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
+  if (slug === "8-3") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Mẹ & Bà", "Bạn Gái", "Đồng Nghiệp Nữ"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
+  if (slug === "20-10") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Mẹ & Bà", "Bạn Gái", "Đồng Nghiệp Nữ"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
+  if (slug === "giang-sinh") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Người Yêu", "Gia Đình", "Bạn Bè"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
+  if (slug === "20-11") {
+    return {
+      categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
+      recipients: ["Thầy giáo", "Cô giáo"],
+      categoryLabel: "Loại Quà Tặng",
+    };
+  }
   return {
     categories: ["Hộp Quà Tặng", "Giỏ Quà Tặng"],
-    recipients: ["Thầy giáo", "Cô giáo"],
+    recipients: ["Người Yêu",
+      "Gia Đình",
+      "Bạn Bè & Đồng Nghiệp",
+      "Đối Tác Kinh Doanh"],
     categoryLabel: "Loại Quà Tặng",
   };
 };
-
 
 const PRICE_RANGES = [
   { label: "Dưới 500.000₫", min: 0, max: 500000 },
@@ -46,6 +90,11 @@ export default function ProductFilters({ products, slug }: Props) {
   const [selectedPriceRange, setSelectedPriceRange] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>("popular");
   const [animKey, setAnimKey] = useState(0);
+
+  const [searchQuery, setSearchQuery] = useState(() => {
+    if (typeof window === 'undefined') return '';
+    return new URLSearchParams(window.location.search).get('q') || '';
+  });
 
   const toggleCategory = (cat: string) => {
     setSelectedCategories((prev) =>
@@ -68,6 +117,15 @@ export default function ProductFilters({ products, slug }: Props) {
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
+
+    // Filter by search query
+    if (searchQuery) {
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
 
     // Filter by category
     if (selectedCategories.length > 0) {
@@ -109,24 +167,27 @@ export default function ProductFilters({ products, slug }: Props) {
     }
 
     return result;
-  }, [products, selectedCategories, selectedRecipients, selectedPriceRange, sortBy]);
+  }, [products, selectedCategories, selectedRecipients, selectedPriceRange, sortBy, searchQuery]);
 
   const activeFilterCount =
     selectedCategories.length +
     selectedRecipients.length +
-    (selectedPriceRange !== null ? 1 : 0);
+    (selectedPriceRange !== null ? 1 : 0) +
+    (searchQuery ? 1 : 0);
 
   const clearAll = () => {
     setSelectedCategories([]);
     setSelectedRecipients([]);
     setSelectedPriceRange(null);
     setSortBy("popular");
+    setSearchQuery("");
   };
 
   return (
     <div className="flex flex-col lg:flex-row gap-16">
       {/* Sidebar Filters */}
       <aside className="w-full lg:w-64 flex-shrink-0 space-y-12">
+        
         {/* Gift Type */}
         <section>
           <h3 className="text-xl mb-6 flex items-center gap-3">
@@ -173,8 +234,8 @@ export default function ProductFilters({ products, slug }: Props) {
                   className="w-4 h-4 rounded-sm cursor-pointer"
                   style={{ borderColor: "#433b30", backgroundColor: "#fffefa", accentColor: "#433b30" }}
                   type="checkbox"
-                  checked={selectedCategories.includes(label)}
-                  onChange={() => toggleCategory(label)}
+                  checked={selectedRecipients.includes(label)}
+                  onChange={() => toggleRecipient(label)}
                 />
                 <span
                   style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }}
@@ -236,11 +297,8 @@ export default function ProductFilters({ products, slug }: Props) {
             </p>
             <button
               onClick={clearAll}
-              className={`flex items-center gap-1.5 text-xs text-primary font-semibold hover:underline transition-all cursor-pointer border border-primary/20 rounded-full px-3 py-1 ${
-                activeFilterCount > 0
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
-              }`}
+              style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", borderColor: "#d0c9be", fontSize: "15px" }}
+              className={`flex items-center gap-1.5 text-xs font-semibold hover:underline transition-all cursor-pointer border rounded-full px-3 py-1 ${activeFilterCount > 0 ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             >
               <span className="material-symbols-outlined text-sm">filter_alt_off</span>
               Xóa bộ lọc ({activeFilterCount})
@@ -285,15 +343,16 @@ export default function ProductFilters({ products, slug }: Props) {
             <span className="material-symbols-outlined text-6xl text-stone-300 mb-6 block">
               search_off
             </span>
-            <h3 className="font-headline text-2xl text-stone-500 mb-3">
+            <h3 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl mb-3">
               Không tìm thấy sản phẩm
             </h3>
-            <p className="text-stone-400 mb-8 max-w-md mx-auto">
+            <p style={{ fontFamily: "var(--font-barlow)", color: "#877e75" }} className="mb-8 max-w-md mx-auto">
               Không có sản phẩm nào phù hợp với bộ lọc hiện tại. Hãy thử điều chỉnh tiêu chí tìm kiếm.
             </p>
             <button
               onClick={clearAll}
-              className="bg-primary text-white px-8 py-3 font-bold text-sm tracking-widest uppercase hover:bg-primary-container transition-colors cursor-pointer"
+              style={{ backgroundColor: "#433b30", fontFamily: "var(--font-barlow-condensed)", letterSpacing: "0.1em" }}
+              className="text-white px-8 py-3 font-bold text-sm uppercase hover:opacity-90 transition-colors cursor-pointer"
             >
               Xóa bộ lọc
             </button>
@@ -302,4 +361,4 @@ export default function ProductFilters({ products, slug }: Props) {
       </section>
     </div>
   );
-}
+} 

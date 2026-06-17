@@ -39,6 +39,8 @@ export default function Editor() {
   const [feedback, setFeedback] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
+  const [hasVisitedOutside, setHasVisitedOutside] = useState(false);
+
   const step = useDesignStore((s) => s.step);
   const viewMode = useDesignStore((s) => s.viewMode);
   const boxType = useDesignStore((s) => s.boxType);
@@ -71,7 +73,7 @@ export default function Editor() {
   const canAdvance: Record<WizardStep, boolean> = {
     1: !!boxType,
     2: !!boxSize,
-    3: items.length > 0,
+    3: items.length > 0 && hasVisitedOutside,
     4: false,
   };
   const reachable: WizardStep = boxType
@@ -128,7 +130,7 @@ export default function Editor() {
       const reasons: Record<WizardStep, string> = {
         1: "Hãy chọn loại hộp.",
         2: "Hãy chọn kích thước hộp.",
-        3: "Hãy thêm ít nhất 1 sản phẩm.",
+        3: items.length === 0 ? "Hãy thêm ít nhất 1 sản phẩm." : "Hãy trang trí nắp ngoài trước khi tiếp tục.",
         4: "",
       };
       setFeedback(reasons[step]);
@@ -157,6 +159,7 @@ export default function Editor() {
     if (mode === viewMode) return;
     selectItem(null);
     setViewMode(mode);
+    if (mode === "outside") setHasVisitedOutside(true);
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -296,7 +299,17 @@ export default function Editor() {
   return (
     <div className="flex flex-col gap-5">
       <header className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border border-stone-200 bg-white px-4 py-3 shadow-sm">
-        <div />
+        <div className="flex items-center">
+          {step > 1 && step < 4 && (
+            <button
+              type="button"
+              onClick={handleBack}
+              className="rounded-full border border-[#B1997E] bg-white px-5 py-2 text-sm font-semibold text-[#B1997E] shadow-sm transition hover:bg-[#B1997E] hover:text-white"
+            >
+              ← Quay lại
+            </button>
+          )}
+        </div>
         <Stepper current={step} reachable={reachable} onJump={handleJump} />
         <div className="flex items-center justify-end gap-3">
           {step >= 3 && (
@@ -309,7 +322,7 @@ export default function Editor() {
             <button
               type="button"
               onClick={handleNext}
-              className="rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-full bg-[#B1997E] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#8a7460]"
             >
               Tiếp theo →
             </button>
@@ -317,7 +330,7 @@ export default function Editor() {
             <button
               type="button"
               onClick={handleAddToCart}
-              className="rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600"
+              className="rounded-full bg-[#B1997E] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#877E75] disabled:cursor-not-allowed disabled:opacity-60"
             >
               Thêm vào giỏ →
             </button>
@@ -327,23 +340,11 @@ export default function Editor() {
 
       {feedback && (
         <p
-          className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-800"
+          className="rounded-md border border-[#B1997E]/40 bg-[#FAF7F0] px-3 py-2 text-sm text-[#433B30]"
           role="status"
         >
           {feedback}
         </p>
-      )}
-
-      {step > 1 && step < 4 && (
-        <div className="flex">
-          <button
-            type="button"
-            onClick={handleBack}
-            className="rounded-full border border-stone-300 px-4 py-1.5 text-xs font-semibold text-stone-600 hover:bg-stone-100"
-          >
-            ← Quay lại
-          </button>
-        </div>
       )}
 
       {step === 1 && <TypePicker />}

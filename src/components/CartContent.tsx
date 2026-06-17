@@ -14,6 +14,10 @@ import {
 export default function CartContent() {
   const { items, removeItem, updateQuantity, subtotal, totalItems } = useCart();
   const formattedSubtotal = subtotal.toLocaleString("vi-VN") + "₫";
+  const shippingFee = subtotal >= 500000 ? 0 : 35000;
+  const total = subtotal + shippingFee;
+  const formattedShipping = shippingFee === 0 ? "Miễn phí" : shippingFee.toLocaleString("vi-VN") + "₫";
+  const formattedTotal = total.toLocaleString("vi-VN") + "₫";
 
   if (items.length === 0) {
     return (
@@ -43,11 +47,11 @@ export default function CartContent() {
       {/* Items List */}
       <div className="lg:col-span-8 space-y-12">
         <header className="border-b border-outline-variant/30 pb-8">
-          <h1 className="text-4xl font-headline font-bold text-on-surface tracking-tight">
+          <h1 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-4xl font-bold tracking-tight">
             Giỏ hàng của bạn
           </h1>
-          <p className="text-on-surface-variant mt-2 font-body italic">
-            Nâng tầm quà tặng với bộ sưu tập di sản hiện đại.
+          <p style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="mt-2 italic">
+            Nâng tầm với quà tặng sáng tạo độc bản.
           </p>
         </header>
 
@@ -83,10 +87,10 @@ export default function CartContent() {
                 <div className="flex-grow flex flex-col justify-between self-stretch py-2">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-xl font-headline font-bold text-on-surface">
+                      <h3 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-xl font-bold">
                         {name}
                       </h3>
-                      <p className="text-sm text-on-surface-variant mt-2 max-w-md leading-relaxed">
+                      <p style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-sm mt-2 max-w-md leading-relaxed">
                         {description}
                       </p>
                       {isDesign && (
@@ -103,7 +107,7 @@ export default function CartContent() {
                     </button>
                   </div>
                   <div className="flex flex-wrap items-center justify-between mt-8 gap-4">
-                    <div className="flex items-center border border-outline-variant/30 rounded-sm overflow-hidden bg-white">
+                    <div className="flex items-center border overflow-hidden bg-white" style={{ borderColor: "#d0c9be" }}>
                       <button
                         onClick={() => updateQuantity(key, item.quantity - 1)}
                         className="px-3 py-2 text-stone-500 hover:bg-surface-container transition-colors flex items-center cursor-pointer"
@@ -112,7 +116,7 @@ export default function CartContent() {
                           remove
                         </span>
                       </button>
-                      <span className="px-6 font-bold text-on-surface min-w-[3rem] text-center border-x border-outline-variant/30">
+                      <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="px-6 font-bold min-w-[3rem] text-center border-x" >
                         {item.quantity}
                       </span>
                       <button
@@ -124,7 +128,7 @@ export default function CartContent() {
                         </span>
                       </button>
                     </div>
-                    <div className="text-2xl font-headline font-bold text-primary">
+                    <div style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-2xl font-bold">
                       {total.toLocaleString("vi-VN")}₫
                     </div>
                   </div>
@@ -137,19 +141,20 @@ export default function CartContent() {
         {/* Personal Message Section */}
         <div className="mt-16 bg-white p-8 rounded-sm border border-outline-variant/20 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <span className="material-symbols-outlined text-secondary">
+            <span className="material-symbols-outlined" style={{ color: "#b1997e" }}>
               edit_note
             </span>
-            <h2 className="text-xl font-headline font-bold">
-              Lời chúc Tết riêng tư
+            <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-xl font-bold">
+              Lời chúc nhắn gửi
             </h2>
           </div>
-          <p className="text-sm text-on-surface-variant mb-6 font-body leading-relaxed">
+          <p style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontSize: "15px" }} className="text-sm mb-6 leading-relaxed">
             Chúng tôi sẽ in những lời chúc ý nghĩa của bạn trên thiệp giấy
             mỹ thuật cao cấp đính kèm trong mỗi hộp quà.
           </p>
           <textarea
-            className="w-full bg-surface-container-lowest border border-outline-variant/30 focus:border-primary focus:ring-0 transition-all p-5 min-h-[160px] resize-none font-body placeholder:text-outline-variant/60 rounded-sm text-on-surface"
+            style={{ fontFamily: "var(--font-barlow)", color: "#877e75", borderColor: "#d0c9be" }}
+            className="w-full bg-white border p-5 min-h-[160px] resize-none outline-none placeholder:text-[#c0b8ae]"
             placeholder="Ví dụ: Kính chúc Gia đình năm mới An khang Thịnh vượng, Vạn sự như ý..."
           ></textarea>
         </div>
@@ -158,46 +163,54 @@ export default function CartContent() {
       {/* Order Summary */}
       <div className="lg:col-span-4 lg:sticky lg:top-32">
         <div className="bg-stone-50 p-8 rounded-sm border border-outline-variant/20 shadow-[0_4px_24px_rgba(0,0,0,0.03)]">
-          <h2 className="text-2xl font-headline font-bold mb-8 text-on-surface border-b border-outline-variant/30 pb-4">
+          <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl font-bold mb-8 border-b border-outline-variant/30 pb-4">
             Tổng kết đơn hàng
           </h2>
           <div className="space-y-6 text-on-surface-variant">
             <div className="flex justify-between items-center">
-              <span className="text-sm">
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-sm">
                 Tạm tính ({totalItems} sản phẩm)
               </span>
-              <span className="font-semibold text-on-surface">
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="font-semibold">
                 {formattedSubtotal}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <span className="text-sm">Phí vận chuyển</span>
-                <span className="px-2 py-0.5 bg-secondary text-primary text-[10px] font-bold uppercase rounded-full">
-                  Ưu đãi Tết
+                <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-sm">
+                  Phí vận chuyển
                 </span>
+                {shippingFee === 0 && (
+                  <span style={{ backgroundColor: "transparent", color: "#b1997e", fontFamily: "var(--font-barlow-condensed)", border: "1px solid #b1997e", fontSize: "15px" }} className="px-2 py-0.5 font-bold uppercase rounded-full">
+                    Ưu đãi
+                  </span>
+                )}
               </div>
-              <span className="font-semibold text-primary">Miễn phí</span>
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: shippingFee === 0 ? 600 : 400 }}>
+                {formattedShipping}
+              </span>
             </div>
             <div className="flex justify-between items-center border-t border-outline-variant/30 pt-6">
-              <span className="text-on-surface font-headline font-bold">
+              <span style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontSize: "20px" }} className="font-bold">
                 Tổng cộng
               </span>
-              <span className="text-3xl font-headline font-bold text-primary">
-                {formattedSubtotal}
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="text-3xl font-bold">
+                {formattedTotal}
               </span>
             </div>
           </div>
           <div className="mt-10 space-y-4">
             <Link
               href="/thanh-toan"
-              className="block w-full py-4 bg-primary text-white text-center font-bold tracking-widest uppercase rounded-sm shadow-md hover:bg-primary-container hover:scale-[1.01] active:scale-95 transition-all duration-300 cursor-pointer"
+              style={{ backgroundColor: "#433b30", fontFamily: "var(--font-barlow-condensed)", fontSize: "20px", letterSpacing: "0.1em" }}
+              className="block w-full py-4 text-white text-center font-bold uppercase shadow-md hover:opacity-90 active:scale-95 transition-all duration-300 cursor-pointer"
             >
               Tiến hành thanh toán
             </Link>
             <Link
               href="/san-pham"
-              className="w-full py-4 text-stone-600 font-semibold hover:text-primary transition-colors flex items-center justify-center gap-2 group"
+              style={{ fontFamily: "var(--font-barlow)", color: "#877e75" }}
+              className="w-full py-4 font-semibold hover:opacity-70 transition-colors flex items-center justify-center gap-2 group"
             >
               <span className="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">
                 arrow_back
@@ -207,16 +220,16 @@ export default function CartContent() {
           </div>
           <div className="mt-8 p-4 bg-white rounded-sm border border-outline-variant/10">
             <div className="flex gap-3">
-              <span className="material-symbols-outlined text-primary text-xl">
+              <span className="material-symbols-outlined text-xl" style={{ color: "#433b30" }}>
                 verified
               </span>
               <div>
-                <p className="text-xs font-bold text-on-surface uppercase tracking-wider">
-                  Cam kết Di sản
+                <p style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30", fontSize: "15px" }} className="text-xs font-bold uppercase tracking-wider">
+                  Cam kết 
                 </p>
-                <p className="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                <p style={{ fontFamily: "var(--font-barlow)", color: "#877e75", fontSize: "12px" }} className="text-[11px] mt-1 leading-relaxed">
                   Sản phẩm thủ công, đóng gói nghệ thuật và vận chuyển
-                  chuyên dụng trong 24h.
+                  chuyên dụng, nhanh chóng.
                 </p>
               </div>
             </div>
@@ -226,11 +239,12 @@ export default function CartContent() {
         {/* Promo Code */}
         <div className="mt-8 flex gap-2">
           <input
-            className="flex-grow bg-white border border-outline-variant/30 focus:border-primary focus:ring-0 py-3 px-4 text-sm font-body rounded-sm"
+            style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }}
+            className="flex-grow bg-white border py-3 px-4 text-sm outline-none"
             placeholder="Mã giảm giá (ví dụ: TET2024)"
             type="text"
           />
-          <button className="px-6 py-3 bg-on-surface text-white font-bold text-xs uppercase tracking-widest rounded-sm hover:bg-primary transition-colors cursor-pointer">
+          <button style={{ backgroundColor: "#433b30", fontFamily: "var(--font-barlow-condensed)", fontSize: "15px", letterSpacing: "0.1em" }} className="px-6 py-3 text-white font-bold text-xs uppercase hover:opacity-90 transition-colors cursor-pointer">
             Áp dụng
           </button>
         </div>

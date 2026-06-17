@@ -28,7 +28,7 @@ export default function ProductCard({
 
   if (variant === "listing") {
     return (
-      <Link href={`/san-pham/${product.slug}`} className="group cursor-pointer">
+      <div className="group cursor-default">
         <div className="aspect-[1/1.2] overflow-hidden bg-[#f5f3ed] mb-5 relative">
           {product.savings && (
             <div className="absolute top-3 left-3 z-10 bg-[#d8232a] text-white px-3 py-1 text-xs font-bold">
@@ -39,7 +39,7 @@ export default function ProductCard({
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            className={`${product.imageContain ? 'object-contain p-4' : 'object-cover'} transition-transform duration-1000 group-hover:scale-105`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {product.badge && (
@@ -52,9 +52,10 @@ export default function ProductCard({
 
           {/* Added feedback overlay */}
           <div
-            className={`absolute inset-0 bg-[#2d4a3e]/80 flex items-center justify-center transition-opacity duration-300 ${
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
               added ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
+            style={{ backgroundColor: "rgba(67, 59, 48, 0.8)" }}
           >
             <div className="text-white text-center animate-fade-in">
               <span
@@ -63,7 +64,7 @@ export default function ProductCard({
               >
                 check_circle
               </span>
-              <p className="text-sm font-bold tracking-widest uppercase">
+              <p style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "16px", letterSpacing: "0.15em" }} className="font-bold uppercase">
                 Đã thêm vào giỏ
               </p>
             </div>
@@ -100,7 +101,7 @@ export default function ProductCard({
             </span>
           </button>
         </div>
-      </Link>
+      </div>
     );
   }
 

@@ -61,7 +61,7 @@ export default async function CollectionPage({
             {title}
           </h1>
           {subtitle && (
-            <p className="text-stone-500 max-w-2xl mx-auto leading-relaxed text-lg font-light italic">
+            <p style={{ fontFamily: "var(--font-barlow)", color: "#877e75" }} className="max-w-2xl mx-auto leading-relaxed text-lg font-light italic">
               &ldquo;{subtitle}&rdquo;
             </p>
           )}
@@ -76,15 +76,16 @@ export default async function CollectionPage({
             <span className="material-symbols-outlined text-6xl text-stone-200 mb-4 block">
               inventory_2
             </span>
-            <h3 className="text-xl font-serif font-medium text-stone-900 mb-2">
+            <h3 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-xl font-medium mb-2">
               Chưa có sản phẩm nào
             </h3>
-            <p className="text-stone-500 mb-8">
+            <p style={{ fontFamily: "var(--font-barlow)", color: "#877e75" }} className="mb-8">
               Bộ sưu tập này đang được chúng tôi cập nhật. Vui lòng quay lại sau nhé!
             </p>
             <Link 
               href="/san-pham"
-              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-sm font-bold hover:bg-primary-container transition-all"
+              style={{ backgroundColor: "#433b30", fontFamily: "var(--font-barlow)", letterSpacing: "0.1em" }}
+              className="inline-flex items-center gap-2 text-white px-8 py-3 font-bold hover:opacity-90 transition-all"
             >
               Xem tất cả sản phẩm
             </Link>

@@ -1,5 +1,5 @@
 "use client";
-
+import { useCart } from '@/lib/cart-context';
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -40,12 +40,21 @@ function PromoItemCard({
 }) {
   const [added, setAdded] = useState(false);
   const original = item.discounted + item.savings;
+  const { addProduct } = useCart();
 
   const handleAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (added) return;
     setAdded(true);
+    addProduct({
+      slug: item.image, // dùng image làm slug tạm
+      name: item.description,
+      description: item.description,
+      price: `${item.discounted.toLocaleString('vi-VN')}đ`,
+      priceNumber: item.discounted,
+      image: item.image,
+    });
     setTimeout(() => setAdded(false), 1200);
   };
 
@@ -77,9 +86,10 @@ function PromoItemCard({
 
         {/* Added-to-cart overlay */}
         <div
-          className={`absolute inset-0 flex items-center justify-center bg-[#2d4a3e]/80 transition-opacity duration-300 ${
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
             added ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
+          style={{ backgroundColor: "rgba(67, 59, 48, 0.8)" }}
         >
           <div className="text-center text-white">
             <span
@@ -88,10 +98,7 @@ function PromoItemCard({
             >
               check_circle
             </span>
-            <p
-              className="text-[11px] font-bold uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-barlow)" }}
-            >
+            <p style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "14px", letterSpacing: "0.15em", fontWeight: 700 }} className="uppercase">
               Đã thêm vào giỏ
             </p>
           </div>

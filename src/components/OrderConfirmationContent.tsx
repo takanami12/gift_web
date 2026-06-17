@@ -85,10 +85,10 @@ export default function OrderConfirmationContent() {
             workspace_premium
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4 tracking-tight">
+        <h1 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
           Đặt Hàng Thành Công!
         </h1>
-        <p className="text-on-surface-variant max-w-lg mx-auto leading-relaxed">
+        <p style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="max-w-lg mx-auto leading-relaxed">
           Cảm ơn <strong>{order.fullName}</strong> đã tin tưởng lựa chọn
           Gift Glamorous để gửi gắm những lời chúc trân quý nhất.
         </p>
@@ -102,16 +102,16 @@ export default function OrderConfirmationContent() {
           style={{ animationDelay: "100ms" }}
         >
           <div>
-            <span className="text-xs font-bold tracking-[0.2em] text-secondary uppercase mb-2 block">
+            <span style={{ fontFamily: "var(--font-barlow)", color: "#b1997e" }} className="text-xs font-bold tracking-[0.2em] uppercase mb-2 block">
               Mã đơn hàng
             </span>
-            <h2 className="text-2xl font-serif font-bold text-on-surface">
+            <h2 style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }} className="text-2xl font-bold">
               {order.orderNumber}
             </h2>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-on-surface-variant">
+          <div style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="mt-8 flex flex-wrap items-center gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-lg">
+              <span className="material-symbols-outlined text-lg" style={{ color: "#433b30" }}>
                 local_shipping
               </span>
               <span>
@@ -120,7 +120,7 @@ export default function OrderConfirmationContent() {
             </div>
             <div className="w-1 h-1 rounded-full bg-outline-variant hidden sm:block"></div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-lg">
+              <span className="material-symbols-outlined text-lg" style={{ color: "#433b30" }}>
                 schedule
               </span>
               <span>
@@ -168,7 +168,7 @@ export default function OrderConfirmationContent() {
           >
             location_on
           </span>
-          <h3 className="font-serif font-bold text-lg mb-3">
+          <h3 style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }} className="font-bold text-lg mb-3">
             Địa chỉ nhận hàng
           </h3>
           <div className="text-sm text-on-surface-variant space-y-1">
@@ -183,7 +183,7 @@ export default function OrderConfirmationContent() {
           className="bg-white p-8 rounded-xl border border-outline-variant/10 animate-fade-in-up"
           style={{ animationDelay: "250ms" }}
         >
-          <h3 className="font-serif font-bold text-lg mb-4">
+          <h3 style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }} className="font-bold text-lg mb-3">
             Chi tiết đơn hàng
           </h3>
           <div className="space-y-3 mb-4">
@@ -208,8 +208,8 @@ export default function OrderConfirmationContent() {
             ))}
           </div>
           <div className="border-t border-outline-variant/20 pt-3 flex justify-between">
-            <span className="font-serif font-bold">Tổng cộng</span>
-            <span className="font-serif font-bold text-primary text-lg">
+            <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="font-bold">Tổng cộng</span>
+            <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="font-bold text-lg">
               {order.total.toLocaleString("vi-VN")}₫
             </span>
           </div>
@@ -220,12 +220,12 @@ export default function OrderConfirmationContent() {
           className="bg-white p-8 rounded-xl border border-outline-variant/10 animate-fade-in-up"
           style={{ animationDelay: "300ms" }}
         >
-          <h3 className="font-serif font-bold text-lg mb-4">
+          <h3 style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }} className="font-bold text-lg mb-3">
             Thanh toán & Hỗ trợ
           </h3>
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-sm text-on-surface-variant">
-              <span className="material-symbols-outlined text-lg text-primary">
+              <span className="material-symbols-outlined text-lg" style={{ color: "#433b30" }}>
                 credit_card
               </span>
               <span>
@@ -289,14 +289,16 @@ export default function OrderConfirmationContent() {
       >
         <Link
           href="/san-pham"
-          className="w-full sm:w-auto px-10 py-4 bg-primary text-white font-bold rounded-sm shadow-lg hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2 tracking-widest uppercase text-sm"
+          style={{ backgroundColor: "#433b30", fontFamily: "var(--font-barlow)", letterSpacing: "0.1em" }}
+          className="w-full sm:w-auto px-10 py-4 text-white font-bold shadow-lg hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 uppercase text-sm"
         >
           <span className="material-symbols-outlined text-xl">storefront</span>
           Tiếp Tục Mua Sắm
         </Link>
         <Link
           href="/"
-          className="w-full sm:w-auto px-10 py-4 border-2 border-primary text-primary font-bold rounded-sm hover:bg-primary/5 transition-all flex items-center justify-center gap-2 tracking-widest uppercase text-sm"
+          style={{ borderColor: "#433b30", color: "#433b30", fontFamily: "var(--font-barlow)", letterSpacing: "0.1em" }}
+          className="w-full sm:w-auto px-10 py-4 border-2 font-bold hover:opacity-70 transition-all flex items-center justify-center gap-2 uppercase text-sm"
         >
           Về Trang Chủ
           <span className="material-symbols-outlined text-xl">
@@ -307,7 +309,7 @@ export default function OrderConfirmationContent() {
 
       {/* Gratitude Note */}
       <div className="mt-20 text-center border-t border-outline-variant/20 pt-12">
-        <p className="font-serif italic text-on-surface-variant text-lg">
+        <p style={{ fontFamily: "var(--font-playfair)", color: "#877e75" }} className="italic text-lg">
           &ldquo;Gói trọn chân tình, khai xuân như ý.&rdquo;
         </p>
       </div>

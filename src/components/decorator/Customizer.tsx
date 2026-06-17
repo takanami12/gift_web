@@ -97,7 +97,7 @@ export default function Customizer() {
         </div>
         <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-stone-200">
           <div
-            className="h-full bg-gradient-to-r from-orange-400 to-orange-600 transition-all"
+            className="h-full bg-gradient-to-r from-[#B1997E] to-[#433B30] transition-all"
             style={{
               width: sizeOpt
                 ? `${Math.min(100, (items.length / sizeOpt.maxItems) * 100)}%`
@@ -130,10 +130,10 @@ export default function Customizer() {
                   onClick={() => setBoxColor(c.id)}
                   aria-label={c.label}
                   aria-pressed={active}
-                  className={`h-7 w-7 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                  className={`h-7 w-7 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B1997E] ${
                     active
-                      ? "ring-4 ring-orange-300 ring-offset-2 ring-offset-white"
-                      : "ring-1 ring-stone-300 hover:ring-orange-300"
+                      ? "ring-4 ring-[#B1997E]/60 ring-offset-2 ring-offset-white"
+                      : "ring-1 ring-stone-300 hover:ring-[#B1997E]"
                   }`}
                   style={{ background: c.swatch }}
                 />
@@ -154,7 +154,7 @@ export default function Customizer() {
                   onClick={() => setWrapColor(active ? null : w.id)}
                   aria-pressed={active}
                   className={`flex items-center justify-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                    active ? "ring-2 ring-orange-400" : "ring-1 ring-stone-200 hover:ring-orange-300"
+                    active ? "ring-2 ring-[#B1997E]" : "ring-1 ring-stone-200 hover:ring-[#B1997E]"
                   }`}
                   style={{ background: w.pillBg, color: w.pillText }}
                 >
@@ -254,7 +254,7 @@ export default function Customizer() {
             <div
               className={`flex flex-col gap-2 rounded-xl border px-3 py-2.5 transition ${
                 ribbon.enabled
-                  ? "border-orange-300 bg-orange-50/70 shadow-[inset_0_0_0_1px_rgba(201,165,92,0.18)]"
+                  ? "border-[#B1997E]/50 bg-[#FAF7F0] shadow-[inset_0_0_0_1px_rgba(177,153,126,0.18)]"
                   : "border-stone-200 bg-white"
               }`}
             >
@@ -270,7 +270,7 @@ export default function Customizer() {
                     <span className="text-[10px] text-stone-500">Satin cao cấp</span>
                   </span>
                 </span>
-                <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-orange-700 ring-1 ring-orange-200">
+                <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-[#B1997E] ring-1 ring-[#B1997E]/30">
                   +{RIBBON_PRICE.toLocaleString("vi-VN")}đ
                 </span>
               </div>
@@ -288,8 +288,8 @@ export default function Customizer() {
                         title={c.label}
                         className={`relative h-9 w-9 overflow-hidden rounded-md bg-white transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                           active
-                            ? "ring-[3px] ring-orange-400 ring-offset-1 ring-offset-white"
-                            : "ring-1 ring-stone-300 hover:ring-orange-300"
+                            ? "ring-[3px] ring-[#B1997E] ring-offset-1 ring-offset-white"
+                            : "ring-1 ring-stone-300 hover:ring-[#B1997E]"
                         }`}
                       >
                         <Image
@@ -394,7 +394,7 @@ function LidStyleSection({
               onClick={() => onChange(s.id)}
               className={`group flex items-center gap-2.5 rounded-lg px-2 py-2 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                 active
-                  ? "bg-orange-50/80 ring-1 ring-orange-200"
+                  ? "bg-[#B1997E]/5 ring-1 ring-[#B1997E]/30"
                   : "hover:bg-stone-50"
               }`}
             >
@@ -424,7 +424,7 @@ function LidStyleSection({
                 <span
                   className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ring-1 transition ${
                     active
-                      ? "bg-white text-orange-700 ring-orange-200"
+                      ? "bg-white text-[#8a7460] ring-[#B1997E]/30"
                       : "bg-stone-50 text-stone-500 ring-stone-200"
                   }`}
                 >
@@ -440,7 +440,7 @@ function LidStyleSection({
         <div className="mt-3 flex flex-col gap-1.5 rounded-lg bg-stone-50 px-3 py-2.5 ring-1 ring-stone-200">
           <label
             htmlFor={fileInputId}
-            className="cursor-pointer rounded-md border border-dashed border-orange-300 bg-white px-3 py-2 text-center text-[11px] font-semibold text-orange-700 hover:bg-orange-50"
+            className="cursor-pointer rounded-md border border-dashed border-orange-300 bg-white px-3 py-2 text-center text-[11px] font-semibold text-[#8a7460] hover:bg-[#B1997E]/5"
           >
             {lidImage ? "Đổi ảnh khác" : "Chọn ảnh từ máy"}
           </label>
@@ -511,7 +511,7 @@ function ToggleSwitch({
       aria-label={label}
       onClick={() => onChange(!checked)}
       className={`relative h-5 w-9 shrink-0 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
-        checked ? "bg-orange-500" : "bg-stone-300"
+        checked ? "bg-[#433B30]" : "bg-stone-300"
       }`}
     >
       <span
@@ -552,7 +552,7 @@ function Counter({
         onClick={onInc}
         disabled={!canInc}
         aria-label="Tăng số lượng"
-        className="flex h-6 w-6 items-center justify-center rounded-full border border-orange-500 bg-orange-500 text-white transition hover:bg-orange-600 hover:border-orange-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-orange-500 disabled:hover:border-orange-500"
+        className="flex h-6 w-6 items-center justify-center rounded-full border border-[#B1997E] bg-[#B1997E] text-white transition hover:bg-[#433B30] hover:border-[#433B30] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-[#B1997E] disabled:hover:border-[#B1997E]"
       >
         +
       </button>

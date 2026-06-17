@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <main className="pt-32 pb-20 min-h-screen tet-watermark">
+    <main className="pt-8 pb-20 min-h-screen tet-watermark">
       <div className="max-w-7xl mx-auto px-8">
         {/* Checkout Progress Bar */}
         <div className="mb-16 max-w-2xl mx-auto">
@@ -18,30 +18,30 @@ export default function CartPage() {
 
             {/* Step 1 — Active */}
             <div className="flex flex-col items-center gap-2 flex-1">
-              <div className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold shadow-lg shadow-primary/20 relative z-10">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold relative z-10" style={{ backgroundColor: "#433b30", color: "#fff" }}>
                 1
               </div>
-              <span className="text-xs font-bold tracking-widest text-primary uppercase">
+              <span style={{ fontFamily: "var(--font-barlow-condensed)", color: "#433b30" }} className="text-xs font-bold tracking-widest uppercase">
                 Giỏ Hàng
               </span>
             </div>
 
             {/* Step 2 */}
             <div className="flex flex-col items-center gap-2 flex-1">
-              <div className="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold relative z-10">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold relative z-10" style={{ backgroundColor: "#e8e0d5", color: "#433b30" }}>
                 2
               </div>
-              <span className="text-xs font-medium tracking-widest text-on-surface-variant uppercase">
+              <span style={{ fontFamily: "var(--font-barlow-condensed)", color: "#877e75" }} className="text-xs font-medium tracking-widest uppercase">
                 Giao Hàng
               </span>
             </div>
 
             {/* Step 3 */}
             <div className="flex flex-col items-center gap-2 flex-1">
-              <div className="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold relative z-10">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold relative z-10" style={{ backgroundColor: "#e8e0d5", color: "#433b30" }}>
                 3
               </div>
-              <span className="text-xs font-medium tracking-widest text-on-surface-variant uppercase">
+              <span style={{ fontFamily: "var(--font-barlow-condensed)", color: "#877e75" }} className="text-xs font-medium tracking-widest uppercase">
                 Thanh Toán
               </span>
             </div>

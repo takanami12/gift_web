@@ -109,7 +109,8 @@ export default function CheckoutContent() {
       .finally(() => setLoadingWards(false));
   }, [selectedDistrict]);
 
-  const shippingFee = subtotal >= 1000000 ? 0 : 35000;
+  // SỬA THÀNH:
+  const shippingFee = subtotal >= 500000 ? 0 : 35000;
   const total = subtotal + shippingFee;
   const formattedSubtotal = subtotal.toLocaleString("vi-VN") + "₫";
   const formattedShipping =
@@ -177,6 +178,19 @@ export default function CheckoutContent() {
         shippingFee,
         total,
       };
+      // Lấy user email nếu đã đăng nhập
+      const { getSupabaseBrowserClient } = await import("@/lib/supabase");
+      const supabase = getSupabaseBrowserClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      const userEmail = session?.user?.email || null;
+
+      // Lưu lên Supabase
+      await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...orderInfo, user_email: userEmail }),
+      });
+
       localStorage.setItem("luminous_order", JSON.stringify(orderInfo));
       clearCart();
       router.push("/xac-nhan");
@@ -215,15 +229,15 @@ export default function CheckoutContent() {
         {/* Section 1: Customer Information */}
         <section className="space-y-6 animate-fade-in-up">
           <div className="flex items-center space-x-4">
-            <span className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-serif text-sm">
+            <span className="w-8 h-8 rounded-full flex items-center justify-center text-sm" style={{ backgroundColor: "#433b30", color: "#fffefa", fontFamily: "var(--font-barlow-condensed)" }}>
               1
             </span>
-            <h2 className="text-2xl font-serif">Thông Tin Khách Hàng</h2>
+            <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl">Thông Tin Khách Hàng</h2>
           </div>
           <div className="bg-white p-8 rounded-lg space-y-4 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                   Họ và tên
                 </label>
                 <input
@@ -235,7 +249,7 @@ export default function CheckoutContent() {
                 />
               </div>
               <div className="space-y-1">
-                <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                   Số điện thoại
                 </label>
                 <input
@@ -248,7 +262,7 @@ export default function CheckoutContent() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+              <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                 Email
               </label>
               <input
@@ -265,16 +279,16 @@ export default function CheckoutContent() {
         {/* Section 2: Shipping Address */}
         <section className="space-y-6 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
           <div className="flex items-center space-x-4">
-            <span className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-serif text-sm">
+            <span className="w-8 h-8 rounded-full flex items-center justify-center text-sm" style={{ backgroundColor: "#433b30", color: "#fffefa", fontFamily: "var(--font-barlow-condensed)" }}>
               2
             </span>
-            <h2 className="text-2xl font-serif">Địa Chỉ Giao Hàng</h2>
+            <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl">Địa Chỉ Giao Hàng</h2>
           </div>
           <div className="bg-white p-8 rounded-lg space-y-4 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Province */}
               <div className="space-y-1">
-                <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                   Tỉnh / Thành phố
                 </label>
                 <select
@@ -292,7 +306,7 @@ export default function CheckoutContent() {
               </div>
               {/* District */}
               <div className="space-y-1">
-                <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                   Quận / Huyện
                 </label>
                 <select
@@ -313,7 +327,7 @@ export default function CheckoutContent() {
               </div>
               {/* Ward */}
               <div className="space-y-1">
-                <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+                <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                   Phường / Xã
                 </label>
                 <select
@@ -334,7 +348,7 @@ export default function CheckoutContent() {
               </div>
             </div>
             <div className="space-y-1">
-              <label className="text-xs uppercase tracking-widest text-on-surface-variant font-medium">
+              <label style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="text-xs uppercase tracking-widest">
                 Địa chỉ cụ thể
               </label>
               <input
@@ -351,10 +365,10 @@ export default function CheckoutContent() {
         {/* Section 3: Payment Methods */}
         <section className="space-y-6 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
           <div className="flex items-center space-x-4">
-            <span className="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-serif text-sm">
+            <span className="w-8 h-8 rounded-full flex items-center justify-center text-sm" style={{ backgroundColor: "#433b30", color: "#fffefa", fontFamily: "var(--font-barlow-condensed)" }}>
               3
             </span>
-            <h2 className="text-2xl font-serif">Phương Thức Thanh Toán</h2>
+            <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl">Phương Thức Thanh Toán</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {PAYMENT_OPTIONS.map((option) => (
@@ -374,7 +388,7 @@ export default function CheckoutContent() {
                   checked={paymentMethod === option.value}
                   onChange={() => setPaymentMethod(option.value)}
                 />
-                <span className="material-symbols-outlined text-primary mb-2">
+                <span className="material-symbols-outlined mb-2" style={{ color: "#433b30" }}>
                   {option.icon}
                 </span>
                 <span className="font-medium text-on-surface">{option.label}</span>
@@ -388,7 +402,7 @@ export default function CheckoutContent() {
       {/* Right Column: Order Summary */}
       <aside className="lg:col-span-5">
         <div className="bg-surface-container-low p-8 rounded-xl sticky top-32 shadow-sm">
-          <h2 className="text-2xl font-serif mb-8 pb-4 border-b border-outline-variant/30 text-primary">
+          <h2 style={{ fontFamily: "var(--font-playfair)", color: "#433b30" }} className="text-2xl mb-8 pb-4 border-b border-outline-variant/30">
             Tóm Tắt Đơn Hàng
           </h2>
 
@@ -413,7 +427,7 @@ export default function CheckoutContent() {
                     />
                   </div>
                   <div className="flex-grow">
-                    <h3 className="font-medium text-on-surface text-sm">
+                    <h3 style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }} className="font-medium text-sm">
                       {name}
                       {isDesign && (
                         <span className="ml-2 text-[10px] uppercase tracking-widest text-secondary">
@@ -435,19 +449,19 @@ export default function CheckoutContent() {
 
           {/* Price Breakdown */}
           <div className="space-y-3 pt-6 border-t border-outline-variant/30 mb-8">
-            <div className="flex justify-between text-on-surface-variant text-sm">
+            <div style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="flex justify-between text-sm">
               <span>Tạm tính ({totalItems} sản phẩm)</span>
               <span>{formattedSubtotal}</span>
             </div>
-            <div className="flex justify-between text-on-surface-variant text-sm">
+            <div style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="flex justify-between text-sm">
               <span>Phí vận chuyển</span>
               <span className={shippingFee === 0 ? "text-primary font-semibold" : ""}>
                 {formattedShipping}
               </span>
             </div>
-            <div className="flex justify-between text-xl font-serif text-on-surface pt-4 border-t border-outline-variant/30">
-              <span>Tổng cộng</span>
-              <span className="text-primary font-bold">{formattedTotal}</span>
+            <div className="flex justify-between text-xl pt-4 border-t border-outline-variant/30">
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30", fontWeight: 600 }}>Tổng cộng</span>
+              <span style={{ fontFamily: "var(--font-barlow)", color: "#433b30" }} className="font-bold">{formattedTotal}</span>
             </div>
           </div>
 
@@ -455,11 +469,8 @@ export default function CheckoutContent() {
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className={`w-full py-5 rounded-sm font-bold tracking-widest uppercase text-sm transition-all shadow-xl shadow-primary/20 cursor-pointer flex items-center justify-center gap-3 ${
-              isSubmitting
-                ? "bg-stone-400 text-white cursor-wait"
-                : "bg-primary text-white hover:bg-primary-container active:scale-[0.98]"
-            }`}
+            style={{ fontFamily: "var(--font-barlow-condensed)", fontSize: "16px", letterSpacing: "0.1em", backgroundColor: isSubmitting ? "#9ca3af" : "#433b30" }}
+            className="w-full py-5 font-bold uppercase transition-all cursor-pointer flex items-center justify-center gap-3 text-white hover:opacity-90 active:scale-[0.98]"
           >
             {isSubmitting ? (
               <>
@@ -475,7 +486,7 @@ export default function CheckoutContent() {
               </>
             )}
           </button>
-          <div className="mt-6 flex items-center justify-center space-x-2 text-xs text-on-surface-variant uppercase tracking-widest">
+          <div style={{ fontFamily: "var(--font-barlow-condensed)", color: "#877e75" }} className="mt-6 flex items-center justify-center space-x-2 text-xs uppercase tracking-widest">
             <span className="material-symbols-outlined text-sm">lock</span>
             <span>Thanh toán bảo mật SSL</span>
           </div>
