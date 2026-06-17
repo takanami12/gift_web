@@ -484,7 +484,7 @@ function Waveform({ bars, animated }: { bars: number; animated: boolean }) {
 function QrCard({ qrToken, hasVoice }: { qrToken: string | null; hasVoice: boolean }) {
   const [qrSrc, setQrSrc] = useState<string | null>(null);
   const host = typeof window !== "undefined" ? window.location.host : "gift-web-ivory.vercel.app";
-  const url = qrToken ? `${host}/voice/${qrToken}` : null;
+  const url = qrToken ? `${host}/qr/${qrToken}` : null;
 
   useEffect(() => {
     if (!url) return;
