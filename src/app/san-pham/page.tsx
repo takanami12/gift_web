@@ -10,17 +10,12 @@ export const metadata: Metadata = {
 
 export default function ProductListPage() {
   return (
-    <main className="pt-32 pb-24 px-8 max-w-screen-2xl mx-auto seasonal-motif">
+    <main className="pt-5 pb-24 px-8 max-w-screen-2xl mx-auto seasonal-motif">
       {/* Header Section */}
       <header className="mb-20 text-center">
-        <h1 className="font-headline text-5xl md:text-7xl text-on-surface mb-6 serif-display">
+        <h1 style={{ fontFamily: "var(--font-playfair)", color: "#433b30", fontWeight: 700 }} className="text-4xl md:text-6xl mb-6">
           Tuyển Tập Quà Tặng
         </h1>
-
-        <p className="font-body text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-          Những tạo tác tâm huyết, chắt lọc tinh hoa từ các làng nghề truyền
-          thống kết hợp cùng tư duy thẩm mỹ đương đại.
-        </p>
       </header>
 
       <ProductFilters products={allProducts} />

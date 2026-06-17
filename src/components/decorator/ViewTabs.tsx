@@ -28,10 +28,10 @@ export default function ViewTabs({ mode, onChange }: ViewTabsProps) {
             role="tab"
             aria-selected={active}
             onClick={() => onChange(t.id)}
-            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B1997E] ${
               active
-                ? "bg-orange-500 text-white shadow-sm"
-                : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                ? "bg-[#433B30] text-white shadow-sm"
+                : "bg-[#FAF7F0] text-[#433B30] hover:bg-[#F6DFD1]"
             }`}
           >
             {t.label}

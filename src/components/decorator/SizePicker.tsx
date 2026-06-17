@@ -48,10 +48,10 @@ export default function SizePicker() {
               type="button"
               onClick={() => handlePick(opt.id)}
               aria-pressed={active}
-              className={`group relative flex flex-col gap-2 overflow-hidden rounded-2xl border-2 bg-white p-3 text-center shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+              className={`group relative flex flex-col gap-2 overflow-hidden rounded-2xl border-2 bg-white p-3 text-center shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B1997E] ${
                 active
-                  ? "border-orange-500 ring-4 ring-orange-100"
-                  : "border-stone-200 hover:border-orange-300"
+                  ? "border-[#B1997E] ring-4 ring-[#B1997E]/20"
+                  : "border-stone-200 hover:border-[#B1997E]/60"
               }`}
             >
               <div
@@ -80,7 +80,7 @@ export default function SizePicker() {
                 )}
               </div>
               {active && (
-                <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-orange-500 text-white shadow">
+                <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-[#B1997E] text-white shadow">
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                     <path
                       d="M3 8.5L6.5 12L13 4.5"

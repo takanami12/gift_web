@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import AddToCartButton from "@/components/AddToCartButton";
 import { featuredProduct, reviews, relatedProducts } from "@/lib/data";
 import type { Metadata } from "next";
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: "Phượng Hoàng Cát Tường | Gift Glamorous",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProductDetailPage() {
+  redirect('/san-pham');
   const product = featuredProduct;
 
   return (

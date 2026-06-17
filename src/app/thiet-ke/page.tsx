@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ThietKePage() {
   return (
-    <main className="pt-24 pb-16 px-4 md:px-8 max-w-screen-2xl mx-auto">
+    <main className="pt-6 pb-16 px-4 md:px-8 max-w-screen-2xl mx-auto">
       <Editor />
     </main>
   );

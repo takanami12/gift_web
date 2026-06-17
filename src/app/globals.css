@@ -68,12 +68,11 @@
   --radius-xl: 0.75rem;
 
   /* === Font Family === */
-  --font-serif: "Noto Serif", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-headline: "Noto Serif", serif;
-  --font-body: "Inter", sans-serif;
-  --font-label: "Inter", sans-serif;
-
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-barlow);
+  --font-headline: var(--font-playfair);
+  --font-body: var(--font-barlow);
+  --font-label: var(--font-barlow);
   /* === Ambient Shadow === */
   --shadow-ambient: 0px 8px 24px rgba(45, 74, 62, 0.06);
 
@@ -127,17 +126,17 @@
 
 /* === Orange palette override → brand gold #c9a55c === */
 :root {
-  --color-orange-50: #c9a55c;
-  --color-orange-100: #c9a55c;
-  --color-orange-200: #c9a55c;
-  --color-orange-300: #c9a55c;
-  --color-orange-400: #c9a55c;
-  --color-orange-500: #c9a55c;
-  --color-orange-600: #c9a55c;
-  --color-orange-700: #c9a55c;
-  --color-orange-800: #c9a55c;
-  --color-orange-900: #c9a55c;
-  --color-orange-950: #c9a55c;
+  --color-orange-50: #B1997E;
+  --color-orange-100: #B1997E;
+  --color-orange-200: #B1997E;
+  --color-orange-300: #B1997E;
+  --color-orange-400: #B1997E;
+  --color-orange-500: #B1997E;
+  --color-orange-600: #877E75;
+  --color-orange-700: #877E75;
+  --color-orange-800: #433B30;
+  --color-orange-900: #433B30;
+  --color-orange-950: #433B30;
 }
 
 /* === Base === */
@@ -419,6 +418,21 @@ main {
     rgba(254, 251, 244, 0.28) 48%,
     rgba(254, 251, 244, 0) 66%
   );
+}
+
+@media (max-width: 768px) {
+  .hero-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(254, 251, 244, 0.85) 0%,
+      rgba(254, 251, 244, 0.6) 50%,
+      rgba(254, 251, 244, 0) 100%
+    );
+  }
+
+  .hero-content {
+    padding: 0 24px;
+  }
 }
 .hero-content {
   position: relative;

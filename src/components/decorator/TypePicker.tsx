@@ -16,7 +16,7 @@ export default function TypePicker() {
       className="mx-auto w-full max-w-5xl"
     >
       <header className="mb-6 text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-orange-600">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#B1997E]">
           Bước 1
         </p>
         <h2
@@ -25,11 +25,20 @@ export default function TypePicker() {
         >
           Chọn loại hộp
         </h2>
-        <p className="mt-2 text-sm text-stone-500">
-          Hộp cơ bản dùng nắp rời / màng co. Hộp cao cấp có nam châm hít chắc chắn.
-        </p>
       </header>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className={`mb-4 rounded-lg border px-4 py-2.5 text-sm transition-all duration-300 ${
+        boxType
+          ? "border-[#B1997E]/40 bg-[#B1997E]/8 text-[#8a7460]"
+          : "border-amber-200 bg-amber-50 text-amber-700"
+      }`}>
+        {boxType ? (
+          <span>✓ Hãy nhấn <strong>Tiếp theo</strong> để tiếp tục.</span>
+        ) : (
+          "Hãy chọn loại hộp."
+        )}
+      </div>
+
+      <div className="grid gap-5 md:grid-cols-2 overflow-hidden">
         {BOX_TYPE_OPTIONS.map((opt) => {
           const active = boxType === opt.id;
           return (
@@ -38,15 +47,15 @@ export default function TypePicker() {
               type="button"
               onClick={() => handlePick(opt.id)}
               aria-pressed={active}
-              className={`group relative flex flex-col gap-3 overflow-hidden rounded-2xl border-2 bg-white p-3 text-left shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+              className={`group relative flex flex-col gap-3 overflow-hidden rounded-2xl border-2 bg-white p-3 text-left shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B1997E] ${
                 active
-                  ? "border-orange-500 ring-4 ring-orange-100"
-                  : "border-stone-200 hover:border-orange-300"
+                  ? "border-[#433B30] ring-4 ring-[#433B30]/10"
+                  : "border-stone-200 hover:border-[#B1997E]"
               }`}
             >
               <div
                 className={`relative aspect-[16/9] w-full overflow-hidden rounded-xl ${
-                  active ? "bg-[#fff5e6]" : "bg-stone-50"
+                  active ? "bg-[#F6DFD1]/50" : "bg-stone-50"
                 }`}
               >
                 <Image
@@ -65,7 +74,7 @@ export default function TypePicker() {
                 <p className="mt-1 text-sm text-stone-500">{opt.hint}</p>
               </div>
               {active && (
-                <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-orange-500 text-white shadow">
+                <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-[#433B30] text-white shadow">
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                     <path
                       d="M3 8.5L6.5 12L13 4.5"
